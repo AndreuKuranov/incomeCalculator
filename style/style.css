@@ -1,5 +1,4 @@
 .body {
-  min-height: 100vh;
   background: #e5e5e5;
   font-size: 16px;
   color: #252B42;
@@ -182,4 +181,7 @@
   height: 15px;
   -webkit-appearance: none;
   margin-top: -5px;
+}
+.percent__text {
+  font-size: 18px;
 }
