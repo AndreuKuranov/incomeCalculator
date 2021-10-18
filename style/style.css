@@ -1,80 +1,39 @@
 .body {
-  height: 100%;
+  min-height: 100vh;
   background: #e5e5e5;
   font-size: 16px;
   color: #252B42;
-  font-weight: 400;
   font-family: "Montserrat", sans-serif;
 }
 /*-------------------------------------------------------------------------*/
 .container {
   max-width: 1000px;
   padding: 0 15px;
-  margin: 0px auto;
-  box-sizing: content-box;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 /*-------------------------------------------------------------------------*/
-.wrapper {
-  min-height: 100%;
-  overflow: hidden;
-}
-/*---------------------------------header----------------------------------------*/
-.header {
-  padding: 0 20px;
-}
-.header__title {
-  text-align: center;
-}
-/*--------------------------------calс-----------------------------------------*/
-.calc__block {
-  display: flex;
-}
-@media (max-width: 810px) {
-  .calc__block {
-    flex-direction: column;
-  }
-}
-@media (min-width: 811px) {
-  .calc__block-inputs {
-    flex: 0 1 50%;
-  }
-  .calc__block-inputs:not(:last-child) {
-    margin: 0 30px 0 0;
-  }
-}
-.calc__title {
-  font-size: 28px;
-  line-height: 142%;
-  margin: 25px 20px;
-}
-.calc__form-item {
-  display: flex;
-  align-items: center;
-}
-.calc__form-item:not(:last-child) {
-  margin: 0 0 10px 0;
-}
-.calc__input {
+.input {
   width: 100%;
   flex: 1 1 auto;
   min-height: 50px;
   background: #f9f9f9;
   color: #737373;
   padding: 0 20px;
-  border: 1px solid #E6E6E6;
-  border-right: 0;
+  border: none;
   box-sizing: border-box;
   border-radius: 5px 0 0 5px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.07);
 }
-.calc__input:focus {
+.input:focus {
   color: #000;
-}
-.calc__button {
-  background: #FF7B47;
   border: 1px solid #E6E6E6;
+}
+/*-------------------------------------------------------------------------*/
+.button {
+  background: #FF7B47;
+  border: none;
   border-radius: 37px;
-  font-size: 16px;
   display: flex;
   min-height: 50px;
   justify-content: center;
@@ -84,12 +43,44 @@
   padding: 0 15px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.07);
 }
-.calc__button:hover {
+.button:hover {
   opacity: 0.7;
 }
-.calc__button:active {
+.button:active {
   opacity: 0.7;
   color: #000;
+}
+/*-------------------------------------------------------------------------*/
+.text {
+  margin: 0;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.5;
+}
+/*---------------------------------header----------------------------------------*/
+.header__title {
+  margin: 20px 20px 10px 20px;
+}
+.header__title {
+  text-align: center;
+}
+/*--------------------------------calс-----------------------------------------*/
+.calc__block {
+  display: flex;
+  margin: 0 -15px;
+}
+.calc__title {
+  font-size: 28px;
+  line-height: 1.5;
+  margin: 20px;
+}
+.calc__form {
+  margin: -5px 0;
+}
+.calc__form-item {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
 }
 .calc__image {
   height: 30px;
@@ -100,10 +91,23 @@
 }
 .calc__form-item-button {
   display: flex;
+  margin: 0 -5px;
 }
-.calc__button-reset {
-  border-radius: 37px;
-  margin: 0 10px 0 0;
+.calc__button {
+  margin: 0 5px;
+}
+@media (max-width: 810px) {
+  .calc__block {
+    flex-direction: column;
+  }
+}
+.calc__block-inputs {
+  padding: 0 15px;
+}
+@media (min-width: 811px) {
+  .calc__block-inputs {
+    flex: 0 1 50%;
+  }
 }
 /*-------------------------------sum------------------------------------------*/
 .sum {
@@ -112,10 +116,12 @@
 .sum__column {
   box-sizing: border-box;
   padding: 0 10px;
-  flex: 0 1 33.333%;
+  flex: 1;
   margin: 0 0 20px 0;
 }
 .sum__item {
+  display: grid; 
+  gap: 10px;
   height: 100%;
   box-shadow: 0 15px 20px rgba(0, 0, 0, 0.07);
   box-sizing: border-box;
@@ -123,19 +129,8 @@
   padding: 20px;
   text-align: center;
 }
-.item-sum > *:not(:last-child) {
-  margin: 0 0 20px 0;
-}
 .sum__image {
   height: 60px;
-  
-}
-.item-sum__title {
-  margin: 0;
-  font-weight: 700;
-  letter-spacing: 0.1px;
-  font-size: 22px;
-  line-height: 142%;
 }
 @media (max-width: 870px) {
   .sum__column {
@@ -162,17 +157,11 @@
   margin: 30px 0;
 }
 .percent__block {
+  display: grid; 
+  gap: 10px;
   box-shadow: 0 15px 20px rgba(0, 0, 0, 0.07);
   background: #ffffff;
   padding: 20px;
-}
-.percent__block > *:not(:last-child) {
-  margin: 0 0 10px 0;
-}
-.percent__title {
-  margin: 0;
-  font-size: 22px;
-  line-height: 142%;
 }
 .percent__input-range {
   width: 100%;
@@ -192,5 +181,5 @@
   width: 15px;
   height: 15px;
   -webkit-appearance: none;
-  margin-top: -4px;
+  margin-top: -5px;
 }
