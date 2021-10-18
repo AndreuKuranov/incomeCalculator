@@ -1,21 +1,28 @@
+/*определенно нужны препроцессоры, чтобы не генерить весь код стилей в одном файле, неудобно*/
+/*очень не хватает css variables, всё харкодом ниже по коду встречается, например цвета и медиавыражения*/
 .body {
+  /*min-height: 100vh; вместо height: 100%, т.к. у тебя контента может быть больше чем экран пользователя*/
+  /*к тому же оно не сработало, можешь убедиться через инспектор*/
   height: 100%;
   background: #e5e5e5;
   font-size: 16px;
   color: #252B42;
-  font-weight: 400;
+  font-weight: 400; /*лишнее*/
   font-family: "Montserrat", sans-serif;
 }
 /*-------------------------------------------------------------------------*/
 .container {
   max-width: 1000px;
   padding: 0 15px;
-  margin: 0px auto;
+  margin: 0px auto; /* 0px можно без px */
+  /*зачем? он применяется по умолчанию, если хочешь чтобы padding+border не учитывались, то box-sizing: border-box;*/
   box-sizing: content-box;
 }
 /*-------------------------------------------------------------------------*/
 .wrapper {
+  /*это свойство не сработало*/
   min-height: 100%;
+  /*лишнее*/
   overflow: hidden;
 }
 /*---------------------------------header----------------------------------------*/
@@ -38,12 +45,16 @@
   .calc__block-inputs {
     flex: 0 1 50%;
   }
+
+  /*сомнительная идея, если речь идёт о отступами между колонками то решается флексами или гридами через gap*/
+  /*альтернативно уж лучше :first-child здесь или .calc__block-inputs + .calc__block-inputs писать*/
   .calc__block-inputs:not(:last-child) {
     margin: 0 30px 0 0;
   }
 }
 .calc__title {
   font-size: 28px;
+  /*это шутка? почему нельзя сделать тоже самое через line-height: 1.5 или комбинацию padding*/
   line-height: 142%;
   margin: 25px 20px;
 }
@@ -51,6 +62,7 @@
   display: flex;
   align-items: center;
 }
+/*забудь про комбинацию :not(:last-child)*/
 .calc__form-item:not(:last-child) {
   margin: 0 0 10px 0;
 }
@@ -67,6 +79,7 @@
   border-radius: 5px 0 0 5px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.07);
 }
+/*при фокусе input черная рамка применяется неравномерно справа*/
 .calc__input:focus {
   color: #000;
 }
@@ -74,6 +87,7 @@
   background: #FF7B47;
   border: 1px solid #E6E6E6;
   border-radius: 37px;
+  /*лишний размер*/
   font-size: 16px;
   display: flex;
   min-height: 50px;
@@ -112,6 +126,7 @@
 .sum__column {
   box-sizing: border-box;
   padding: 0 10px;
+/*проще написать flex 1, это делает одинаковые колонки*/
   flex: 0 1 33.333%;
   margin: 0 0 20px 0;
 }
@@ -123,6 +138,9 @@
   padding: 20px;
   text-align: center;
 }
+
+/*это совсем плохо, * не применяют в css, это антипаттерн*/
+/*корректнее было использовать .sum__item {display: grid; gap: 20px}*/
 .item-sum > *:not(:last-child) {
   margin: 0 0 20px 0;
 }
@@ -133,8 +151,10 @@
 .item-sum__title {
   margin: 0;
   font-weight: 700;
+  /*откуда такая идея? это был какой-то дизайн?*/
   letter-spacing: 0.1px;
   font-size: 22px;
+  /*явно копипаста того что видел ранее*/
   line-height: 142%;
 }
 @media (max-width: 870px) {
@@ -162,10 +182,12 @@
   margin: 30px 0;
 }
 .percent__block {
+  /*а в препроцессорах можно rgba(#000, 0.07);*/
   box-shadow: 0 15px 20px rgba(0, 0, 0, 0.07);
   background: #ffffff;
   padding: 20px;
 }
+/*за что же ты так любишь этот хак задания отступов между строк*/
 .percent__block > *:not(:last-child) {
   margin: 0 0 10px 0;
 }
@@ -178,6 +200,8 @@
   width: 100%;
   appearance: none;
 }
+/*идея понятная, но на выходе может выглядеть лучше в браузере, т.к. этот ползунок в слайдере не центрирован по вертикали*/
+/*кроме того, css такая технология, где зачастую не хватает комментариев по реализации, эти две секции - тот самый случай*/
 .percent__input-range::-webkit-slider-runnable-track {
   border-radius: 10px/100%;
   height: 7px;

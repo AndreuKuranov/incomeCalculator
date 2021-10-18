@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="css/style.css">
+<!--		должно подключаться позже normalize и иконок-->
+		<link rel="stylesheet" href="style/style.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<title>Calculator</title>
@@ -47,6 +48,7 @@
 										</button>
 									</div>
 									<div class="calc__form-item calc__form-item-button">
+<!--										лучше <button type="reset">Сбросить</button> его легче стилизовать под все случаи в жизни-->
 										<input class="calc__button calc__button-reset" type="reset"/>
 										<button class="calc__button calc__button-add">Добавить поле</button>
 									</div>
