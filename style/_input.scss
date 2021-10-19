@@ -8,7 +8,7 @@
 	border: none;
 	box-sizing: border-box;
 	border-radius: 5px 0 0 5px;
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.07);
+	box-shadow: 0 5px 10px rgba(#000, 0.07);
 
 	&:focus {
 		color: var(--primary-color); 

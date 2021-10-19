@@ -1,6 +1,7 @@
 :root {
   --primary-color: #252B42;
-  --additional-color: #FF7B47;
+  --additional-color-1: #fa8354;
+  --additional-color-2: #ff4400;
   --background-color: #f9f9f9;
 }
 
@@ -36,7 +37,7 @@
 }
 
 .button {
-  background: var(--additional-color);
+  background-image: linear-gradient(210deg, var(--additional-color-1), var(--additional-color-2));
   border: none;
   border-radius: 37px;
   display: flex;
@@ -47,6 +48,7 @@
   color: #ffffff;
   padding: 0 15px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.07);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 .button:hover {
   opacity: 0.7;
@@ -61,11 +63,13 @@
   font-weight: 700;
   font-size: 22px;
   line-height: 1.5;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .header__title {
   margin: 20px 20px 10px 20px;
   text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .calc__block {
@@ -75,6 +79,7 @@
 .calc__title {
   font-size: 28px;
   line-height: 1.5;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   margin: 20px;
 }
 .calc__form {
@@ -174,7 +179,8 @@
   border-radius: 10px/100%;
   height: 7px;
   border: 1px solid var(--primary-color);
-  background-color: var(--additional-color);
+  background-image: linear-gradient(210deg, var(--additional-color-1), var(--additional-color-2));
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 .percent__input-range::-webkit-slider-thumb {
   background: var(--primary-color);
