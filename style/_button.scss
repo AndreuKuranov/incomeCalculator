@@ -1,0 +1,22 @@
+.button {
+	background: var(--additional-color);
+	border: none;
+	border-radius: 37px;
+	display: flex;
+	min-height: 50px;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: #ffffff;
+	padding: 0 15px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.07);
+
+	&:hover {
+		opacity: 0.7;
+	}
+	&:active {
+		opacity: 0.7;
+		color: var(--primary-color);
+	}
+}
+
