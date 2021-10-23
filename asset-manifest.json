@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/incomeCalculator/npm/static/css/main.5b93486a.chunk.css",
-    "main.js": "/incomeCalculator/npm/static/js/main.c2e57fc1.chunk.js",
-    "main.js.map": "/incomeCalculator/npm/static/js/main.c2e57fc1.chunk.js.map",
-    "runtime-main.js": "/incomeCalculator/npm/static/js/runtime-main.b1497c70.js",
-    "runtime-main.js.map": "/incomeCalculator/npm/static/js/runtime-main.b1497c70.js.map",
-    "static/js/2.53ab6157.chunk.js": "/incomeCalculator/npm/static/js/2.53ab6157.chunk.js",
-    "static/js/2.53ab6157.chunk.js.map": "/incomeCalculator/npm/static/js/2.53ab6157.chunk.js.map",
-    "index.html": "/incomeCalculator/npm/index.html",
-    "static/css/main.5b93486a.chunk.css.map": "/incomeCalculator/npm/static/css/main.5b93486a.chunk.css.map",
-    "static/js/2.53ab6157.chunk.js.LICENSE.txt": "/incomeCalculator/npm/static/js/2.53ab6157.chunk.js.LICENSE.txt",
-    "static/media/day.a31851ad.png": "/incomeCalculator/npm/static/media/day.a31851ad.png",
-    "static/media/money-box.3ebd1225.png": "/incomeCalculator/npm/static/media/money-box.3ebd1225.png",
-    "static/media/month.380103d5.png": "/incomeCalculator/npm/static/media/month.380103d5.png"
+    "main.css": "/incomeCalculator/static/css/main.5b93486a.chunk.css",
+    "main.js": "/incomeCalculator/static/js/main.c2e57fc1.chunk.js",
+    "main.js.map": "/incomeCalculator/static/js/main.c2e57fc1.chunk.js.map",
+    "runtime-main.js": "/incomeCalculator/static/js/runtime-main.39388645.js",
+    "runtime-main.js.map": "/incomeCalculator/static/js/runtime-main.39388645.js.map",
+    "static/js/2.53ab6157.chunk.js": "/incomeCalculator/static/js/2.53ab6157.chunk.js",
+    "static/js/2.53ab6157.chunk.js.map": "/incomeCalculator/static/js/2.53ab6157.chunk.js.map",
+    "index.html": "/incomeCalculator/index.html",
+    "static/css/main.5b93486a.chunk.css.map": "/incomeCalculator/static/css/main.5b93486a.chunk.css.map",
+    "static/js/2.53ab6157.chunk.js.LICENSE.txt": "/incomeCalculator/static/js/2.53ab6157.chunk.js.LICENSE.txt",
+    "static/media/day.a31851ad.png": "/incomeCalculator/static/media/day.a31851ad.png",
+    "static/media/money-box.3ebd1225.png": "/incomeCalculator/static/media/money-box.3ebd1225.png",
+    "static/media/month.380103d5.png": "/incomeCalculator/static/media/month.380103d5.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.b1497c70.js",
+    "static/js/runtime-main.39388645.js",
     "static/js/2.53ab6157.chunk.js",
     "static/css/main.5b93486a.chunk.css",
     "static/js/main.c2e57fc1.chunk.js"
