@@ -1,0 +1,9 @@
+.calc__block {
+	display: flex;
+	margin: 0 -15px;
+}
+@media (max-width: 810px) {
+	.calc__block {
+		flex-direction: column;
+	}
+}
