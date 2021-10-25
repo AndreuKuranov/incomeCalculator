@@ -7,7 +7,7 @@
 .block__form {
 	margin: -5px 0;
 }
-.block__item_button {
+.block__item-button {
 	margin: 0 -5px;
 	display: flex;
 	align-items: center;

@@ -17,7 +17,7 @@ const BlockInput = (props) => {
 						key={value.id}
 					/>
 				)}
-				<div className="block__item block__item_button">
+				<div className="block__item block__item-button">
 					<MyButton 
 						style={{margin: '0 5px'}} 
 						type="reset"
