@@ -1,0 +1,16 @@
+.myInput {
+	width: 100%;
+	flex: 1 1 auto;
+	min-height: 50px;
+	background: var(--background-color);
+	color: #737373;
+	padding: 0 20px;
+	border: none;
+	box-sizing: border-box;
+	border-radius: 5px 0 0 5px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.07);
+}
+.myInput:focus {
+	color: var(--primary-color);
+	border: 1px solid var(--background-color);
+}

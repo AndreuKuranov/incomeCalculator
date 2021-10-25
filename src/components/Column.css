@@ -1,0 +1,13 @@
+.column__item {
+	display: grid;
+	gap: 10px;
+	height: 100%;
+	box-shadow: 0 15px 20px rgba(0, 0, 0, 0.07);
+	box-sizing: border-box;
+	background: var(--background-color);
+	padding: 20px;
+	text-align: center;
+}
+.column__image {
+	height: 60px;
+}

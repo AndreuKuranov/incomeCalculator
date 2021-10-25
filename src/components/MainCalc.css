@@ -1,0 +1,17 @@
+.calc__body {
+	display: flex;
+	margin: 0 -15px;
+}
+.calc__block {
+	padding: 0 15px;
+}
+@media (max-width: 810px) {
+	.calc__body {
+		flex-direction: column;
+	}
+}
+@media (min-width: 811px) {
+	.calc__block {
+		flex: 0 1 50%;
+	}
+}
