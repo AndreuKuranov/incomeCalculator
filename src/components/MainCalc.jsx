@@ -21,9 +21,17 @@ const MainCalc = () => {
 	return (
 		<div className="main__calc calc">
 			<div className="calc__container container">
-				<div className="calc__block">
-					<CalcBlock title={'Доходы в месяц'} values={incomes}/>
-					<CalcBlock title={'Расходы в месяц'} values={expenses}/>
+				<div className="calc__body">
+					<CalcBlock 
+						className={'calc__block block'} 
+						title={'Доходы в месяц'} 
+						values={incomes}
+					/>
+					<CalcBlock 
+						className={'calc__block block'} 
+						title={'Расходы в месяц'} 
+						values={expenses}
+					/>
 				</div>
 			</div>
 		</div>

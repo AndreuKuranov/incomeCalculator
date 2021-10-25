@@ -9,11 +9,11 @@ const MainPercent = () => {
 		<div className="main__percent percent">
 			<div className="percent__container container">
 				<div className="percent__body">
-					<div className="percent__block">
+					<div className="percent__column">
 						<h3 className="percent__title text">Сколько отложить</h3>
-						<div className="percent__inputs">
+						<div className="percent__range">
 							<input 
-								className="percent__input-range"
+								className="percent__input"
 								type="range"
 								min="0" 
 								max="100"

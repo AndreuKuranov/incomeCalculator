@@ -6,17 +6,18 @@ import MyButton from "./UI/button/MyButton";
 const CalcBlock = (props) => {
 
 	return (
-		<div className="calc__block-inputs" >
-			<h2 className="calc__title">{props.title}</h2>
-			<form className="calc__form" >
+		<div className={props.className}>
+			<h2 className="block__title">{props.title}</h2>
+			<form className="block__form" >
 				{props.values.map(value => 
-					<CalcFormItem 
+					<CalcFormItem
+						className={'block__item item'}
 						id={value.id} 
 						placeholder={value.placeholder} 
 						key={value.id}
 					/>
 				)}
-				<div className="calc__form-item calc__form-item-button">
+				<div className="block__item block__item-button">
 					<MyButton 
 						style={{margin: '0 5px'}} 
 						type="reset"

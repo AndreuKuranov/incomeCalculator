@@ -5,7 +5,7 @@ import MyButton from "./UI/button/MyButton";
 
 const CalcFormItem = (props) => {
 	return (
-		<div className="calc__form-item">
+		<div className={props.className}>
 			<MyInput 
 				type="number" 
 				placeholder={props.placeholder} 

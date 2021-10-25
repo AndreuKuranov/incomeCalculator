@@ -1,5 +1,4 @@
-.calc__form-item {
+.item {
 	display: flex;
 	align-items: center;
-	padding: 5px 0;
 }

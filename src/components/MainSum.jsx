@@ -10,9 +10,21 @@ const MainSum = () => {
 		<div className="main__sum sum">
 			<div className="sum__container container">
 				<div className="sum__body">
-					<SumColumn icon={Month} title={'Доступно в месяц'}/>
-					<SumColumn icon={Day} title={'Доступно в день'}/>
-					<SumColumn icon={MoneyBox} title={'Накопится за год'}/>
+					<SumColumn 
+						className={'sum__column column'}
+						icon={Month} 
+						title={'Доступно в месяц'}
+					/>
+					<SumColumn
+						className={'sum__column column'} 
+						icon={Day} 
+						title={'Доступно в день'}
+					/>
+					<SumColumn
+						className={'sum__column column'} 
+						icon={MoneyBox} 
+						title={'Накопится за год'}
+					/>
 				</div>
 			</div>
 		</div>

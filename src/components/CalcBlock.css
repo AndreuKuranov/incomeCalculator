@@ -1,21 +1,20 @@
-.calc__title {
+.block__title {
 	font-size: 28px;
 	line-height: 1.5;
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 	margin: 20px;
 }
-.calc__form {
+.block__form {
 	margin: -5px 0;
 }
-.calc__form-item-button {
-	display: flex;
+.block__item-button {
 	margin: 0 -5px;
+	display: flex;
+	align-items: center;
 }
-.calc__block-inputs {
-	padding: 0 15px;
+.block__button {
+	margin: 0 5px;
 }
-@media (min-width: 811px) {
-	.calc__block-inputs {
-		flex: 0 1 50%;
-	}
+.block__item {
+	padding: 5px 0;
 }

@@ -1,25 +1,25 @@
 .percent__body {
 	margin: 30px 0;
 }
-.percent__block {
+.percent__column {
 	display: grid;
 	gap: 10px;
 	box-shadow: 0 15px 20px rgba(0, 0, 0, 0.07);
 	background: var(--background-color);
 	padding: 20px;
 }
-.percent__input-range {
+.percent__input {
 	width: 100%;
 	appearance: none;
 }
-.percent__input-range::-webkit-slider-runnable-track {
+.percent__input::-webkit-slider-runnable-track {
 	border-radius: 10px/100%;
 	height: 7px;
 	border: 1px solid var(--primary-color);
 	background-image: linear-gradient(210deg, var(--additional-color-1), var(--additional-color-2));
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
-.percent__input-range::-webkit-slider-thumb {
+.percent__input::-webkit-slider-thumb {
 	background: var(--primary-color);
 	border: 1px solid var(--primary-color);
 	border-radius: 10px/100%;
