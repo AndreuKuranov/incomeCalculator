@@ -1,5 +1,5 @@
 import React from 'react';
-import CalcBlock from './CalcBlock';
+import BlockInput from './BlockInput';
 import './MainCalc.css';
 
 const MainCalc = () => {
@@ -22,12 +22,12 @@ const MainCalc = () => {
 		<div className="main__calc calc">
 			<div className="calc__container container">
 				<div className="calc__body">
-					<CalcBlock 
+					<BlockInput 
 						className={'calc__block block'} 
 						title={'Доходы в месяц'} 
 						values={incomes}
 					/>
-					<CalcBlock 
+					<BlockInput 
 						className={'calc__block block'} 
 						title={'Расходы в месяц'} 
 						values={expenses}

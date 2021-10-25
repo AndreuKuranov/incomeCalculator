@@ -1,23 +1,23 @@
 import React from "react";
-import "./CalcBlock.css";
-import CalcFormItem from "./CalcFormItem";
+import "./BlockInput.css";
+import ItemInput from "./ItemInput";
 import MyButton from "./UI/button/MyButton";
 
-const CalcBlock = (props) => {
+const BlockInput = (props) => {
 
 	return (
 		<div className={props.className}>
 			<h2 className="block__title">{props.title}</h2>
 			<form className="block__form" >
 				{props.values.map(value => 
-					<CalcFormItem
+					<ItemInput
 						className={'block__item item'}
 						id={value.id} 
 						placeholder={value.placeholder} 
 						key={value.id}
 					/>
 				)}
-				<div className="block__item block__item-button">
+				<div className="block__item block__item_button">
 					<MyButton 
 						style={{margin: '0 5px'}} 
 						type="reset"
@@ -35,4 +35,4 @@ const CalcBlock = (props) => {
 	);
 }
 
-export default CalcBlock;
+export default BlockInput;

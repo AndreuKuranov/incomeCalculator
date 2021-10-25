@@ -1,9 +1,9 @@
 import React from "react";
-import "./CalcFormItem.css"
+import "./ItemInput.css"
 import MyInput from "./UI/input/MyInput";
 import MyButton from "./UI/button/MyButton";
 
-const CalcFormItem = (props) => {
+const ItemInput = (props) => {
 	return (
 		<div className={props.className}>
 			<MyInput 
@@ -20,4 +20,4 @@ const CalcFormItem = (props) => {
 	);
 }
 
-export default CalcFormItem;
+export default ItemInput;

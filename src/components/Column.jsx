@@ -1,7 +1,7 @@
 import React from "react";
-import "./SumColumn.css";
+import "./Column.css";
 
-const SumColumn = (props) => {
+const Column = (props) => {
 	return (
 		<div className={props.className}>
 			<div className="column__item">
@@ -15,4 +15,4 @@ const SumColumn = (props) => {
 	);
 }
 
-export default SumColumn;
+export default Column;
