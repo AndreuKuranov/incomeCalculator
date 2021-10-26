@@ -5,16 +5,10 @@
 	margin: 20px;
 }
 .block__form {
-	margin: -5px 0;
+	display: grid;
+	gap: 10px;
 }
-.block__item-button {
-	margin: 0 -5px;
+.block__buttons {
 	display: flex;
 	align-items: center;
-}
-.block__button {
-	margin: 0 5px;
-}
-.block__item {
-	padding: 5px 0;
 }

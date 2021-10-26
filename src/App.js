@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './style/App.css';
 import MainCalc from './components/MainCalc';
 import MainHeader from './components/MainHeader';
 import MainPercent from './components/MainPercent';

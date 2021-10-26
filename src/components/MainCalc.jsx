@@ -22,14 +22,14 @@ const MainCalc = () => {
 		<div className="main__calc calc">
 			<div className="calc__container container">
 				<div className="calc__body">
-					<BlockInput 
-						className={'calc__block block'} 
-						title={'Доходы в месяц'} 
+					<BlockInput
+						className={'calc__block block'}
+						title={'Доходы в месяц'}
 						values={incomes}
 					/>
-					<BlockInput 
-						className={'calc__block block'} 
-						title={'Расходы в месяц'} 
+					<BlockInput
+						className={'calc__block block'}
+						title={'Расходы в месяц'}
 						values={expenses}
 					/>
 				</div>
