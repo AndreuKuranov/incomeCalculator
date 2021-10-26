@@ -1,14 +1,16 @@
 {
   "files": {
-    "main.css": "/incomeCalculator/static/css/main.8ea53f82.chunk.css",
-    "main.js": "/incomeCalculator/static/js/main.e74393e8.chunk.js",
-    "main.js.map": "/incomeCalculator/static/js/main.e74393e8.chunk.js.map",
+    "main.css": "/incomeCalculator/static/css/main.090fab49.chunk.css",
+    "main.js": "/incomeCalculator/static/js/main.ee855e1e.chunk.js",
+    "main.js.map": "/incomeCalculator/static/js/main.ee855e1e.chunk.js.map",
     "runtime-main.js": "/incomeCalculator/static/js/runtime-main.39388645.js",
     "runtime-main.js.map": "/incomeCalculator/static/js/runtime-main.39388645.js.map",
+    "static/css/2.679831fc.chunk.css": "/incomeCalculator/static/css/2.679831fc.chunk.css",
     "static/js/2.53ab6157.chunk.js": "/incomeCalculator/static/js/2.53ab6157.chunk.js",
     "static/js/2.53ab6157.chunk.js.map": "/incomeCalculator/static/js/2.53ab6157.chunk.js.map",
     "index.html": "/incomeCalculator/index.html",
-    "static/css/main.8ea53f82.chunk.css.map": "/incomeCalculator/static/css/main.8ea53f82.chunk.css.map",
+    "static/css/2.679831fc.chunk.css.map": "/incomeCalculator/static/css/2.679831fc.chunk.css.map",
+    "static/css/main.090fab49.chunk.css.map": "/incomeCalculator/static/css/main.090fab49.chunk.css.map",
     "static/js/2.53ab6157.chunk.js.LICENSE.txt": "/incomeCalculator/static/js/2.53ab6157.chunk.js.LICENSE.txt",
     "static/media/day.a31851ad.png": "/incomeCalculator/static/media/day.a31851ad.png",
     "static/media/money-box.3ebd1225.png": "/incomeCalculator/static/media/money-box.3ebd1225.png",
@@ -16,8 +18,9 @@
   },
   "entrypoints": [
     "static/js/runtime-main.39388645.js",
+    "static/css/2.679831fc.chunk.css",
     "static/js/2.53ab6157.chunk.js",
-    "static/css/main.8ea53f82.chunk.css",
-    "static/js/main.e74393e8.chunk.js"
+    "static/css/main.090fab49.chunk.css",
+    "static/js/main.ee855e1e.chunk.js"
   ]
 }
