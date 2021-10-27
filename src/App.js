@@ -7,11 +7,19 @@ import MainSum from './components/MainSum';
 
 function App() {
   return (
-    <div className="main">
-      <MainHeader/>
-      <MainCalc/>
-      <MainSum/>
-      <MainPercent/>
+    <div className='main'>
+      <MainHeader
+        className='main__header'
+      />
+      <MainCalc
+        className='main__calc'
+      />
+      <MainSum
+        className='main__sum'
+      />
+      <MainPercent
+        className='main__percent'
+      />
     </div>
   );
 }

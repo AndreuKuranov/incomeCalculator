@@ -5,16 +5,18 @@ import MyButton from "./UI/button/MyButton";
 
 const ItemInput = (props) => {
 	return (
-		<div className={props.className}>
+		<div className={`item ${props.className}`}>
 			<MyInput
-				type="number"
+				className='item__input'
+				type='number'
 				placeholder={props.placeholder}
 				id={props.id}
 			/>
-			<MyButton 
-				style={{borderRadius: '0px 5px 5px 0px'}}
+			<MyButton
+				className='item__button'
+				type='button'
 			>
-				<span className="material-icons">delete</span>
+				<span className='material-icons'>delete</span>
 			</MyButton>
 		</div>
 	);

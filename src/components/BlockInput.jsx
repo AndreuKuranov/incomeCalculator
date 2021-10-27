@@ -6,24 +6,28 @@ import MyButton from "./UI/button/MyButton";
 const BlockInput = (props) => {
 
 	return (
-		<div className={props.className}>
-			<h2 className="block__title">{props.title}</h2>
-			<form className="block__form" >
+		<div className={`block ${props.className}`}>
+			<h2 className='block__title'>{props.title}</h2>
+			<form className='block__form'>
 				{props.values.map(value =>
 					<ItemInput
-						className={'block__item item'}
+						className='block__item'
 						id={value.id}
 						placeholder={value.placeholder}
 						key={value.id}
 					/>
 				)}
-				<div className="block__buttons">
+				<div className='block__buttons'>
 					<MyButton
-						type="reset"
+						className='block__button'
+						type='reset'
 					>
 						Сбросить
 					</MyButton>
-					<MyButton>
+					<MyButton
+						className='block__button'
+						type='button'
+					>
 						Добавить поле
 					</MyButton>
 				</div>

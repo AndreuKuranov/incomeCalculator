@@ -2,7 +2,7 @@ import React from 'react';
 import BlockInput from './BlockInput';
 import './MainCalc.css';
 
-const MainCalc = () => {
+const MainCalc = (props) => {
 
 	const incomes = [
 		{id: 'income1', placeholder: 'Зарплата', value: 0},
@@ -19,17 +19,17 @@ const MainCalc = () => {
     ];
 
 	return (
-		<div className="main__calc calc">
-			<div className="calc__container container">
-				<div className="calc__body">
+		<div className={`calc ${props.className}`}>
+			<div className='calc__container container'>
+				<div className='calc__body'>
 					<BlockInput
-						className={'calc__block block'}
-						title={'Доходы в месяц'}
+						className='calc__block'
+						title='Доходы в месяц'
 						values={incomes}
 					/>
 					<BlockInput
-						className={'calc__block block'}
-						title={'Расходы в месяц'}
+						className='calc__block'
+						title='Расходы в месяц'
 						values={expenses}
 					/>
 				</div>
