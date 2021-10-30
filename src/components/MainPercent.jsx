@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./MainPercent.css";
+import translate from "../i18n/translate";
 
 const MainPercent = (props) => {
 
@@ -10,7 +11,7 @@ const MainPercent = (props) => {
 			<div className='percent__container container'>
 				<div className='percent__body'>
 					<div className='percent__column'>
-						<h3 className='percent__title text'>Сколько отложить</h3>
+						<h3 className='percent__title text'>{translate('percent')}</h3>
 						<div className='percent__range'>
 							<input 
 								className='percent__input'

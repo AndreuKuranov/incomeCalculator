@@ -8,7 +8,9 @@ const ItemInput = (props) => {
 		<div className={`item ${props.className}`}>
 			<MyInput
 				className='item__input'
+				autoсomplete='off'
 				type='number'
+				step='100'
 				placeholder={props.placeholder}
 				id={props.id}
 			/>

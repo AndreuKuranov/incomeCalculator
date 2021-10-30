@@ -4,6 +4,7 @@ import Column from "./Column";
 import Month from './month.png';
 import Day from './day.png';
 import MoneyBox from './money-box.png';
+import translate from "../i18n/translate";
 
 const MainSum = (props) => {
 	return (
@@ -13,17 +14,17 @@ const MainSum = (props) => {
 					<Column
 						className='sum__column'
 						icon={Month}
-						title='Доступно в месяц'
+						title={translate('month')}
 					/>
 					<Column
 						className='sum__column'
 						icon={Day}
-						title='Доступно в день'
+						title={translate('day')}
 					/>
 					<Column
 						className='sum__column'
 						icon={MoneyBox}
-						title='Накопится за год'
+						title={translate('money box')}
 					/>
 				</div>
 			</div>

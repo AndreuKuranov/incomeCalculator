@@ -2,6 +2,7 @@ import React from "react";
 import "./BlockInput.css";
 import ItemInput from "./ItemInput";
 import MyButton from "./UI/button/MyButton";
+import translate from "../i18n/translate";
 
 const BlockInput = (props) => {
 
@@ -22,13 +23,13 @@ const BlockInput = (props) => {
 						className='block__button'
 						type='reset'
 					>
-						Сбросить
+						{translate('reset')}
 					</MyButton>
 					<MyButton
 						className='block__button'
 						type='button'
 					>
-						Добавить поле
+						{translate('add field')}
 					</MyButton>
 				</div>
 			</form>
