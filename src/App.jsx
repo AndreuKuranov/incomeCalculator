@@ -16,6 +16,7 @@ function App() {
     { value: LOCALES.ENGLISH, name: 'English' },
     { value: LOCALES.GERMAN, name: 'Deutsch' },
   ];
+
   return (
     <I18nProvider locale={locale}>
       <div className="main">
