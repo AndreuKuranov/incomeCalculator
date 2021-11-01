@@ -12,6 +12,14 @@ const ru = {
     day: 'Доступно в день',
     'money box': 'Накопится за год',
     percent: 'Сколько отложить',
+    salary: 'Зарплата',
+    'part-time job': 'Подработка',
+    'additional income': 'Доп. доходы',
+    HCS: 'ЖКХ',
+    'mobile connection': 'Мобильная связь',
+    'home internet': 'Домашний интернет',
+    credit: 'Кредит',
+    'additional expenses': 'Доп. расходы',
   },
 };
 

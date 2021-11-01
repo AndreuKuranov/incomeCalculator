@@ -12,6 +12,14 @@ const en = {
     day: 'Available on the day',
     'money box': 'Accumulate in a year',
     percent: 'How much to defer',
+    salary: 'Salary',
+    'part-time job': 'Part-time job',
+    'additional income': 'Additional income',
+    HCS: 'Housing and communal services',
+    'mobile connection': 'Mobile connection',
+    'home internet': 'Home internet',
+    credit: 'Credit',
+    'additional expenses': 'Additional expenses',
   },
 };
 

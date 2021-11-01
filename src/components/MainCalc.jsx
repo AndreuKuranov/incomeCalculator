@@ -5,17 +5,17 @@ import translate from '../i18n/translate';
 
 const MainCalc = (props) => {
   const incomes = [
-    { id: 'income1', placeholder: 'hello', value: 0 },
-    { id: 'income2', placeholder: 'hello', value: 0 },
-    { id: 'income3', placeholder: 'hello', value: 0 },
-    { id: 'income4', placeholder: 'hello', value: 0 },
+    { id: 'income1', placeholder: 'salary', value: 0 },
+    { id: 'income2', placeholder: 'part-time job', value: 0 },
+    { id: 'income3', placeholder: 'additional income', value: 0 },
+    { id: 'income4', placeholder: 'additional income', value: 0 },
   ];
 
   const expenses = [
-    { id: 'expense1', placeholder: 'hello', value: 0 },
-    { id: 'expense2', placeholder: 'hello', value: 0 },
-    { id: 'expense3', placeholder: 'hello', value: 0 },
-    { id: 'expense4', placeholder: 'hello', value: 0 },
+    { id: 'expense1', placeholder: 'HCS', value: 0 },
+    { id: 'expense2', placeholder: 'mobile connection', value: 0 },
+    { id: 'expense3', placeholder: 'home internet', value: 0 },
+    { id: 'expense4', placeholder: 'credit', value: 0 },
   ];
 
   return (
