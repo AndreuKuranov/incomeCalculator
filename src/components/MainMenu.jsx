@@ -14,6 +14,7 @@ const MainMenu = (props) => {
             type="button"
             onClick={() => setModal(true)}
           >
+            {/* я бы не делал для иконок три строки, они идеально описываются как <i class="material-icons">settings</i> */}
             <span className="material-icons">
               settings
             </span>

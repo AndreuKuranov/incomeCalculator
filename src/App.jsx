@@ -19,6 +19,7 @@ function App() {
   return (
     <I18nProvider locale={locale}>
       <div className="main">
+        {/* каждый из Main префиксов лишний */}
         <MainMenu
           className="main__menu"
           value={locale}

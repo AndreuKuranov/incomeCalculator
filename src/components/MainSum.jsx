@@ -6,6 +6,7 @@ import Day from './day.png';
 import MoneyBox from './money-box.png';
 import translate from '../i18n/translate';
 
+// лишний префикс
 const MainSum = (props) => (
   <div className={`sum ${props.className}`}>
     <div className="sum__container container">

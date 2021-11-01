@@ -3,6 +3,7 @@ import BlockInput from './BlockInput';
 import './MainCalc.css';
 import translate from '../i18n/translate';
 
+// MainCalc для чего префикс?
 const MainCalc = (props) => {
   const incomes = [
     { id: 'income1', placeholder: 'salary', value: 0 },
