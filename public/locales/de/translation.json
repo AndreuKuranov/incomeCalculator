@@ -1,0 +1,23 @@
+{
+	"calc": {
+		"hello": "Hallo",
+		"calculator": "Einkommensrechner",
+		"incomes": "Einkommen pro Monat",
+		"expenses": "Ausgaben pro Monat",
+		"reset": "Zurücksetzen",
+		"add_field": "Feld hinzufügen",
+		"month": "Verfügbar pro Monat",
+		"day": "Verfügbar am Tag",
+		"money_box": "In einem Jahr ansammeln",
+		"percent": "Wie viel aufgeschoben werden soll",
+		"salary": "Gehalt",
+		"part-time_job": "Teilzeitstelle",
+		"additional_income": "Zusatzeinkommen",
+		"HCS": "Wohnungs- und Kommunaldienstleistungen",
+		"mobile_connection": "Mobile Verbindung",
+		"home_internet": "Heim-Internet",
+		"credit": "Kredit",
+		"additional_expenses": "Zusätzliche Ausgaben",
+		"choose_language": "Sprache wählen"
+	}
+}

@@ -1,45 +1,47 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './style/App.css';
 
+import { useTranslation } from 'react-i18next';
 import Calc from './components/Calc';
 import Header from './components/Header';
 import Percent from './components/Percent';
 import Sum from './components/Sum';
 import Menu from './components/Menu';
 
-import { I18nProvider, LOCALES } from './i18n';
+import './i18next/i18next';
 
 function App() {
-  const [locale, setLocale] = useState(LOCALES.RUSSIAN);
-  const languages = [
-    { value: LOCALES.RUSSIAN, name: 'Русский' },
-    { value: LOCALES.ENGLISH, name: 'English' },
-    { value: LOCALES.GERMAN, name: 'Deutsch' },
-  ];
+  const { t, i18n } = useTranslation();
+  const changleLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+  };
 
+  const languages = [
+    { value: ' ', name: t('calc.choose_language') },
+    { value: 'ru', name: 'Русский' },
+    { value: 'en', name: 'English' },
+    { value: 'de', name: 'Deutsch' },
+  ];
   return (
-    <I18nProvider locale={locale}>
-      <div className="main">
-        <Menu
-          className="main__menu"
-          value={locale}
-          onChange={(value) => setLocale(value)}
-          options={languages}
-        />
-        <Header
-          className="main__header"
-        />
-        <Calc
-          className="main__calc"
-        />
-        <Sum
-          className="main__sum"
-        />
-        <Percent
-          className="main__percent"
-        />
-      </div>
-    </I18nProvider>
+    <div className="main">
+      <Menu
+        className="main__menu"
+        onChange={(value) => changleLanguage(value)}
+        options={languages}
+      />
+      <Header
+        className="main__header"
+      />
+      <Calc
+        className="main__calc"
+      />
+      <Sum
+        className="main__sum"
+      />
+      <Percent
+        className="main__percent"
+      />
+    </div>
   );
 }
 

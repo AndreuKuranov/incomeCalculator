@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import './Percent.css';
-import translate from '../i18n/translate';
+import { useTranslation } from 'react-i18next';
+import '../i18next/i18next';
 
 const Percent = (props) => {
+  const { t } = useTranslation();
   const [percents, setPercents] = useState(0);
 
   return (
@@ -10,7 +12,7 @@ const Percent = (props) => {
       <div className="percent__container container">
         <div className="percent__body">
           <div className="percent__column">
-            <h3 className="percent__title text">{translate('percent')}</h3>
+            <h3 className="percent__title text">{t('calc.percent')}</h3>
             <div className="percent__range">
               <input
                 className="percent__input"

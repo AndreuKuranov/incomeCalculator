@@ -1,0 +1,23 @@
+{
+	"calc": {
+		"hello": "Привет",
+		"calculator": "Калькулятор доходов",
+		"incomes": "Доходы в месяц",
+		"expenses": "Расходы в месяц",
+		"reset": "Сбросить",
+		"add_field": "Добавить поле",
+		"month": "Доступно в месяц",
+		"day": "Доступно в день",
+		"money_box": "Накопится за год",
+		"percent": "Сколько отложить",
+		"salary": "Зарплата",
+		"part-time_job": "Подработка",
+		"additional_income": "Доп. доходы",
+		"HCS": "ЖКХ",
+		"mobile_connection": "Мобильная связь",
+		"home_internet": "Домашний интернет",
+		"credit": "Кредит",
+		"additional_expenses": "Доп. расходы",
+		"choose_language": "Выберите язык"
+	}
+}
