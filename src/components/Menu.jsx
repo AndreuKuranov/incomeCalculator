@@ -1,50 +1,44 @@
 import React, { useState } from 'react';
-import MySelect from './UI/select/MySelect';
-import './MainMenu.css';
-import MyModal from './UI/MyModal/MyModal';
-import MyButton from './UI/button/MyButton';
+import Select from './UI/select/Select';
+import './Menu.css';
+import Modal from './UI/modal/Modal';
+import Button from './UI/button/Button';
 
-const MainMenu = (props) => {
+const Menu = (props) => {
   const [modal, setModal] = useState(false);
   return (
     <div className={`menu ${props.className}`}>
       <div className="menu__container container">
         <div className="menu__settings">
-          <MyButton
+          <Button
             type="button"
             onClick={() => setModal(true)}
           >
-            <span className="material-icons">
-              settings
-            </span>
-          </MyButton>
-          <MyModal visible={modal} setVisible={setModal}>
-            <MyButton
+            <i className="material-icons">settings</i>
+          </Button>
+          <Modal visible={modal} setVisible={setModal}>
+            <Button
               type="button"
               onClick={() => setModal(false)}
             >
-              <span className="material-icons">
-                close
-              </span>
-            </MyButton>
+              <i className="material-icons">close</i>
+            </Button>
             <div className="menu__row">
               <div className="menu__icon">
-                <span className="material-icons">
-                  translate
-                </span>
+                <i className="material-icons">translate</i>
               </div>
-              <MySelect
+              <Select
                 className="menu__select"
                 value={props.locale}
                 onChange={props.onChange}
                 options={props.options}
               />
             </div>
-          </MyModal>
+          </Modal>
         </div>
       </div>
     </div>
   );
 };
 
-export default MainMenu;
+export default Menu;

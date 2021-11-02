@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './style/App.css';
 
-import MainCalc from './components/MainCalc';
-import MainHeader from './components/MainHeader';
-import MainPercent from './components/MainPercent';
-import MainSum from './components/MainSum';
-import MainMenu from './components/MainMenu';
+import Calc from './components/Calc';
+import Header from './components/Header';
+import Percent from './components/Percent';
+import Sum from './components/Sum';
+import Menu from './components/Menu';
 
 import { I18nProvider, LOCALES } from './i18n';
 
@@ -20,22 +20,22 @@ function App() {
   return (
     <I18nProvider locale={locale}>
       <div className="main">
-        <MainMenu
+        <Menu
           className="main__menu"
           value={locale}
           onChange={(value) => setLocale(value)}
           options={languages}
         />
-        <MainHeader
+        <Header
           className="main__header"
         />
-        <MainCalc
+        <Calc
           className="main__calc"
         />
-        <MainSum
+        <Sum
           className="main__sum"
         />
-        <MainPercent
+        <Percent
           className="main__percent"
         />
       </div>

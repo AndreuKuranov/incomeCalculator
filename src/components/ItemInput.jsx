@@ -1,11 +1,11 @@
 import React from 'react';
 import './ItemInput.css';
-import MyInput from './UI/input/MyInput';
-import MyButton from './UI/button/MyButton';
+import Input from './UI/input/Input';
+import Button from './UI/button/Button';
 
 const ItemInput = (props) => (
   <div className={`item ${props.className}`}>
-    <MyInput
+    <Input
       className="item__input"
       autoсomplete="off"
       type="number"
@@ -13,12 +13,12 @@ const ItemInput = (props) => (
       placeholder={props.placeholder}
       id={props.id}
     />
-    <MyButton
+    <Button
       className="item__button"
       type="button"
     >
-      <span className="material-icons">delete</span>
-    </MyButton>
+      <i className="material-icons">delete</i>
+    </Button>
   </div>
 );
 

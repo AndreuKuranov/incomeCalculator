@@ -1,12 +1,12 @@
 import React from 'react';
-import './MainSum.css';
+import './Sum.css';
 import Column from './Column';
 import Month from './month.png';
 import Day from './day.png';
 import MoneyBox from './money-box.png';
 import translate from '../i18n/translate';
 
-const MainSum = (props) => (
+const Sum = (props) => (
   <div className={`sum ${props.className}`}>
     <div className="sum__container container">
       <div className="sum__body">
@@ -30,4 +30,4 @@ const MainSum = (props) => (
   </div>
 );
 
-export default MainSum;
+export default Sum;

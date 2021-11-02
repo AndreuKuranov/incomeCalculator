@@ -1,5 +1,5 @@
 import React from 'react';
-import './MainHeader.css';
+import './Header.css';
 import translate from '../i18n/translate';
 
 const Header = (props) => (

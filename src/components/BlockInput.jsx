@@ -1,7 +1,7 @@
 import React from 'react';
 import './BlockInput.css';
 import ItemInput from './ItemInput';
-import MyButton from './UI/button/MyButton';
+import Button from './UI/button/Button';
 import translate from '../i18n/translate';
 
 const BlockInput = (props) => (
@@ -17,18 +17,18 @@ const BlockInput = (props) => (
         />
       ))}
       <div className="block__buttons">
-        <MyButton
+        <Button
           className="block__button"
           type="reset"
         >
           {translate('reset')}
-        </MyButton>
-        <MyButton
+        </Button>
+        <Button
           className="block__button"
           type="button"
         >
           {translate('add field')}
-        </MyButton>
+        </Button>
       </div>
     </form>
   </div>

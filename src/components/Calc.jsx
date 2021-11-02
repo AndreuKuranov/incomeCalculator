@@ -1,9 +1,9 @@
 import React from 'react';
 import BlockInput from './BlockInput';
-import './MainCalc.css';
+import './Calc.css';
 import translate from '../i18n/translate';
 
-const MainCalc = (props) => {
+const Calc = (props) => {
   const incomes = [
     { id: 'income1', placeholder: 'salary', value: 0 },
     { id: 'income2', placeholder: 'part-time job', value: 0 },
@@ -38,4 +38,4 @@ const MainCalc = (props) => {
   );
 };
 
-export default MainCalc;
+export default Calc;

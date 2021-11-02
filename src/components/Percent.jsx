@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './MainPercent.css';
+import './Percent.css';
 import translate from '../i18n/translate';
 
-const MainPercent = (props) => {
+const Percent = (props) => {
   const [percents, setPercents] = useState(0);
 
   return (
@@ -33,4 +33,4 @@ const MainPercent = (props) => {
   );
 };
 
-export default MainPercent;
+export default Percent;

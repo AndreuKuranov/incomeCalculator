@@ -2,9 +2,9 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 
 import React from 'react';
-import cl from './MyModal.module.css';
+import cl from './Modal.module.css';
 
-const MyModal = ({ children, visible, setVisible }) => {
+const Modal = ({ children, visible, setVisible }) => {
   const rootClasses = [cl.myModal];
 
   if (visible) {
@@ -20,4 +20,4 @@ const MyModal = ({ children, visible, setVisible }) => {
   );
 };
 
-export default MyModal;
+export default Modal;

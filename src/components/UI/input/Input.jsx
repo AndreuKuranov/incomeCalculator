@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
 import React from 'react';
-import classes from './MyInput.module.css';
+import classes from './Input.module.css';
 
-const MyInput = (props) => (
+const Input = (props) => (
   <input {...props} className={`${classes.myInput} ${props.className}`} />
 );
 
-export default MyInput;
+export default Input;
