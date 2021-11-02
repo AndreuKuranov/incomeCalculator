@@ -1,0 +1,23 @@
+{
+	"calc": {
+		"hello": "Hello",
+		"calculator": "Income calculator",
+		"incomes": "Income per month",
+		"expenses": "Expenses per month",
+		"reset": "Reset",
+		"add_field": "Add field",
+		"month": "Available per month",
+		"day": "Available on the day",
+		"money_box": "Accumulate in a year",
+		"percent": "How much to defer",
+		"salary": "Salary",
+		"part-time_job": "Part-time job",
+		"additional_income": "Additional income",
+		"HCS": "Housing and communal services",
+		"mobile_connection": "Mobile connection",
+		"home_internet": "Home internet",
+		"credit": "Credit",
+		"additional_expenses": "Additional expenses",
+		"choose_language": "Choose language"
+	}
+}
