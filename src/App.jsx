@@ -1,13 +1,11 @@
 import React from 'react';
 import './style/App.css';
-
 import { useTranslation } from 'react-i18next';
 import Calc from './components/Calc';
 import Header from './components/Header';
 import Percent from './components/Percent';
 import Sum from './components/Sum';
 import Menu from './components/Menu';
-
 import './i18next/i18next';
 
 function App() {

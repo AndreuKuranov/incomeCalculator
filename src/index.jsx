@@ -4,10 +4,11 @@ import App from './App';
 import Loader from './components/Loader';
 
 ReactDOM.render(
-  <Suspense fallback={<Loader />}>
-    <React.StrictMode>
+
+  <React.StrictMode>
+    <Suspense fallback={<Loader />}>
       <App />
-    </React.StrictMode>
-  </Suspense>,
+    </Suspense>
+  </React.StrictMode>,
   document.getElementById('root'),
 );
