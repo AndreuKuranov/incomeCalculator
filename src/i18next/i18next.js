@@ -8,9 +8,12 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    backend: {
+      loadPath: `${process.env.PUBLIC_URL}/locales/{{lng}}/{{ns}}.json`,
+    },
     fallbackLng: 'ru',
     whitelist: ['ru', 'en', 'de'],
-    debug: false,
+    debug: true,
     detection: {
       order: ['localStorage', 'cookie'],
       caches: ['localStorage', 'cookie'],
