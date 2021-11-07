@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import BlockInput from './BlockInput';
 import './Calc.css';
@@ -6,20 +6,21 @@ import '../i18next/i18next';
 
 const Calc = (props) => {
   const { t } = useTranslation();
-  const incomes = [
-    { id: 'income1', placeholder: t('calc.salary'), value: 0 },
-    { id: 'income2', placeholder: t('calc.part-time_job'), value: 0 },
-    { id: 'income3', placeholder: t('calc.additional_income'), value: 0 },
-    { id: 'income4', placeholder: t('calc.additional_income'), value: 0 },
-  ];
-
-  const expenses = [
-    { id: 'expense1', placeholder: t('calc.HCS'), value: 0 },
-    { id: 'expense2', placeholder: t('calc.mobile_connection'), value: 0 },
-    { id: 'expense3', placeholder: t('calc.home_internet'), value: 0 },
-    { id: 'expense4', placeholder: t('calc.credit'), value: 0 },
-  ];
-
+  const [incomes, setIncomes] = useState([
+    { id: 'income1', placeholder: 'calc.salary', value: 0 },
+    { id: 'income2', placeholder: 'calc.part-time_job', value: 0 },
+    { id: 'income3', placeholder: 'calc.additional_income', value: 0 },
+    { id: 'income4', placeholder: 'calc.additional_income', value: 0 },
+  ]);
+  // console.log(incomes);
+  const [expenses, setExpenses] = useState([
+    { id: 'expense1', placeholder: 'calc.HCS', value: 0 },
+    { id: 'expense2', placeholder: 'calc.mobile_connection', value: 0 },
+    { id: 'expense3', placeholder: 'calc.home_internet', value: 0 },
+    { id: 'expense4', placeholder: 'calc.credit', value: 0 },
+  ]);
+  // console.log(expenses);
+  const additionalField = ['calc.additional_income', 'calc.additional_expenses'];
   return (
     <div className={`calc ${props.className}`}>
       <div className="calc__container container">
@@ -28,11 +29,17 @@ const Calc = (props) => {
             className="calc__block"
             title={t('calc.incomes')}
             values={incomes}
+            set={setIncomes}
+            id="calc.additional_income"
+            additional={additionalField}
           />
           <BlockInput
             className="calc__block"
             title={t('calc.expenses')}
             values={expenses}
+            set={setExpenses}
+            id="calc.additional_expenses"
+            additional={additionalField}
           />
         </div>
       </div>

@@ -16,8 +16,9 @@ const Menu = (props) => {
           >
             <i className="material-icons">settings</i>
           </Button>
-          <Modal visible={modal} setVisible={setModal}>
+          <Modal className="menu__modal" visible={modal} setVisible={setModal}>
             <Button
+              className="menu__button"
               type="button"
               onClick={() => setModal(false)}
             >

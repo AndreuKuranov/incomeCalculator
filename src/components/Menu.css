@@ -22,3 +22,10 @@
 	min-height: 40px;
 	margin: 10px 0 0 0;
 }
+.menu__modal {
+	position: relative;
+}
+.menu__button {
+	position: absolute;
+	margin: -50px 0 0 240px;
+}
