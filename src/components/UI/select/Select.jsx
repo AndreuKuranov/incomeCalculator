@@ -1,17 +1,19 @@
 import React from 'react';
+import cn from 'classnames';
 import classes from './Select.module.css';
 
 const Select = ({
-  options, value, onChange, ...props
+  options, defaultValue, value, onChange, ...props
 }) => (
   <select
-    className={`${classes.mySelect} ${props.className}`}
+    className={cn(classes.mySelect, props.className)}
     value={value}
     onChange={(event) => onChange(event.target.value)}
   >
+    <option value="">{defaultValue}</option>
     {options.map((option) => (
       <option
-        key={option.value}
+        key={option.name}
         value={option.value}
       >
         {option.name}

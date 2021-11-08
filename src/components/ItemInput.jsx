@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 import './ItemInput.css';
 import Input from './UI/input/Input';
@@ -8,7 +9,7 @@ import '../i18next/i18next';
 const ItemInput = ({ onChange, onClick, ...props }) => {
   const { t } = useTranslation();
   return (
-    <div className={`item ${props.className}`}>
+    <div className={cn('item', props.className)}>
       <Input
         className="item__input"
         autoсomplete={props.autoсomplete}

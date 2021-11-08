@@ -1,13 +1,26 @@
 import React, { useState } from 'react';
+import cn from 'classnames';
+import { useTranslation } from 'react-i18next';
 import Select from './UI/select/Select';
 import './Menu.css';
 import Modal from './UI/modal/Modal';
 import Button from './UI/button/Button';
+import '../i18next/i18next';
 
 const Menu = (props) => {
+  const { t, i18n } = useTranslation();
+  const changleLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+  };
+  const languages = [
+    { value: 'ru', name: 'Русский' },
+    { value: 'en', name: 'English' },
+    { value: 'de', name: 'Deutsch' },
+  ];
+
   const [modal, setModal] = useState(false);
   return (
-    <div className={`menu ${props.className}`}>
+    <div className={cn('menu', props.className)}>
       <div className="menu__container container">
         <div className="menu__settings">
           <Button
@@ -16,7 +29,11 @@ const Menu = (props) => {
           >
             <i className="material-icons">settings</i>
           </Button>
-          <Modal className="menu__modal" visible={modal} setVisible={setModal}>
+          <Modal
+            className="menu__modal"
+            visible={modal}
+            setVisible={setModal}
+          >
             <Button
               className="menu__button"
               type="button"
@@ -31,8 +48,9 @@ const Menu = (props) => {
               <Select
                 className="menu__select"
                 value={props.locale}
-                onChange={props.onChange}
-                options={props.options}
+                defaultValue={t('calc.choose_language')}
+                onChange={(value) => changleLanguage(value)}
+                options={languages}
               />
             </div>
           </Modal>

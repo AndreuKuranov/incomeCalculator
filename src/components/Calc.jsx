@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 import BlockInput from './BlockInput';
 import './Calc.css';
@@ -22,7 +23,7 @@ const Calc = (props) => {
   // console.log(expenses);
   const additionalField = ['calc.additional_income', 'calc.additional_expenses'];
   return (
-    <div className={`calc ${props.className}`}>
+    <div className={cn('calc', props.className)}>
       <div className="calc__container container">
         <div className="calc__body">
           <BlockInput

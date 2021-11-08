@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 import './Sum.css';
 import Column from './Column';
@@ -10,7 +11,7 @@ import '../i18next/i18next';
 const Sum = (props) => {
   const { t } = useTranslation();
   return (
-    <div className={`sum ${props.className}`}>
+    <div className={cn('sum', props.className)}>
       <div className="sum__container container">
         <div className="sum__body">
           <Column

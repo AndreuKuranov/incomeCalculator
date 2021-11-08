@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import cn from 'classnames';
 import './Percent.css';
 import { useTranslation } from 'react-i18next';
 import '../i18next/i18next';
@@ -8,7 +9,7 @@ const Percent = (props) => {
   const [percents, setPercents] = useState(0);
 
   return (
-    <div className={`percent ${props.className}`}>
+    <div className={cn('percent', props.className)}>
       <div className="percent__container container">
         <div className="percent__body">
           <div className="percent__column">
