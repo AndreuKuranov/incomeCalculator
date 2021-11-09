@@ -37,8 +37,8 @@ const BlockInput = ({ ...props }) => {
             typeInput="number"
             id={item.id}
             placeholder={item.placeholder}
-            key={item.id}
             onChange={(Id, val) => calc(Id, val)}
+            key={item.id}
             typeButton="button"
             icon={<i className="material-icons">delete</i>}
             onClick={() => addDelete(item)}

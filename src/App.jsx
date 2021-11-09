@@ -1,10 +1,8 @@
 import React from 'react';
 import './style/App.css';
-import Calc from './components/Calc';
 import Header from './components/Header';
-import Percent from './components/Percent';
-import Sum from './components/Sum';
 import Menu from './components/Menu';
+import Body from './components/Body';
 
 function App() {
   return (
@@ -15,15 +13,7 @@ function App() {
       <Header
         className="main__header"
       />
-      <Calc
-        className="main__calc"
-      />
-      <Sum
-        className="main__sum"
-      />
-      <Percent
-        className="main__percent"
-      />
+      <Body />
     </div>
   );
 }

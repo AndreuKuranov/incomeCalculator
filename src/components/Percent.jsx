@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import cn from 'classnames';
 import './Percent.css';
 import { useTranslation } from 'react-i18next';
@@ -6,7 +6,6 @@ import '../i18next/i18next';
 
 const Percent = (props) => {
   const { t } = useTranslation();
-  const [percents, setPercents] = useState(0);
 
   return (
     <div className={cn('percent', props.className)}>
@@ -20,12 +19,12 @@ const Percent = (props) => {
                 type="range"
                 min="0"
                 max="100"
-                value={percents}
-                onChange={(event) => setPercents(event.target.value)}
+                value={props.value}
+                onChange={(event) => props.set(event.target.value)}
               />
             </div>
             <div className="percent__text text">
-              {percents}
+              {props.value}
               {' '}
               %
             </div>
