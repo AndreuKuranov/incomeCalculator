@@ -19,12 +19,12 @@ const Percent = (props) => {
                 type="range"
                 min="0"
                 max="100"
-                value={props.value}
-                onChange={(event) => props.set(event.target.value)}
+                value={props.percent}
+                onChange={(event) => props.setPercent(event.target.value)}
               />
             </div>
             <div className="percent__text text">
-              {props.value}
+              {props.percent}
               {' '}
               %
             </div>

@@ -7,19 +7,26 @@ import Month from './month.png';
 import Day from './day.png';
 import MoneyBox from './money-box.png';
 import '../i18next/i18next';
+import difference from '../date/dateMonth';
+import availablePerDay from '../date/dateDay';
+import availablePerYear from '../date/dateYear';
 
 const Sum = (props) => {
   const { t } = useTranslation();
 
+  const monthMoney = difference(props.sumIncomes, props.sumExpenses);
+  const dayMoney = availablePerDay(monthMoney, props.percent);
+  const yearMoney = availablePerYear(monthMoney, props.percent);
+
   const results = [
     {
-      id: 'Month', icon: Month, title: 'calc.month', value: props.sum,
+      id: 'Month', icon: Month, title: 'calc.month', value: monthMoney,
     },
     {
-      id: 'Day', icon: Day, title: 'calc.day', value: props.availablePerDay,
+      id: 'Day', icon: Day, title: 'calc.day', value: dayMoney,
     },
     {
-      id: 'MoneyBox', icon: MoneyBox, title: 'calc.money_box', value: props.availablePerYear,
+      id: 'MoneyBox', icon: MoneyBox, title: 'calc.money_box', value: yearMoney,
     },
   ];
 
