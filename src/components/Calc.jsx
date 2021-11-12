@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 import BlockInput from './BlockInput';
@@ -20,8 +20,11 @@ const Calc = (props) => {
     { id: 'expense3', placeholder: 'calc.home_internet', value: 0 },
     { id: 'expense4', placeholder: 'calc.credit', value: 0 },
   ]);
-  props.setSumIncomes(incomes);
-  props.setSumExpenses(expenses);
+
+  useEffect(() => {
+    props.setSumIncomes(incomes);
+    props.setSumExpenses(expenses);
+  });
 
   const additionalField = ['calc.additional_income', 'calc.additional_expenses'];
 
