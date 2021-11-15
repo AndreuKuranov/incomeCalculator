@@ -3,13 +3,13 @@ import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 import './Sum.css';
 import Column from './Column';
-import Month from './month.png';
-import Day from './day.png';
-import MoneyBox from './money-box.png';
+import Month from '../image/month.png';
+import Day from '../image/day.png';
+import MoneyBox from '../image/money-box.png';
 import '../i18next/i18next';
-import difference from '../date/dateMonth';
-import availablePerDay from '../date/dateDay';
-import availablePerYear from '../date/dateYear';
+import {
+  difference, availablePerDay, availablePerYear, kFormatter,
+} from '../date/date';
 
 const Sum = (props) => {
   const { t } = useTranslation();
@@ -20,13 +20,13 @@ const Sum = (props) => {
 
   const results = [
     {
-      id: 'Month', icon: Month, title: 'calc.month', value: monthMoney,
+      id: 'Month', icon: Month, title: 'calc.month', value: kFormatter(monthMoney),
     },
     {
-      id: 'Day', icon: Day, title: 'calc.day', value: dayMoney,
+      id: 'Day', icon: Day, title: 'calc.day', value: kFormatter(dayMoney),
     },
     {
-      id: 'MoneyBox', icon: MoneyBox, title: 'calc.money_box', value: yearMoney,
+      id: 'MoneyBox', icon: MoneyBox, title: 'calc.money_box', value: kFormatter(yearMoney),
     },
   ];
 
