@@ -40,6 +40,7 @@ const Sum = (props) => {
               icon={result.icon}
               title={t(result.title)}
               value={result.value}
+              currency={t('calc.currency')}
               key={result.id}
             />
           ))}

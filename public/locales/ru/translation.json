@@ -18,6 +18,8 @@
 		"home_internet": "Домашний интернет",
 		"credit": "Кредит",
 		"additional_expenses": "Доп. расходы",
-		"choose_language": "Выберите язык"
+		"choose_language": "Выберите язык",
+		"currency": "₽",
+		"save": "Сохранить"
 	}
 }

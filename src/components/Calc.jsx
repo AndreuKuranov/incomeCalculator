@@ -20,13 +20,19 @@ const Calc = (props) => {
     { id: 'expense3', placeholder: 'calc.home_internet', value: 0 },
     { id: 'expense4', placeholder: 'calc.credit', value: 0 },
   ]);
+  const additionalField = ['calc.additional_income', 'calc.additional_expenses'];
 
   useEffect(() => {
     props.setSumIncomes(incomes);
     props.setSumExpenses(expenses);
-  });
+  }, [incomes, expenses]);
 
-  const additionalField = ['calc.additional_income', 'calc.additional_expenses'];
+  useEffect(() => {
+    if (Array.isArray(props.downloadsIncomes) && Array.isArray(props.downloadsExpenses)) {
+      setIncomes(props.downloadsIncomes);
+      setExpenses(props.downloadsExpenses);
+    }
+  }, [props.downloadsIncomes, props.downloadsExpenses]);
 
   return (
     <div className={cn('calc', props.className)}>

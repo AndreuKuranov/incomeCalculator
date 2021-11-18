@@ -1,24 +1,14 @@
 import React, { useState } from 'react';
 import cn from 'classnames';
-import { useTranslation } from 'react-i18next';
-import Select from './UI/select/Select';
 import './Menu.css';
 import Modal from './UI/modal/Modal';
 import Button from './UI/button/Button';
-import '../i18next/i18next';
+import Language from './Language';
+import Download from './Download';
 
 const Menu = (props) => {
-  const { t, i18n } = useTranslation();
-  const changleLanguage = (lang) => {
-    i18n.changeLanguage(lang);
-  };
-  const languages = [
-    { value: 'ru', name: 'Русский' },
-    { value: 'en', name: 'English' },
-    { value: 'de', name: 'Deutsch' },
-  ];
-
   const [modal, setModal] = useState(false);
+
   return (
     <div className={cn('menu', props.className)}>
       <div className="menu__container container">
@@ -41,18 +31,13 @@ const Menu = (props) => {
             >
               <i className="material-icons">close</i>
             </Button>
-            <div className="menu__row">
-              <div className="menu__icon">
-                <i className="material-icons">translate</i>
-              </div>
-              <Select
-                className="menu__select"
-                value={props.locale}
-                defaultValue={t('calc.choose_language')}
-                onChange={(value) => changleLanguage(value)}
-                options={languages}
-              />
-            </div>
+            <Language />
+            <Download
+              toUpdate={props.toUpdate}
+              setToUpdate={props.setToUpdate}
+              setDownloadsIncomes={props.setDownloadsIncomes}
+              setDownloadsExpenses={props.setDownloadsExpenses}
+            />
           </Modal>
         </div>
       </div>

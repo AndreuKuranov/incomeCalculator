@@ -8,6 +8,7 @@ import '../i18next/i18next';
 
 const ItemInput = ({ onChange, onClick, ...props }) => {
   const { t } = useTranslation();
+
   return (
     <div className={cn('item', props.className)}>
       <Input
@@ -16,6 +17,7 @@ const ItemInput = ({ onChange, onClick, ...props }) => {
         type={props.typeInput}
         placeholder={t(props.placeholder)}
         id={props.id}
+        value={props.value !== 0 ? props.value : ''}
         onChange={(event) => onChange(props.id, event.target.value)}
       />
       <Button

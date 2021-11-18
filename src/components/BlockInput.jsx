@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import React from 'react';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
@@ -6,7 +7,7 @@ import ItemInput from './ItemInput';
 import Button from './UI/button/Button';
 import '../i18next/i18next';
 
-const BlockInput = ({ ...props }) => {
+const BlockInput = ({ additional, ...props }) => {
   const { t } = useTranslation();
 
   const calc = (Id, val) => {
@@ -18,7 +19,13 @@ const BlockInput = ({ ...props }) => {
   };
 
   const newInput = () => {
-    const placeholder = () => (props.additional.map((item) => (item !== props.id ? ' ' : item)));
+    const placeholder = () => {
+      for (let i = 0; i < additional.length; i += 1) {
+        if (additional[i] === props.id) {
+          return additional[i];
+        }
+      }
+    };
     props.set([...props.values, { id: Date.now(), placeholder: placeholder(), value: 0 }]);
   };
 
@@ -39,6 +46,7 @@ const BlockInput = ({ ...props }) => {
             placeholder={item.placeholder}
             onChange={(Id, val) => calc(Id, val)}
             key={item.id}
+            value={item.value}
             typeButton="button"
             icon={<i className="material-icons">delete</i>}
             onClick={() => addDelete(item)}

@@ -9,7 +9,11 @@ const Column = (props) => (
         <img className="column__image" src={props.icon} alt="month" />
       </div>
       <h3 className="column__title text">{props.title}</h3>
-      <div className="column__value text">{props.value}</div>
+      <div className="column__value text">
+        {props.value}
+        {' '}
+        {props.currency}
+      </div>
     </div>
   </div>
 );

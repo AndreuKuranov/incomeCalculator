@@ -1,0 +1,192 @@
+{
+  "inquiry": [
+    {
+      "incomes": [
+        {
+          "id": "income1",
+          "placeholder": "calc.salary",
+          "value": 400
+        },
+        {
+          "id": "income2",
+          "placeholder": "calc.part-time_job",
+          "value": 0
+        },
+        {
+          "id": "income3",
+          "placeholder": "calc.additional_income",
+          "value": 0
+        },
+        {
+          "id": "income4",
+          "placeholder": "calc.additional_income",
+          "value": 0
+        }
+      ],
+      "expenses": [
+        {
+          "id": "expense1",
+          "placeholder": "calc.HCS",
+          "value": 40
+        },
+        {
+          "id": "expense2",
+          "placeholder": "calc.mobile_connection",
+          "value": 0
+        },
+        {
+          "id": "expense3",
+          "placeholder": "calc.home_internet",
+          "value": 0
+        },
+        {
+          "id": "expense4",
+          "placeholder": "calc.credit",
+          "value": 0
+        }
+      ],
+      "id": "2021-11-16T21:53"
+    },
+    {
+      "incomes": [
+        {
+          "id": "income1",
+          "placeholder": "calc.salary",
+          "value": 400
+        },
+        {
+          "id": "income2",
+          "placeholder": "calc.part-time_job",
+          "value": 0
+        },
+        {
+          "id": "income3",
+          "placeholder": "calc.additional_income",
+          "value": 0
+        },
+        {
+          "id": "income4",
+          "placeholder": "calc.additional_income",
+          "value": 0
+        }
+      ],
+      "expenses": [
+        {
+          "id": "expense1",
+          "placeholder": "calc.HCS",
+          "value": 0
+        },
+        {
+          "id": "expense2",
+          "placeholder": "calc.mobile_connection",
+          "value": 0
+        },
+        {
+          "id": "expense3",
+          "placeholder": "calc.home_internet",
+          "value": 0
+        },
+        {
+          "id": "expense4",
+          "placeholder": "calc.credit",
+          "value": 0
+        }
+      ],
+      "id": "2021-11-16T22:21"
+    },
+    {
+      "incomes": [
+        {
+          "id": "income1",
+          "placeholder": "calc.salary",
+          "value": 100
+        },
+        {
+          "id": "income2",
+          "placeholder": "calc.part-time_job",
+          "value": 0
+        },
+        {
+          "id": "income3",
+          "placeholder": "calc.additional_income",
+          "value": 0
+        },
+        {
+          "id": "income4",
+          "placeholder": "calc.additional_income",
+          "value": 0
+        }
+      ],
+      "expenses": [
+        {
+          "id": "expense1",
+          "placeholder": "calc.HCS",
+          "value": 10
+        },
+        {
+          "id": "expense2",
+          "placeholder": "calc.mobile_connection",
+          "value": 0
+        },
+        {
+          "id": "expense3",
+          "placeholder": "calc.home_internet",
+          "value": 0
+        },
+        {
+          "id": "expense4",
+          "placeholder": "calc.credit",
+          "value": 0
+        }
+      ],
+      "id": "2021-11-18T15:15"
+    },
+    {
+      "incomes": [
+        {
+          "id": "income1",
+          "placeholder": "calc.salary",
+          "value": 200
+        },
+        {
+          "id": "income2",
+          "placeholder": "calc.part-time_job",
+          "value": 0
+        },
+        {
+          "id": "income3",
+          "placeholder": "calc.additional_income",
+          "value": 0
+        },
+        {
+          "id": "income4",
+          "placeholder": "calc.additional_income",
+          "value": 0
+        }
+      ],
+      "expenses": [
+        {
+          "id": "expense1",
+          "placeholder": "calc.HCS",
+          "value": 20
+        },
+        {
+          "id": "expense2",
+          "placeholder": "calc.mobile_connection",
+          "value": 0
+        },
+        {
+          "id": "expense3",
+          "placeholder": "calc.home_internet",
+          "value": 0
+        },
+        {
+          "id": "expense4",
+          "placeholder": "calc.credit",
+          "value": 0
+        }
+      ],
+      "id": "2021-11-18T22:12"
+    }
+  ]
+}
