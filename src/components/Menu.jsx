@@ -5,6 +5,7 @@ import Modal from './UI/modal/Modal';
 import Button from './UI/button/Button';
 import Language from './Language';
 import Download from './Download';
+import Save from './Save';
 
 const Menu = (props) => {
   const [modal, setModal] = useState(false);
@@ -13,6 +14,11 @@ const Menu = (props) => {
     <div className={cn('menu', props.className)}>
       <div className="menu__container container">
         <div className="menu__settings">
+          <Save
+            sumIncomes={props.sumIncomes}
+            sumExpenses={props.sumExpenses}
+            setToUpdate={props.setToUpdate}
+          />
           <Button
             type="button"
             onClick={() => setModal(true)}
