@@ -18,6 +18,8 @@
 		"home_internet": "Heim-Internet",
 		"credit": "Kredit",
 		"additional_expenses": "Zusätzliche Ausgaben",
-		"choose_language": "Sprache wählen"
+		"choose_language": "Sprache wählen",
+		"currency": "€",
+		"save": "Speichern"
 	}
 }

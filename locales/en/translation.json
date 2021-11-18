@@ -18,6 +18,8 @@
 		"home_internet": "Home internet",
 		"credit": "Credit",
 		"additional_expenses": "Additional expenses",
-		"choose_language": "Choose language"
+		"choose_language": "Choose language",
+		"currency": "$",
+		"save": "Save"
 	}
 }
