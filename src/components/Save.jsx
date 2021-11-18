@@ -15,15 +15,13 @@ const Save = (props) => {
   }
 
   return (
-    <div>
-      <div className="container">
-        <Button
-          type="button"
-          onClick={() => save()}
-        >
-          <i className="material-icons">save</i>
-        </Button>
-      </div>
+    <div style={{ padding: '0px 5px 0px 0px' }}>
+      <Button
+        type="button"
+        onClick={() => save()}
+      >
+        <i className="material-icons">save</i>
+      </Button>
     </div>
   );
 };
