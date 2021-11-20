@@ -35,65 +35,37 @@ const Download = (props) => {
           ? <div>Сервер не отвечает</div>
           : (
             <div className="menu__row">
-
-              <div>
-                {
-                  isLoadedDelete
-                    ? (
-                      <Button
-                        className="delete__button"
-                        type="button"
-                        style={{ opacity: '0.7' }}
-                      >
-                        <i className="material-icons">delete</i>
-                      </Button>
-                    )
-                    : (
-                      <Button
-                        className="delete__button"
-                        type="button"
-                        onClick={() => fetchingDelete()}
-                      >
-                        <i className="material-icons">delete</i>
-                      </Button>
-                    )
-                }
-              </div>
-
-              {isLoadedInquiry
-                ? <div>Идет загрузка...</div>
-                : (
-                  <Select
-                    defaultValue="Сохранения"
-                    onChange={(value) => props.setIdSave(value)}
-                    options={props.listSave}
-                  />
-                )}
-
-              <div>
-                {
-                  isLoadedDownload
-                    ? (
-                      <Button
-                        className="download__button"
-                        type="button"
-                        style={{ opacity: '0.7' }}
-                      >
-                        <i className="material-icons">download</i>
-                      </Button>
-                    )
-                    : (
-                      <Button
-                        className="download__button"
-                        type="button"
-                        onClick={() => fetchingDownload()}
-                      >
-                        <i className="material-icons">download</i>
-                      </Button>
-                    )
-                }
-              </div>
-
+              <Button
+                className="delete__button"
+                type="button"
+                onClick={isLoadedDelete
+                  ? () => {}
+                  : () => fetchingDelete()}
+                style={isLoadedDelete
+                  ? { opacity: '0.7' }
+                  : {}}
+              >
+                <i className="material-icons">delete</i>
+              </Button>
+              <Select
+                defaultValue={isLoadedInquiry
+                  ? 'Идет загрузка...'
+                  : 'Сохранения'}
+                onChange={(value) => props.setIdSave(value)}
+                options={props.listSave}
+              />
+              <Button
+                className="download__button"
+                type="button"
+                onClick={isLoadedDownload
+                  ? () => {}
+                  : () => fetchingDownload()}
+                style={isLoadedDownload
+                  ? { opacity: '0.7' }
+                  : {}}
+              >
+                <i className="material-icons">download</i>
+              </Button>
             </div>
           )
       }

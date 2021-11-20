@@ -5,7 +5,7 @@
         {
           "id": "income1",
           "placeholder": "calc.salary",
-          "value": 34
+          "value": 29
         },
         {
           "id": "income2",
@@ -45,14 +45,14 @@
           "value": 0
         }
       ],
-      "id": "2021-11-20T00:13"
+      "id": "2021-11-20T00:45"
     },
     {
       "incomes": [
         {
           "id": "income1",
           "placeholder": "calc.salary",
-          "value": 5000
+          "value": 400
         },
         {
           "id": "income2",
@@ -92,14 +92,14 @@
           "value": 0
         }
       ],
-      "id": "2021-11-20T00:15"
+      "id": "2021-11-20T00:46"
     },
     {
       "incomes": [
         {
           "id": "income1",
           "placeholder": "calc.salary",
-          "value": 700
+          "value": 588
         },
         {
           "id": "income2",
@@ -139,54 +139,7 @@
           "value": 0
         }
       ],
-      "id": "2021-11-20T00:21"
-    },
-    {
-      "incomes": [
-        {
-          "id": "income1",
-          "placeholder": "calc.salary",
-          "value": 6000
-        },
-        {
-          "id": "income2",
-          "placeholder": "calc.part-time_job",
-          "value": 0
-        },
-        {
-          "id": "income3",
-          "placeholder": "calc.additional_income",
-          "value": 0
-        },
-        {
-          "id": "income4",
-          "placeholder": "calc.additional_income",
-          "value": 0
-        }
-      ],
-      "expenses": [
-        {
-          "id": "expense1",
-          "placeholder": "calc.HCS",
-          "value": 0
-        },
-        {
-          "id": "expense2",
-          "placeholder": "calc.mobile_connection",
-          "value": 0
-        },
-        {
-          "id": "expense3",
-          "placeholder": "calc.home_internet",
-          "value": 0
-        },
-        {
-          "id": "expense4",
-          "placeholder": "calc.credit",
-          "value": 0
-        }
-      ],
-      "id": "2021-11-20T00:25"
+      "id": "2021-11-20T01:03"
     }
   ]
 }
