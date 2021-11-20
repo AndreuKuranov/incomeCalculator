@@ -1,17 +1,29 @@
-import React from 'react';
+/* eslint-disable consistent-return */
+/* eslint-disable for-direction */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
+import React, { useState } from 'react';
 import axios from 'axios';
 import Button from './UI/button/Button';
 
 const Save = (props) => {
+  const currentDate = () => new Date().toISOString().slice(0, 16);
+
+  const checkSave = (listSave) => {
+    for (let i = 0; i < listSave.length; i += 1) {
+      if (listSave[i].value === currentDate()) {
+        return true;
+      }
+    }
+  };
+
   async function save() {
-    await axios.post('http://localhost:3000/inquiry', { incomes: props.sumIncomes, expenses: props.sumExpenses, id: new Date().toISOString().slice(0, 16) })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    props.setToUpdate(+1);
+    if (checkSave(props.listSave) === true) {
+      await axios.put(`http://localhost:3000/inquiry/${currentDate()}`, { incomes: props.saveIncomes, expenses: props.saveExpenses });
+    } else {
+      await axios.post('http://localhost:3000/inquiry', { incomes: props.saveIncomes, expenses: props.saveExpenses, id: currentDate() });
+    }
+    props.setToUpdate(true);
   }
 
   return (

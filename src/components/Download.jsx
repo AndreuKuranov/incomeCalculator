@@ -1,52 +1,102 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+/* eslint-disable no-unused-vars */
+import React, { useEffect } from 'react';
 import './Download.css';
 import Select from './UI/select/Select';
 import Button from './UI/button/Button';
+import PostService from '../API/PostService';
+import useFetching from '../hooks/useFetching';
 
 const Download = (props) => {
-  const [id, setId] = useState([]);
-  const [selectValue, setSelectValue] = useState('');
+  const [fetchingInquiry, isLoadedInquiry, errorInquiry] = useFetching(async () => {
+    const response = await PostService.getAll();
+    props.setListSave(response.map((item) => ({ name: item.id, value: item.id })));
+    props.setToUpdate(false);
+  });
+  const [fetchingDownload, isLoadedDownload, errorDownload] = useFetching(async () => {
+    const response = await PostService.getItem(props.idSave);
+    if (props.idSave.length === 16) {
+      props.setDownloadsIncomes(response.incomes);
+      props.setDownloadsExpenses(response.expenses);
+    }
+  });
+  const [fetchingDelete, isLoadedDelete, errorDelete] = useFetching(async () => {
+    await PostService.deleteItem(props.idSave);
+    props.setToUpdate(true);
+  });
 
-  useEffect(async () => {
-    const response = await axios.get('http://localhost:3000/inquiry');
-    setId(response.data.map((item) => ({ name: item.id, value: item.id })));
+  useEffect(() => {
+    fetchingInquiry();
   }, [props.toUpdate]);
 
-  async function Dow() {
-    if (selectValue.length === 16) {
-      const response = await axios.get(`http://localhost:3000/inquiry/${selectValue}`);
-      props.setDownloadsIncomes(response.data.incomes);
-      props.setDownloadsExpenses(response.data.expenses);
-    }
-  }
-
-  async function Del() {
-    await axios.delete(`http://localhost:3000/inquiry/${selectValue}`);
-    props.setToUpdate(-1);
-  }
-
   return (
-    <div className="menu__row">
-      <Button
-        className="delete__button"
-        type="button"
-        onClick={() => Del()}
-      >
-        <i className="material-icons">delete</i>
-      </Button>
-      <Select
-        defaultValue="Сохранения"
-        onChange={(value) => setSelectValue(value)}
-        options={id}
-      />
-      <Button
-        className="download__button"
-        type="button"
-        onClick={() => Dow()}
-      >
-        <i className="material-icons">download</i>
-      </Button>
+    <div>
+      {
+        errorInquiry
+          ? <div>Сервер не отвечает</div>
+          : (
+            <div className="menu__row">
+
+              <div>
+                {
+                  isLoadedDelete
+                    ? (
+                      <Button
+                        className="delete__button"
+                        type="button"
+                        style={{ opacity: '0.7' }}
+                      >
+                        <i className="material-icons">delete</i>
+                      </Button>
+                    )
+                    : (
+                      <Button
+                        className="delete__button"
+                        type="button"
+                        onClick={() => fetchingDelete()}
+                      >
+                        <i className="material-icons">delete</i>
+                      </Button>
+                    )
+                }
+              </div>
+
+              {isLoadedInquiry
+                ? <div>Идет загрузка...</div>
+                : (
+                  <Select
+                    defaultValue="Сохранения"
+                    onChange={(value) => props.setIdSave(value)}
+                    options={props.listSave}
+                  />
+                )}
+
+              <div>
+                {
+                  isLoadedDownload
+                    ? (
+                      <Button
+                        className="download__button"
+                        type="button"
+                        style={{ opacity: '0.7' }}
+                      >
+                        <i className="material-icons">download</i>
+                      </Button>
+                    )
+                    : (
+                      <Button
+                        className="download__button"
+                        type="button"
+                        onClick={() => fetchingDownload()}
+                      >
+                        <i className="material-icons">download</i>
+                      </Button>
+                    )
+                }
+              </div>
+
+            </div>
+          )
+      }
     </div>
   );
 };

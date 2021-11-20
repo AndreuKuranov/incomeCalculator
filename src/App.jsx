@@ -9,7 +9,6 @@ import Calc from './components/Calc';
 function App() {
   const [downloadsIncomes, setDownloadsIncomes] = useState(0);
   const [downloadsExpenses, setDownloadsExpenses] = useState(0);
-  const [toUpdate, setToUpdate] = useState(5);
 
   const [sumIncomes, setSumIncomes] = useState(0);
   const [sumExpenses, setSumExpenses] = useState(0);
@@ -21,19 +20,12 @@ function App() {
         className="main__menu"
         setDownloadsIncomes={setDownloadsIncomes}
         setDownloadsExpenses={setDownloadsExpenses}
-        toUpdate={toUpdate}
-        setToUpdate={setToUpdate}
-        sumIncomes={sumIncomes}
-        sumExpenses={sumExpenses}
+        saveIncomes={sumIncomes}
+        saveExpenses={sumExpenses}
       />
       <Header
         className="main__header"
       />
-      {/* <Body
-        downloadsIncomes={downloadsIncomes}
-        downloadsExpenses={downloadsExpenses}
-        setToUpdate={setToUpdate}
-      /> */}
       <Calc
         className="main__calc"
         downloadsIncomes={downloadsIncomes}

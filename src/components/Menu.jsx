@@ -10,14 +10,19 @@ import Save from './Save';
 const Menu = (props) => {
   const [modal, setModal] = useState(false);
 
+  const [toUpdate, setToUpdate] = useState(false);
+  const [listSave, setListSave] = useState([]);
+  const [idSave, setIdSave] = useState('');
+
   return (
     <div className={cn('menu', props.className)}>
       <div className="menu__container container">
         <div className="menu__settings">
           <Save
-            sumIncomes={props.sumIncomes}
-            sumExpenses={props.sumExpenses}
-            setToUpdate={props.setToUpdate}
+            saveIncomes={props.saveIncomes}
+            saveExpenses={props.saveExpenses}
+            setToUpdate={setToUpdate}
+            listSave={listSave}
           />
           <Button
             type="button"
@@ -39,10 +44,14 @@ const Menu = (props) => {
             </Button>
             <Language />
             <Download
-              toUpdate={props.toUpdate}
-              setToUpdate={props.setToUpdate}
+              toUpdate={toUpdate}
+              setToUpdate={setToUpdate}
               setDownloadsIncomes={props.setDownloadsIncomes}
               setDownloadsExpenses={props.setDownloadsExpenses}
+              listSave={listSave}
+              setListSave={setListSave}
+              idSave={idSave}
+              setIdSave={setIdSave}
             />
           </Modal>
         </div>
