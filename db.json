@@ -5,7 +5,7 @@
         {
           "id": "income1",
           "placeholder": "calc.salary",
-          "value": 29
+          "value": 777
         },
         {
           "id": "income2",
@@ -45,14 +45,15 @@
           "value": 0
         }
       ],
-      "id": "2021-11-20T00:45"
+      "name": "2021-11-20T21:58",
+      "id": 1637430248791
     },
     {
       "incomes": [
         {
           "id": "income1",
           "placeholder": "calc.salary",
-          "value": 400
+          "value": 300000
         },
         {
           "id": "income2",
@@ -92,14 +93,15 @@
           "value": 0
         }
       ],
-      "id": "2021-11-20T00:46"
+      "name": "2021-11-20T21:29",
+      "id": 1637443794291
     },
     {
       "incomes": [
         {
           "id": "income1",
           "placeholder": "calc.salary",
-          "value": 588
+          "value": 555
         },
         {
           "id": "income2",
@@ -139,7 +141,8 @@
           "value": 0
         }
       ],
-      "id": "2021-11-20T01:03"
+      "name": "2021-11-20T21:57",
+      "id": 1637445431106
     }
   ]
 }

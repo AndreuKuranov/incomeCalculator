@@ -12,6 +12,7 @@ const useFetching = (callback) => {
       setError(true);
     } finally {
       setIsLoading(false);
+      setError(false);
     }
   };
 

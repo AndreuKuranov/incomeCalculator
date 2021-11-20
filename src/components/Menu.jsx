@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
 import './Menu.css';
 import Modal from './UI/modal/Modal';
@@ -13,6 +13,14 @@ const Menu = (props) => {
   const [toUpdate, setToUpdate] = useState(false);
   const [listSave, setListSave] = useState([]);
   const [idSave, setIdSave] = useState('');
+
+  const sortSave = (sort) => {
+    setListSave([...listSave].sort((a, b) => a[sort].localeCompare(b[sort])));
+  };
+
+  useEffect(() => {
+    sortSave('name');
+  }, [modal, idSave]);
 
   return (
     <div className={cn('menu', props.className)}>
