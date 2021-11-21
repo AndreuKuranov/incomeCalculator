@@ -8,6 +8,7 @@ import Modal from './UI/modal/Modal';
 
 const Download = (props) => {
   const [modal, setModal] = useState(false);
+  const [modalInquiry, setModalInquiry] = useState(false);
 
   const [fetchingInquiry, isLoadedInquiry, errorInquiry] = useFetching(async () => {
     const response = await PostService.getAll();
@@ -39,10 +40,16 @@ const Download = (props) => {
     }
   }, [errorDownload, errorDelete]);
 
+  useEffect(() => {
+    if (errorInquiry) {
+      setModalInquiry(true);
+    }
+  }, [errorInquiry]);
+
   return (
     <div>
       {
-        errorInquiry
+        modalInquiry
           ? <div>Сервер не отвечает</div>
           : (
             <div className="menu__row">

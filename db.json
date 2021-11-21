@@ -5,7 +5,7 @@
         {
           "id": "income1",
           "placeholder": "calc.salary",
-          "value": 1000
+          "value": 7000
         },
         {
           "id": "income2",
@@ -27,7 +27,7 @@
         {
           "id": "expense1",
           "placeholder": "calc.HCS",
-          "value": 100
+          "value": 700
         },
         {
           "id": "expense2",
@@ -45,7 +45,7 @@
           "value": 0
         }
       ],
-      "name": "2021-11-21T15:33",
+      "name": "2021-11-21T15:52",
       "id": "inquiry91129"
     },
     {
