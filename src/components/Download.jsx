@@ -27,7 +27,7 @@ const Download = (props) => {
       await PostService.deleteItem(props.idSave);
       props.deleteSave(props.idSave);
     }
-    // props.setIdSave('');
+    props.setIdSave('');
   });
 
   useEffect(() => {
