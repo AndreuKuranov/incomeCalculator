@@ -20,9 +20,9 @@ export default class PostService {
     await axios.put(`http://localhost:3000/inquiry/${idSave}`, { incomes: saveIncomes, expenses: saveExpenses, name: currentDate() });
   }
 
-  static async postItem(saveIncomes, saveExpenses) {
+  static async postItem(saveIncomes, saveExpenses, Id) {
     await axios.post('http://localhost:3000/inquiry', {
-      incomes: saveIncomes, expenses: saveExpenses, name: currentDate(), id: Date.now(),
+      incomes: saveIncomes, expenses: saveExpenses, name: currentDate(), id: Id,
     });
   }
 }

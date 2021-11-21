@@ -6,11 +6,11 @@ import Button from './UI/button/Button';
 import Language from './Language';
 import Download from './Download';
 import Save from './Save';
+import { currentDate } from '../date/date';
 
 const Menu = (props) => {
   const [modal, setModal] = useState(false);
 
-  const [toUpdate, setToUpdate] = useState(false);
   const [listSave, setListSave] = useState([]);
   const [idSave, setIdSave] = useState('');
 
@@ -22,6 +22,18 @@ const Menu = (props) => {
     sortSave('name');
   }, [modal, idSave]);
 
+  const deleteSave = (Id) => {
+    setListSave(listSave.filter((e) => e.value !== Id));
+  };
+
+  const newSave = (Id) => {
+    setListSave([...listSave, { name: currentDate(), value: Id }]);
+  };
+
+  const updateListSave = (Id) => {
+    setListSave(listSave.map((item) => (item.value !== Id ? item : { ...item, name: currentDate() })));
+  };
+
   return (
     <div className={cn('menu', props.className)}>
       <div className="menu__container container">
@@ -29,8 +41,9 @@ const Menu = (props) => {
           <Save
             saveIncomes={props.saveIncomes}
             saveExpenses={props.saveExpenses}
-            setToUpdate={setToUpdate}
             listSave={listSave}
+            newSave={newSave}
+            updateListSave={updateListSave}
           />
           <Button
             type="button"
@@ -52,8 +65,7 @@ const Menu = (props) => {
             </Button>
             <Language />
             <Download
-              toUpdate={toUpdate}
-              setToUpdate={setToUpdate}
+              deleteSave={deleteSave}
               setDownloadsIncomes={props.setDownloadsIncomes}
               setDownloadsExpenses={props.setDownloadsExpenses}
               listSave={listSave}

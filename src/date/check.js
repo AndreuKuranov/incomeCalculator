@@ -16,3 +16,10 @@ export const checkSave = (listSave) => {
     }
   }
 };
+
+export const unique = () => (`${'inquiry'}${Math.floor(Math.random() * 100000)}`);
+
+export const minSave = (listSave, val) => {
+  const x = [...listSave].sort((a, b) => a[val].localeCompare(b[val]));
+  return x[0].value;
+};

@@ -3,21 +3,26 @@ import Button from './UI/button/Button';
 import PostService from '../API/PostService';
 import useFetching from '../hooks/useFetching';
 import Modal from './UI/modal/Modal';
-import { checkSaveId, checkSave } from '../date/check';
+import {
+  checkSaveId, checkSave, unique, minSave,
+} from '../date/check';
 
 const Save = (props) => {
   const [modal, setModal] = useState(false);
 
   const [fetchingSave, isLoadedSave, errorSave] = useFetching(async () => {
     if (props.listSave.length >= 5 && checkSave(props.listSave) !== true) {
-      await PostService.putItem(props.listSave[0].value, props.saveIncomes, props.saveExpenses);
+      const Id = minSave(props.listSave, 'name');
+      await PostService.putItem(Id, props.saveIncomes, props.saveExpenses);
+      props.updateListSave(Id);
     } else if (checkSave(props.listSave)) {
       const saveId = checkSaveId(props.listSave);
       await PostService.putItem(saveId, props.saveIncomes, props.saveExpenses);
     } else {
-      await PostService.postItem(props.saveIncomes, props.saveExpenses);
+      const newId = unique();
+      await PostService.postItem(props.saveIncomes, props.saveExpenses, newId);
+      props.newSave(newId);
     }
-    props.setToUpdate(true);
   });
 
   useEffect(() => {

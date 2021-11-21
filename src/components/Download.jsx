@@ -12,18 +12,21 @@ const Download = (props) => {
   const [fetchingInquiry, isLoadedInquiry, errorInquiry] = useFetching(async () => {
     const response = await PostService.getAll();
     props.setListSave(response.map((item) => ({ name: item.name, value: item.id })));
-    props.setToUpdate(false);
   });
   const [fetchingDownload, isLoadedDownload, errorDownload] = useFetching(async () => {
-    if (props.idSave.length === 13) {
+    if (props.idSave.length >= 7) {
       const response = await PostService.getItem(props.idSave);
       props.setDownloadsIncomes(response.incomes);
       props.setDownloadsExpenses(response.expenses);
     }
+    props.setIdSave('');
   });
   const [fetchingDelete, isLoadedDelete, errorDelete] = useFetching(async () => {
-    await PostService.deleteItem(props.idSave);
-    props.setToUpdate(true);
+    if (props.idSave.length >= 7) {
+      await PostService.deleteItem(props.idSave);
+      props.deleteSave(props.idSave);
+    }
+    props.setIdSave('');
   });
 
   useEffect(() => {
