@@ -20,19 +20,19 @@ const Download = (props) => {
       props.setDownloadsIncomes(response.incomes);
       props.setDownloadsExpenses(response.expenses);
     }
-    props.setIdSave('');
+    // props.setIdSave('');
   });
   const [fetchingDelete, isLoadedDelete, errorDelete] = useFetching(async () => {
     if (props.idSave.length >= 7) {
       await PostService.deleteItem(props.idSave);
       props.deleteSave(props.idSave);
     }
-    props.setIdSave('');
+    // props.setIdSave('');
   });
 
   useEffect(() => {
     fetchingInquiry();
-  }, [props.toUpdate]);
+  }, []);
 
   useEffect(() => {
     if (errorDownload || errorDelete) {
