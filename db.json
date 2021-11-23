@@ -5,7 +5,7 @@
         {
           "id": "income1",
           "placeholder": "calc.salary",
-          "value": 8700
+          "value": 1000
         },
         {
           "id": "income2",
@@ -27,7 +27,7 @@
         {
           "id": "expense1",
           "placeholder": "calc.HCS",
-          "value": 800
+          "value": 0
         },
         {
           "id": "expense2",
@@ -45,7 +45,7 @@
           "value": 0
         }
       ],
-      "name": "2021-11-21T20:02",
+      "name": "2021-11-21T20:21",
       "id": "inquiry47374"
     },
     {
@@ -53,7 +53,7 @@
         {
           "id": "income1",
           "placeholder": "calc.salary",
-          "value": 3000
+          "value": 1000
         },
         {
           "id": "income2",
@@ -93,7 +93,7 @@
           "value": 0
         }
       ],
-      "name": "2021-11-21T20:07",
+      "name": "2021-11-23T14:21",
       "id": "inquiry44779"
     },
     {
@@ -149,6 +149,54 @@
         {
           "id": "income1",
           "placeholder": "calc.salary",
+          "value": 9000
+        },
+        {
+          "id": "income2",
+          "placeholder": "calc.part-time_job",
+          "value": 0
+        },
+        {
+          "id": "income3",
+          "placeholder": "calc.additional_income",
+          "value": 0
+        },
+        {
+          "id": "income4",
+          "placeholder": "calc.additional_income",
+          "value": 0
+        }
+      ],
+      "expenses": [
+        {
+          "id": "expense1",
+          "placeholder": "calc.HCS",
+          "value": 700
+        },
+        {
+          "id": "expense2",
+          "placeholder": "calc.mobile_connection",
+          "value": 0
+        },
+        {
+          "id": "expense3",
+          "placeholder": "calc.home_internet",
+          "value": 0
+        },
+        {
+          "id": "expense4",
+          "placeholder": "calc.credit",
+          "value": 0
+        }
+      ],
+      "name": "2021-11-21T20:12",
+      "id": "inquiry53649"
+    },
+    {
+      "incomes": [
+        {
+          "id": "income1",
+          "placeholder": "calc.salary",
           "value": 8000
         },
         {
@@ -189,8 +237,8 @@
           "value": 0
         }
       ],
-      "name": "2021-11-21T20:11",
-      "id": "inquiry37627"
+      "name": "2021-11-21T20:39",
+      "id": "inquiry40703"
     }
   ]
 }

@@ -1,10 +1,28 @@
 .item {
 	display: flex;
 	align-items: center;
+	position: relative;
 }
 .item__button {
 	border-radius: 0px 5px 5px 0px !important;
 }
 .item__input {
 	border-radius: 5px 0 0 5px;
+}
+
+.floating-label {
+	position: absolute;
+	pointer-events: none;
+	color: #737373;
+	left: 20px;
+	top: 18px;
+	transition: 0.2s ease all;
+} 
+
+.floating-label-focus{
+	top: 7px;
+	bottom: 10px;
+	left: 20px;
+	font-size: 12px;
+	opacity: 1;
 }

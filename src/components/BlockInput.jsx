@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable consistent-return */
-import React from 'react';
+import React, { useState } from 'react';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 import './BlockInput.css';
@@ -9,6 +10,7 @@ import '../i18next/i18next';
 
 const BlockInput = ({ additional, ...props }) => {
   const { t } = useTranslation();
+  const [resetLabel, setResetLabel] = useState(false);
 
   const calc = (Id, val) => {
     props.set(props.values.map((item) => (item.id !== Id ? item : { ...item, value: +val })));
@@ -29,8 +31,9 @@ const BlockInput = ({ additional, ...props }) => {
     props.set([...props.values, { id: Date.now(), placeholder: placeholder(), value: 0 }]);
   };
 
-  const discharge = () => {
+  const reset = () => {
     props.set(props.values.map((item) => ({ ...item, value: 0 })));
+    setResetLabel(true);
   };
 
   return (
@@ -50,13 +53,15 @@ const BlockInput = ({ additional, ...props }) => {
             typeButton="button"
             icon={<i className="material-icons">delete</i>}
             onClick={() => addDelete(item)}
+            resetLabel={resetLabel}
+            setResetLabel={setResetLabel}
           />
         ))}
         <div className="block__buttons">
           <Button
             className="block__button"
             type="reset"
-            onClick={discharge}
+            onClick={reset}
           >
             {t('calc.reset')}
           </Button>

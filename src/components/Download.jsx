@@ -20,7 +20,6 @@ const Download = (props) => {
       props.setDownloadsIncomes(response.incomes);
       props.setDownloadsExpenses(response.expenses);
     }
-    // props.setIdSave('');
   });
   const [fetchingDelete, isLoadedDelete, errorDelete] = useFetching(async () => {
     if (props.idSave.length >= 7) {
