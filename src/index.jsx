@@ -1,14 +1,18 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { store } from './store';
 import App from './App';
 import Loader from './components/Loader';
 
 ReactDOM.render(
 
   <React.StrictMode>
-    <Suspense fallback={<Loader />}>
-      <App />
-    </Suspense>
+    <Provider store={store}>
+      <Suspense fallback={<Loader />}>
+        <App />
+      </Suspense>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

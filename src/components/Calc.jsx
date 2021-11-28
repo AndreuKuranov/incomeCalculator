@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import cn from 'classnames';
+import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import BlockInput from './BlockInput';
 import './Calc.css';
 import '../i18next/i18next';
+import { saveIncomesAction } from '../store/saveIncomes';
+import { saveExpensesAction } from '../store/saveExpenses';
 
 const Calc = (props) => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const downloadsIncomes = useSelector((state) => state.dowIn.incomes);
+  const downloadsExpenses = useSelector((state) => state.dowEx.expenses);
 
   const [incomes, setIncomes] = useState([
     { id: 'income1', placeholder: 'calc.salary', value: 0 },
@@ -23,16 +29,16 @@ const Calc = (props) => {
   const additionalField = ['calc.additional_income', 'calc.additional_expenses'];
 
   useEffect(() => {
-    props.setSumIncomes(incomes);
-    props.setSumExpenses(expenses);
+    dispatch(saveIncomesAction(incomes));
+    dispatch(saveExpensesAction(expenses));
   }, [incomes, expenses]);
 
   useEffect(() => {
-    if (Array.isArray(props.downloadsIncomes) && Array.isArray(props.downloadsExpenses)) {
-      setIncomes(props.downloadsIncomes);
-      setExpenses(props.downloadsExpenses);
+    if (downloadsIncomes.length > 0 && downloadsExpenses.length > 0) {
+      setIncomes(downloadsIncomes);
+      setExpenses(downloadsExpenses);
     }
-  }, [props.downloadsIncomes, props.downloadsExpenses]);
+  }, [downloadsIncomes, downloadsExpenses]);
 
   return (
     <div className={cn('calc', props.className)}>

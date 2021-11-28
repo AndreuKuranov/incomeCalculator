@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable consistent-return */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
+import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import './BlockInput.css';
 import ItemInput from './ItemInput';

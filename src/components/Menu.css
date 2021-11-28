@@ -20,7 +20,7 @@
 	display: flex;
 	justify-content: flex-start;
 	min-height: 40px;
-	margin: 10px 0 0 0;
+	padding: 0px 5px 0px 0px;
 }
 .menu__modal {
 	position: relative;

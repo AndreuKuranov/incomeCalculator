@@ -1,28 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import Button from './UI/button/Button';
 import PostService from '../API/PostService';
 import useFetching from '../hooks/useFetching';
 import Modal from './UI/modal/Modal';
-import {
-  checkSaveId, checkSave, unique, minSave,
-} from '../date/check';
+import { unique } from '../date/check';
 
-const Save = (props) => {
+const Save = () => {
   const [modal, setModal] = useState(false);
+  const saveIncomes = useSelector((state) => state.saveIn.incomes);
+  const saveExpenses = useSelector((state) => state.saveEx.expenses);
 
   const [fetchingSave, isLoadedSave, errorSave] = useFetching(async () => {
-    if (props.listSave.length >= 5 && checkSave(props.listSave) !== true) {
-      const Id = minSave(props.listSave, 'name');
-      await PostService.putItem(Id, props.saveIncomes, props.saveExpenses);
-      props.updateListSave(Id);
-    } else if (checkSave(props.listSave)) {
-      const saveId = checkSaveId(props.listSave);
-      await PostService.putItem(saveId, props.saveIncomes, props.saveExpenses);
-    } else {
-      const newId = unique();
-      await PostService.postItem(props.saveIncomes, props.saveExpenses, newId);
-      props.newSave(newId);
-    }
+    const newId = unique();
+    await PostService.postItem(saveIncomes, saveExpenses, newId);
   });
 
   useEffect(() => {
@@ -32,7 +23,7 @@ const Save = (props) => {
   }, [errorSave]);
 
   return (
-    <div style={{ padding: '0px 5px 0px 0px' }}>
+    <div style={{ margin: '0px 5px 0px 0px' }}>
       <Button
         type="button"
         onClick={isLoadedSave ? () => {} : () => fetchingSave()}

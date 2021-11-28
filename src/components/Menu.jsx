@@ -1,50 +1,39 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import cn from 'classnames';
 import './Menu.css';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Modal from './UI/modal/Modal';
 import Button from './UI/button/Button';
 import Language from './Language';
 import Download from './Download';
 import Save from './Save';
-import { currentDate } from '../date/date';
+import { saveIdAction } from '../store/saveId';
 
 const Menu = (props) => {
   const [modal, setModal] = useState(false);
-
-  const [listSave, setListSave] = useState([]);
-  const [idSave, setIdSave] = useState('');
-
-  const sortSave = (sort) => {
-    setListSave([...listSave].sort((a, b) => a[sort].localeCompare(b[sort])));
-  };
-
-  useEffect(() => {
-    sortSave('name');
-  }, [modal, idSave]);
-
-  const deleteSave = (Id) => {
-    setListSave(listSave.filter((e) => e.value !== Id));
-  };
-
-  const newSave = (Id) => {
-    setListSave([...listSave, { name: currentDate(), value: Id }]);
-  };
-
-  const updateListSave = (Id) => {
-    setListSave(listSave.map((item) => (item.value !== Id ? item : { ...item, name: currentDate() })));
-  };
+  const dispatch = useDispatch();
 
   return (
     <div className={cn('menu', props.className)}>
       <div className="menu__container container">
         <div className="menu__settings">
-          <Save
-            saveIncomes={props.saveIncomes}
-            saveExpenses={props.saveExpenses}
-            listSave={listSave}
-            newSave={newSave}
-            updateListSave={updateListSave}
-          />
+
+          <Link
+            style={{ textDecoration: 'none', padding: '0px 5px 0px 0px' }}
+            to="/incomeCalculator"
+          >
+            <Button
+              type="button"
+              className="material-icons"
+              onClick={() => dispatch(saveIdAction(''))}
+            >
+              home
+            </Button>
+          </Link>
+
+          <Save />
+          <Download />
           <Button
             type="button"
             onClick={() => setModal(true)}
@@ -64,15 +53,6 @@ const Menu = (props) => {
               <i className="material-icons">close</i>
             </Button>
             <Language />
-            <Download
-              deleteSave={deleteSave}
-              setDownloadsIncomes={props.setDownloadsIncomes}
-              setDownloadsExpenses={props.setDownloadsExpenses}
-              listSave={listSave}
-              setListSave={setListSave}
-              idSave={idSave}
-              setIdSave={setIdSave}
-            />
           </Modal>
         </div>
       </div>

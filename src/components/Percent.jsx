@@ -1,11 +1,15 @@
 import React from 'react';
 import cn from 'classnames';
+import { useSelector, useDispatch } from 'react-redux';
 import './Percent.css';
 import { useTranslation } from 'react-i18next';
 import '../i18next/i18next';
+import { percentAction } from '../store/percent';
 
 const Percent = (props) => {
   const { t } = useTranslation();
+  const percent = useSelector((state) => state.per.percent);
+  const dispatch = useDispatch();
 
   return (
     <div className={cn('percent', props.className)}>
@@ -19,12 +23,12 @@ const Percent = (props) => {
                 type="range"
                 min="0"
                 max="100"
-                value={props.percent}
-                onChange={(event) => props.setPercent(event.target.value)}
+                value={percent}
+                onChange={(event) => dispatch(percentAction(event.target.value))}
               />
             </div>
             <div className="percent__text text">
-              {props.percent}
+              {percent}
               {' '}
               %
             </div>

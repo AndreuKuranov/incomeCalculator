@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import './Sum.css';
 import Column from './Column';
@@ -13,10 +14,13 @@ import {
 
 const Sum = (props) => {
   const { t } = useTranslation();
+  const saveIncomes = useSelector((state) => state.saveIn.incomes);
+  const saveExpenses = useSelector((state) => state.saveEx.expenses);
+  const percent = useSelector((state) => state.per.percent);
 
-  const monthMoney = difference(props.sumIncomes, props.sumExpenses);
-  const dayMoney = availablePerDay(monthMoney, props.percent);
-  const yearMoney = availablePerYear(monthMoney, props.percent);
+  const monthMoney = difference(saveIncomes, saveExpenses);
+  const dayMoney = availablePerDay(monthMoney, percent);
+  const yearMoney = availablePerYear(monthMoney, percent);
 
   const results = [
     {

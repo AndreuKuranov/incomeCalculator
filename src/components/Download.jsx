@@ -1,32 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import './Download.css';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Select from './UI/select/Select';
 import Button from './UI/button/Button';
 import PostService from '../API/PostService';
 import useFetching from '../hooks/useFetching';
 import Modal from './UI/modal/Modal';
+import { saveIdAction } from '../store/saveId';
+import { downloadsIncomesAction } from '../store/downloadsIncomes';
+import { downloadsExpensesAction } from '../store/downloadsExpenses';
 
-const Download = (props) => {
+const Download = () => {
+  const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
   const [modalInquiry, setModalInquiry] = useState(false);
 
+  const [listSave, setListSave] = useState([]);
+  const [idSave, setIdSave] = useState('');
   const [fetchingInquiry, isLoadedInquiry, errorInquiry] = useFetching(async () => {
     const response = await PostService.getAll();
-    props.setListSave(response.map((item) => ({ name: item.name, value: item.id })));
+    setListSave(response.map((item) => ({ name: item.name, value: item.id })));
   });
   const [fetchingDownload, isLoadedDownload, errorDownload] = useFetching(async () => {
-    if (props.idSave.length >= 7) {
-      const response = await PostService.getItem(props.idSave);
-      props.setDownloadsIncomes(response.incomes);
-      props.setDownloadsExpenses(response.expenses);
+    if (idSave.length >= 7) {
+      const response = await PostService.getItem(idSave);
+      dispatch(downloadsIncomesAction(response.incomes));
+      dispatch(downloadsExpensesAction(response.expenses));
+      dispatch(saveIdAction(idSave));
     }
   });
   const [fetchingDelete, isLoadedDelete, errorDelete] = useFetching(async () => {
-    if (props.idSave.length >= 7) {
-      await PostService.deleteItem(props.idSave);
-      props.deleteSave(props.idSave);
+    if (idSave.length >= 7) {
+      await PostService.deleteItem(idSave);
     }
-    props.setIdSave('');
+    setIdSave('');
   });
 
   useEffect(() => {
@@ -45,37 +53,42 @@ const Download = (props) => {
     }
   }, [errorInquiry]);
 
+  const errorListSave = (inquiry, loaded) => {
+    if (inquiry) {
+      return 'Сервер не отвечает';
+    } if (loaded) {
+      return 'Идет загрузка...';
+    }
+    return 'Сохранения';
+  };
+
   return (
     <div>
-      {
-        modalInquiry
-          ? <div>Сервер не отвечает</div>
-          : (
-            <div className="menu__row">
-              <Button
-                className="delete__button"
-                type="button"
-                onClick={isLoadedDelete ? () => {} : () => fetchingDelete()}
-                style={isLoadedDelete ? { opacity: '0.7' } : {}}
-              >
-                <i className="material-icons">delete</i>
-              </Button>
-              <Select
-                defaultValue={isLoadedInquiry ? 'Идет загрузка...' : 'Сохранения'}
-                onChange={(value) => props.setIdSave(value)}
-                options={props.listSave}
-              />
-              <Button
-                className="download__button"
-                type="button"
-                onClick={isLoadedDownload ? () => {} : () => fetchingDownload()}
-                style={isLoadedDownload ? { opacity: '0.7' } : {}}
-              >
-                <i className="material-icons">download</i>
-              </Button>
-            </div>
-          )
-      }
+      <div className="menu__row">
+        <Button
+          className="delete__button"
+          type="button"
+          onClick={isLoadedDelete ? () => {} : () => fetchingDelete()}
+          style={isLoadedDelete ? { opacity: '0.7' } : {}}
+        >
+          <i className="material-icons">delete</i>
+        </Button>
+        <Select
+          defaultValue={errorListSave(modalInquiry, isLoadedInquiry)}
+          onChange={(value) => setIdSave(value)}
+          options={listSave}
+        />
+        <Link style={{ textDecoration: 'none' }} to={`/incomeCalculator/${idSave}`}>
+          <Button
+            className="download__button material-icons"
+            type="button"
+            onClick={isLoadedDownload ? () => {} : () => fetchingDownload()}
+            style={isLoadedDownload ? { opacity: '0.7' } : {}}
+          >
+            download
+          </Button>
+        </Link>
+      </div>
       <Modal
         className="menu__modal"
         visible={modal}
