@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import Modal from './UI/modal/Modal';
 import Button from './UI/button/Button';
 import Language from './Language';
-import Download from './Download';
 import Save from './Save';
 import { saveIdAction } from '../store/saveId';
 
@@ -33,7 +32,6 @@ const Menu = (props) => {
           </Link>
 
           <Save />
-          <Download />
           <Button
             type="button"
             onClick={() => setModal(true)}

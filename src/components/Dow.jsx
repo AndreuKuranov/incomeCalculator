@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Download.css';
+import './Dow.css';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Select from './UI/select/Select';
@@ -7,7 +7,7 @@ import Button from './UI/button/Button';
 import PostService from '../API/PostService';
 import useFetching from '../hooks/useFetching';
 import Modal from './UI/modal/Modal';
-import { saveIdAction } from '../store/saveId';
+// import { saveIdAction } from '../store/saveId';
 import { downloadsIncomesAction } from '../store/downloadsIncomes';
 import { downloadsExpensesAction } from '../store/downloadsExpenses';
 
@@ -27,7 +27,7 @@ const Download = () => {
       const response = await PostService.getItem(idSave);
       dispatch(downloadsIncomesAction(response.incomes));
       dispatch(downloadsExpensesAction(response.expenses));
-      dispatch(saveIdAction(idSave));
+      // dispatch(saveIdAction(idSave));
     }
   });
   const [fetchingDelete, isLoadedDelete, errorDelete] = useFetching(async () => {
@@ -66,7 +66,7 @@ const Download = () => {
     <div>
       <div className="menu__row">
         <Button
-          className="delete__button"
+          className="deletes__button"
           type="button"
           onClick={isLoadedDelete ? () => {} : () => fetchingDelete()}
           style={isLoadedDelete ? { opacity: '0.7' } : {}}
@@ -80,7 +80,7 @@ const Download = () => {
         />
         <Link style={{ textDecoration: 'none' }} to={`/incomeCalculator/${idSave}`}>
           <Button
-            className="download__button material-icons"
+            className="downloads__button material-icons"
             type="button"
             onClick={isLoadedDownload ? () => {} : () => fetchingDownload()}
             style={isLoadedDownload ? { opacity: '0.7' } : {}}

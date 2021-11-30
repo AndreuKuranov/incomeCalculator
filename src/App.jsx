@@ -1,33 +1,32 @@
 import React from 'react';
 import './style/App.css';
-import { useSelector } from 'react-redux';
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
-  Redirect,
 } from 'react-router-dom';
 import Menu from './components/Menu';
+import Header from './components/Header';
 import Body from './pages/Body';
+import Downloads from './components/Downloads';
 
 function App() {
-  const idRouter = useSelector((state) => state.id.id);
-
   return (
     <div className="main">
       <Router>
         <Menu
           className="main__menu"
         />
-        <Switch>
-          <Route path={`/incomeCalculator/${idRouter}`}>
-            <Body />
-          </Route>
-          <Route path="/incomeCalculator">
-            <Body />
-          </Route>
-          <Redirect to="/incomeCalculator" />
-        </Switch>
+        <Header
+          className="main__header"
+        />
+        <Downloads
+          className="main__downloads"
+        />
+        <Routes>
+          <Route path="/incomeCalculator/:idSave" element={<Body />} />
+          <Route path="/incomeCalculator" element={<Body />} />
+        </Routes>
       </Router>
     </div>
   );
