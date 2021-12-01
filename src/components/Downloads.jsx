@@ -12,6 +12,8 @@ import Button from './UI/button/Button';
 import Modal from './UI/modal/Modal';
 import { downloadsIncomesAction } from '../store/downloadsIncomes';
 import { downloadsExpensesAction } from '../store/downloadsExpenses';
+import { getPageCount } from '../date/pages';
+import Pagination from './Pagination';
 
 const Downloads = (props) => {
   const dispatch = useDispatch();
@@ -20,9 +22,15 @@ const Downloads = (props) => {
   const [listSave, setListSave] = useState([]);
   const [idSave, setIdSave] = useState('');
 
-  const [fetchingInquiry, isLoadedInquiry, errorInquiry] = useFetching(async () => {
-    const response = await PostService.getAll();
-    setListSave(response.map((item) => ({ name: item.name, value: item.id })));
+  const [totalPage, setTotalPage] = useState(0);
+  const [limitPage, setLimitPage] = useState(5);
+  const [pageNumber, setPageNumber] = useState(1);
+
+  const [fetchingInquiry, isLoadedInquiry, errorInquiry] = useFetching(async (limit, page) => {
+    const response = await PostService.getAll(limit, page);
+    setListSave(response.data.map((item) => ({ name: item.name, value: item.id })));
+    const totalCount = response.headers['x-total-count'];
+    setTotalPage(getPageCount(totalCount, limit));
   });
   const [fetchingDownload, isLoadedDownload, errorDownload] = useFetching(async (id) => {
     const response = await PostService.getItem(id);
@@ -34,7 +42,7 @@ const Downloads = (props) => {
   });
 
   useEffect(() => {
-    fetchingInquiry();
+    fetchingInquiry(limitPage, pageNumber);
   }, []);
   useEffect(() => {
     if (errorDownload || errorDelete) {
@@ -54,6 +62,11 @@ const Downloads = (props) => {
       return 'Идет загрузка...';
     }
     return 'Сохранения';
+  };
+
+  const changePage = (limit, page) => {
+    setPageNumber(page);
+    fetchingInquiry(limit, page);
   };
 
   return (
@@ -84,6 +97,13 @@ const Downloads = (props) => {
               </Button>
             </div>
           ))}
+          <Pagination
+            className="download__page"
+            page={pageNumber}
+            limit={limitPage}
+            changePage={changePage}
+            totalPage={totalPage}
+          />
           <Modal
             className="menu__modal"
             visible={modal}

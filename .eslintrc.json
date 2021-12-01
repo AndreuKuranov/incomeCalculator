@@ -21,6 +21,7 @@
         "max-len": "off",
         "linebreak-style": "off",
         "react/prop-types": "off",
-        "react/destructuring-assignment": "off"
+        "react/destructuring-assignment": "off",
+        "arrow-body-style": "off"
     }
 }
