@@ -20,12 +20,17 @@ function App() {
         <Header
           className="main__header"
         />
-        <Downloads
-          className="main__downloads"
-        />
         <Routes>
+          <Route
+            path="/incomeCalculator"
+            element={(
+              <Downloads
+                className="main__downloads"
+              />
+            )}
+          />
           <Route path="/incomeCalculator/:idSave" element={<Body />} />
-          <Route path="/incomeCalculator" element={<Body />} />
+          <Route path="/incomeCalculator/new" element={<Body />} />
         </Routes>
       </Router>
     </div>

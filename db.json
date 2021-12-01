@@ -389,7 +389,7 @@
         {
           "id": "income1",
           "placeholder": "calc.salary",
-          "value": 6001
+          "value": 777777
         },
         {
           "id": "income2",
@@ -429,7 +429,7 @@
           "value": 0
         }
       ],
-      "name": "2021-12-01T00:07",
+      "name": "2021-12-01T19:59",
       "id": "inquiry23789"
     },
     {
@@ -437,7 +437,7 @@
         {
           "id": "income1",
           "placeholder": "calc.salary",
-          "value": 7000
+          "value": 88888888
         },
         {
           "id": "income2",
@@ -459,7 +459,7 @@
         {
           "id": "expense1",
           "placeholder": "calc.HCS",
-          "value": 700
+          "value": 99999999
         },
         {
           "id": "expense2",
@@ -477,8 +477,8 @@
           "value": 0
         }
       ],
-      "name": "2021-12-01T00:09",
-      "id": "inquiry82210"
+      "name": "2021-12-01T20:20",
+      "id": "inquiry33756"
     }
   ]
 }

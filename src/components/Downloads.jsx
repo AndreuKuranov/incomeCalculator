@@ -14,13 +14,13 @@ import { downloadsIncomesAction } from '../store/downloadsIncomes';
 import { downloadsExpensesAction } from '../store/downloadsExpenses';
 import { getPageCount } from '../date/pages';
 import Pagination from './Pagination';
+import { saveIdAction } from '../store/saveId';
 
 const Downloads = (props) => {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
   const [modalInquiry, setModalInquiry] = useState(false);
   const [listSave, setListSave] = useState([]);
-  const [idSave, setIdSave] = useState('');
 
   const [totalPage, setTotalPage] = useState(0);
   const [limitPage, setLimitPage] = useState(5);
@@ -36,14 +36,17 @@ const Downloads = (props) => {
     const response = await PostService.getItem(id);
     dispatch(downloadsIncomesAction(response.incomes));
     dispatch(downloadsExpensesAction(response.expenses));
+    dispatch(saveIdAction(id));
   });
   const [fetchingDelete, isLoadedDelete, errorDelete] = useFetching(async (id) => {
     await PostService.deleteItem(id);
   });
 
   useEffect(() => {
+    const ac = new AbortController();
     fetchingInquiry(limitPage, pageNumber);
-  }, []);
+    return () => ac.abort();
+  }, [pageNumber]);
   useEffect(() => {
     if (errorDownload || errorDelete) {
       setModal(true);

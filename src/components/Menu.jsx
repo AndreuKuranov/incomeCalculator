@@ -30,13 +30,26 @@ const Menu = (props) => {
               home
             </Button>
           </Link>
+          <Link
+            style={{ textDecoration: 'none', padding: '0px 5px 0px 0px' }}
+            to="/incomeCalculator/new"
+          >
+            <Button
+              type="button"
+              className="material-icons"
+              onClick={() => dispatch(saveIdAction('new'))}
+            >
+              calculate
+            </Button>
+          </Link>
 
           <Save />
           <Button
+            className="material-icons"
             type="button"
             onClick={() => setModal(true)}
           >
-            <i className="material-icons">settings</i>
+            settings
           </Button>
           <Modal
             className="menu__modal"
@@ -44,11 +57,11 @@ const Menu = (props) => {
             setVisible={setModal}
           >
             <Button
-              className="menu__button"
+              className="menu__button material-icons"
               type="button"
               onClick={() => setModal(false)}
             >
-              <i className="material-icons">close</i>
+              close
             </Button>
             <Language />
           </Modal>
