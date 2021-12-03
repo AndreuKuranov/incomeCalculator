@@ -9,6 +9,7 @@ import { saveExpenses } from './saveExpenses';
 import { percent } from './percent';
 import { newId } from './newId';
 import { newUrlCalc } from './newUrlCalc';
+import { listSave } from './listSave';
 
 const rootReducer = combineReducers({
   id: saveId,
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   per: percent,
   newId,
   newUrl: newUrlCalc,
+  listSave,
 });
 
 export const store = createStore(rootReducer, composeWithDevTools());

@@ -485,12 +485,12 @@
         {
           "id": "income1",
           "placeholder": "calc.salary",
-          "value": 70000
+          "value": 23424
         },
         {
           "id": "income2",
           "placeholder": "calc.part-time_job",
-          "value": 0
+          "value": 234
         },
         {
           "id": "income3",
@@ -507,12 +507,12 @@
         {
           "id": "expense1",
           "placeholder": "calc.HCS",
-          "value": 999
+          "value": 2342
         },
         {
           "id": "expense2",
           "placeholder": "calc.mobile_connection",
-          "value": 0
+          "value": 2342
         },
         {
           "id": "expense3",
@@ -525,66 +525,8 @@
           "value": 0
         }
       ],
-      "name": "2021-12-02T22:56:03.114Z",
-      "id": "inquiry32381"
-    },
-    {
-      "incomes": [
-        {
-          "id": "income1",
-          "placeholder": "calc.salary",
-          "value": 242
-        },
-        {
-          "id": "income2",
-          "placeholder": "calc.part-time_job",
-          "value": 234
-        },
-        {
-          "id": "income3",
-          "placeholder": "calc.additional_income",
-          "value": 234
-        },
-        {
-          "id": "income4",
-          "placeholder": "calc.additional_income",
-          "value": 234
-        },
-        {
-          "id": 1638494614897,
-          "placeholder": "calc.additional_income",
-          "value": 234
-        }
-      ],
-      "expenses": [
-        {
-          "id": "expense1",
-          "placeholder": "calc.HCS",
-          "value": 234
-        },
-        {
-          "id": "expense2",
-          "placeholder": "calc.mobile_connection",
-          "value": 234
-        },
-        {
-          "id": "expense3",
-          "placeholder": "calc.home_internet",
-          "value": 234
-        },
-        {
-          "id": "expense4",
-          "placeholder": "calc.credit",
-          "value": 234
-        },
-        {
-          "id": 1638494616065,
-          "placeholder": "calc.additional_expenses",
-          "value": 234
-        }
-      ],
-      "name": "2021-12-03T01:23:47.154Z",
-      "id": "inquiry76549"
+      "name": "2021-12-03T04:56:59.448Z",
+      "id": "inquiry26539"
     }
   ]
 }

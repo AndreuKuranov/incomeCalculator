@@ -40,3 +40,7 @@ export const errorListSave = (inquiry, loaded) => {
   }
   return 'Сохранения';
 };
+
+export const resetValueCalc = (calcValue) => {
+  return calcValue.map((item) => ({ ...item, value: 0 }));
+};

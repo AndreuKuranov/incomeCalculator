@@ -8,7 +8,7 @@ import {
 import Menu from './components/Menu';
 import Header from './components/Header';
 import Body from './pages/Body';
-import Downloads from './components/Downloads';
+import DownloadsList from './components/DownloadsList';
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
           <Route
             path="/incomeCalculator"
             element={(
-              <Downloads
+              <DownloadsList
                 className="main__downloads"
               />
             )}

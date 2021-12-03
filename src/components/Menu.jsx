@@ -12,7 +12,7 @@ import { saveIdAction } from '../store/saveId';
 import { downloadsIncomesAction } from '../store/downloadsIncomes';
 import { downloadsExpensesAction } from '../store/downloadsExpenses';
 import { newIdAction } from '../store/newId';
-import { unique } from '../date/check';
+import { unique, resetValueCalc } from '../date/check';
 
 const Menu = (props) => {
   const [modal, setModal] = useState(false);
@@ -24,14 +24,14 @@ const Menu = (props) => {
 
   const onClickHome = () => {
     dispatch(saveIdAction(''));
-    dispatch(downloadsIncomesAction(downloadsIncomes.map((item) => ({ ...item, value: 0 }))));
-    dispatch(downloadsExpensesAction(downloadsExpenses.map((item) => ({ ...item, value: 0 }))));
+    dispatch(downloadsIncomesAction(resetValueCalc(downloadsIncomes)));
+    dispatch(downloadsExpensesAction(resetValueCalc(downloadsExpenses)));
   };
 
   const onClickCalculate = () => {
     if (idSave !== newUrl) {
-      dispatch(downloadsIncomesAction(downloadsIncomes.map((item) => ({ ...item, value: 0 }))));
-      dispatch(downloadsExpensesAction(downloadsExpenses.map((item) => ({ ...item, value: 0 }))));
+      dispatch(downloadsIncomesAction(resetValueCalc(downloadsIncomes)));
+      dispatch(downloadsExpensesAction(resetValueCalc(downloadsExpenses)));
       dispatch(saveIdAction(newUrl));
     }
     dispatch(newIdAction(unique()));

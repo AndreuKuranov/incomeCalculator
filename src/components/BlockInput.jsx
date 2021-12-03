@@ -6,7 +6,7 @@ import './BlockInput.css';
 import ItemInput from './ItemInput';
 import Button from './UI/button/Button';
 import '../i18next/i18next';
-import { placeholder } from '../date/check';
+import { placeholder, resetValueCalc } from '../date/check';
 
 const BlockInput = ({ additional, ...props }) => {
   const { t } = useTranslation();
@@ -26,7 +26,7 @@ const BlockInput = ({ additional, ...props }) => {
   };
 
   const reset = () => {
-    dispatch(props.set(props.values.map((item) => ({ ...item, value: 0 }))));
+    dispatch(props.set(resetValueCalc(props.values)));
     setResetLabel(true);
   };
 
