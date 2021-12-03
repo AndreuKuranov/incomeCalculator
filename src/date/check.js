@@ -23,3 +23,20 @@ export const minSave = (listSave, val) => {
   const x = [...listSave].sort((a, b) => a[val].localeCompare(b[val]));
   return x[0].value;
 };
+
+export const placeholder = (additional, id) => {
+  for (let i = 0; i < additional.length; i += 1) {
+    if (additional[i] === id) {
+      return additional[i];
+    }
+  }
+};
+
+export const errorListSave = (inquiry, loaded) => {
+  if (inquiry) {
+    return 'Сохранений не найдено';
+  } if (loaded) {
+    return 'Идет загрузка...';
+  }
+  return 'Сохранения';
+};

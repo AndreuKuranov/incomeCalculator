@@ -1,14 +1,13 @@
-/* eslint-disable indent */
 import axios from 'axios';
 import { currentDate } from '../date/date';
 
 export default class PostService {
   static async getAll(limit = 10, page = 1) {
     const response = await axios.get('http://localhost:3000/inquiry', {
-        params: {
-            _limit: limit,
-            _page: page,
-        },
+      params: {
+        _limit: limit,
+        _page: page,
+      },
     });
     return response;
   }

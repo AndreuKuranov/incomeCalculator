@@ -22,4 +22,4 @@ export const availablePerYear = (sum, percent) => ((sum * (percent / 100)) * 12)
 
 export const kFormatter = (num) => (Math.abs(num) > 999 ? `${Math.sign(num) * ((Math.abs(num) / 1000).toFixed(1))}k` : Math.sign(num) * Math.abs(num)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 
-export const currentDate = () => new Date().toISOString().slice(0, 16);
+export const currentDate = () => new Date().toISOString();

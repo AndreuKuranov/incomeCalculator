@@ -32,8 +32,8 @@ const Menu = (props) => {
     if (idSave !== newUrl) {
       dispatch(downloadsIncomesAction(downloadsIncomes.map((item) => ({ ...item, value: 0 }))));
       dispatch(downloadsExpensesAction(downloadsExpenses.map((item) => ({ ...item, value: 0 }))));
+      dispatch(saveIdAction(newUrl));
     }
-    dispatch(saveIdAction(newUrl));
     dispatch(newIdAction(unique()));
   };
 
@@ -43,7 +43,8 @@ const Menu = (props) => {
         <div className="menu__settings">
 
           <Link
-            style={{ textDecoration: 'none', padding: '0px 5px 0px 0px' }}
+            className="text_decoration"
+            style={{ padding: '0px 5px 0px 0px' }}
             to="/incomeCalculator"
           >
             <Button
@@ -54,8 +55,9 @@ const Menu = (props) => {
             </Button>
           </Link>
           <Link
-            style={{ textDecoration: 'none', padding: '0px 5px 0px 0px' }}
-            to="/incomeCalculator/new"
+            className="text_decoration"
+            style={{ padding: '0px 5px 0px 0px' }}
+            to={`/incomeCalculator/${newUrl}`}
           >
             <Button
               type="button"

@@ -1,7 +1,8 @@
+/* eslint-disable no-shadow */
 /* eslint-disable no-sequences */
 /* eslint-disable arrow-body-style */
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -13,8 +14,9 @@ import Modal from './UI/modal/Modal';
 import { downloadsIncomesAction } from '../store/downloadsIncomes';
 import { downloadsExpensesAction } from '../store/downloadsExpenses';
 import { getPageCount } from '../date/pages';
-import Pagination from './Pagination';
+import { errorListSave } from '../date/check';
 import { saveIdAction } from '../store/saveId';
+import { useObserver } from '../hooks/useObserver';
 
 const Downloads = (props) => {
   const dispatch = useDispatch();
@@ -23,12 +25,13 @@ const Downloads = (props) => {
   const [listSave, setListSave] = useState([]);
 
   const [totalPage, setTotalPage] = useState(0);
-  const [limitPage, setLimitPage] = useState(5);
+  const [limitPage] = useState(10);
   const [pageNumber, setPageNumber] = useState(1);
+  const lastElement = useRef();
 
   const [fetchingInquiry, isLoadedInquiry, errorInquiry] = useFetching(async (limit, page) => {
     const response = await PostService.getAll(limit, page);
-    setListSave(response.data.map((item) => ({ name: item.name, value: item.id })));
+    setListSave([...listSave, ...response.data.map((item) => ({ name: item.name, value: item.id }))]);
     const totalCount = response.headers['x-total-count'];
     setTotalPage(getPageCount(totalCount, limit));
   });
@@ -40,6 +43,11 @@ const Downloads = (props) => {
   });
   const [fetchingDelete, isLoadedDelete, errorDelete] = useFetching(async (id) => {
     await PostService.deleteItem(id);
+    setListSave(listSave.filter((e) => e.value !== id));
+  });
+
+  useObserver(lastElement, pageNumber < totalPage, isLoadedInquiry, () => {
+    setPageNumber(pageNumber + 1);
   });
 
   useEffect(() => {
@@ -57,20 +65,6 @@ const Downloads = (props) => {
       setModalInquiry(true);
     }
   }, [errorInquiry]);
-
-  const errorListSave = (inquiry, loaded) => {
-    if (inquiry) {
-      return 'Сохранений не найдено';
-    } if (loaded) {
-      return 'Идет загрузка...';
-    }
-    return 'Сохранения';
-  };
-
-  const changePage = (limit, page) => {
-    setPageNumber(page);
-    fetchingInquiry(limit, page);
-  };
 
   return (
     <div className={cn('downloads__list', props.className)}>
@@ -100,13 +94,7 @@ const Downloads = (props) => {
               </Button>
             </div>
           ))}
-          <Pagination
-            className="download__page"
-            page={pageNumber}
-            limit={limitPage}
-            changePage={changePage}
-            totalPage={totalPage}
-          />
+          <div ref={lastElement} />
           <Modal
             className="menu__modal"
             visible={modal}

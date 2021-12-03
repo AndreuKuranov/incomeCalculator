@@ -34,7 +34,10 @@ const Save = () => {
 
   return (
     <div style={{ margin: '0px 5px 0px 0px' }}>
-      <Link style={{ textDecoration: 'none' }} to={`/incomeCalculator/${idSave === newUrl ? newId : idSave}`}>
+      <Link
+        className="text_decoration"
+        to={`/incomeCalculator/${idSave === newUrl ? newId : idSave}`}
+      >
         <Button
           type="button"
           onClick={isLoadedSave ? () => {} : () => fetchingSave()}

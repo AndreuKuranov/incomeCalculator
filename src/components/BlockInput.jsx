@@ -1,38 +1,32 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable consistent-return */
 import React, { useState } from 'react';
 import cn from 'classnames';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import './BlockInput.css';
 import ItemInput from './ItemInput';
 import Button from './UI/button/Button';
 import '../i18next/i18next';
+import { placeholder } from '../date/check';
 
 const BlockInput = ({ additional, ...props }) => {
   const { t } = useTranslation();
   const [resetLabel, setResetLabel] = useState(false);
+  const dispatch = useDispatch();
 
   const calc = (Id, val) => {
-    props.set(props.values.map((item) => (item.id !== Id ? item : { ...item, value: +val })));
+    dispatch(props.set(props.values.map((item) => (item.id !== Id ? item : { ...item, value: +val }))));
   };
 
   const addDelete = (item) => {
-    props.set(props.values.filter((e) => e.id !== item.id));
+    dispatch(props.set(props.values.filter((e) => e.id !== item.id)));
   };
 
   const newInput = () => {
-    const placeholder = () => {
-      for (let i = 0; i < additional.length; i += 1) {
-        if (additional[i] === props.id) {
-          return additional[i];
-        }
-      }
-    };
-    props.set([...props.values, { id: Date.now(), placeholder: placeholder(), value: 0 }]);
+    dispatch(props.set([...props.values, { id: Date.now(), placeholder: placeholder(additional, props.id), value: 0 }]));
   };
 
   const reset = () => {
-    props.set(props.values.map((item) => ({ ...item, value: 0 })));
+    dispatch(props.set(props.values.map((item) => ({ ...item, value: 0 }))));
     setResetLabel(true);
   };
 

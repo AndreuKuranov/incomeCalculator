@@ -1,5 +1,10 @@
 const defaultState = {
-  incomes: [],
+  incomes: [
+    { id: 'income1', placeholder: 'calc.salary', value: 0 },
+    { id: 'income2', placeholder: 'calc.part-time_job', value: 0 },
+    { id: 'income3', placeholder: 'calc.additional_income', value: 0 },
+    { id: 'income4', placeholder: 'calc.additional_income', value: 0 },
+  ],
 };
 
 const DOWNLOADS_INCOMES = 'DOWNLOADS_INCOMES';
