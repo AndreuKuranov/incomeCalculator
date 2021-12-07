@@ -9,12 +9,12 @@ import { saveIdAction } from '../store/saveId';
 
 const Save = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const downloadsIncomes = useSelector((state) => state.dowIn.incomes);
   const downloadsExpenses = useSelector((state) => state.dowEx.expenses);
   const idSave = useSelector((state) => state.id.id);
   const newUrl = useSelector((state) => state.newUrl.newUrl);
   const newId = useSelector((state) => state.newId.newId);
-  const navigate = useNavigate();
 
   const [fetchingSave, isLoadedSave, errorSave] = useFetching(async () => {
     if (idSave && idSave !== newUrl) {
@@ -27,9 +27,10 @@ const Save = () => {
   });
 
   return (
-    <div style={{ margin: '0px 5px 0px 0px' }}>
+    <div>
       <Button
         type="button"
+        title="save"
         onClick={isLoadedSave ? () => {} : () => fetchingSave()}
       >
         <i className="material-icons">save</i>

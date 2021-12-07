@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PostService from '../API/PostService';
 import useFetching from '../hooks/useFetching';
 import { getPageCount } from '../date/pages';
-import { errorListSave, resetValueCalc } from '../date/check';
+import { errorListSave } from '../date/check';
 import { useObserver } from '../hooks/useObserver';
 import Download from './Download';
 import { saveIdAction } from '../store/saveId';
@@ -16,14 +16,14 @@ import { downloadsExpensesAction } from '../store/downloadsExpenses';
 
 const DownloadsList = (props) => {
   const [modalInquiry, setModalInquiry] = useState(false);
+  const lastElement = useRef();
+  const dispatch = useDispatch();
+  const incomes = useSelector((state) => state.incomes.incomes);
+  const expenses = useSelector((state) => state.expenses.expenses);
   const [listSave, setListSave] = useState([]);
   const [totalPage, setTotalPage] = useState(0);
   const [limitPage] = useState(10);
   const [pageNumber, setPageNumber] = useState(1);
-  const incomes = useSelector((state) => state.incomes.incomes);
-  const expenses = useSelector((state) => state.expenses.expenses);
-  const lastElement = useRef();
-  const dispatch = useDispatch();
 
   const { incomeCalculator } = useParams();
   useEffect(() => {
@@ -38,10 +38,15 @@ const DownloadsList = (props) => {
     const totalCount = response.headers['x-total-count'];
     setTotalPage(getPageCount(totalCount, limit));
   });
+  const [fetchingDelete, isLoadedDelete, errorDelete] = useFetching(async (id) => {
+    await PostService.deleteItem(id);
+    setListSave(listSave.filter((e) => e.value !== id));
+  });
 
   useObserver(lastElement, pageNumber < totalPage, isLoadedInquiry, () => {
     setPageNumber(pageNumber + 1);
   });
+
   useEffect(() => {
     const ac = new AbortController();
     fetchingInquiry(limitPage, pageNumber);
@@ -63,8 +68,8 @@ const DownloadsList = (props) => {
               name={item.name}
               value={item.value}
               key={item.value}
-              setListSave={setListSave}
-              listSave={listSave}
+              fetchingDelete={fetchingDelete}
+              isLoadedDelete={isLoadedDelete}
             />
           ))}
           <div ref={lastElement} />

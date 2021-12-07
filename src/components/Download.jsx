@@ -1,17 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import PostService from '../API/PostService';
-import useFetching from '../hooks/useFetching';
 import Button from './UI/button/Button';
 
 const Download = (props) => {
   const navigate = useNavigate();
-
-  const [fetchingDelete, isLoadedDelete, errorDelete] = useFetching(async (id) => {
-    await PostService.deleteItem(id);
-    props.setListSave(props.listSave.filter((e) => e.value !== id));
-  });
 
   return (
     <div className="downloads__list__row download" key={props.value}>
@@ -19,6 +12,7 @@ const Download = (props) => {
       <Button
         className="download__button"
         type="button"
+        title="download"
         onClick={() => navigate(`/incomeCalculator/${props.value}`)}
       >
         <i className="material-icons">download</i>
@@ -26,7 +20,8 @@ const Download = (props) => {
       <Button
         className="delete__button material-icons"
         type="button"
-        onClick={isLoadedDelete ? () => {} : () => fetchingDelete(props.value)}
+        title="delete"
+        onClick={props.isLoadedDelete ? () => {} : () => props.fetchingDelete(props.value)}
       >
         <i className="material-icons">delete</i>
       </Button>

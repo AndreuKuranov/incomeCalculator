@@ -32,6 +32,7 @@ const ItemInput = ({ onChange, onClick, ...props }) => {
       <Button
         className="item__button"
         type={props.typeButton}
+        title="delete"
         onClick={() => onClick(props.item)}
       >
         {props.icon}

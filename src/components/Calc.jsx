@@ -23,6 +23,7 @@ const Calc = (props) => {
   const expenses = useSelector((state) => state.expenses.expenses);
   const downloadsIncomes = useSelector((state) => state.dowIn.incomes);
   const downloadsExpenses = useSelector((state) => state.dowEx.expenses);
+  const newUrl = useSelector((state) => state.newUrl.newUrl);
   const additionalField = ['calc.additional_income', 'calc.additional_expenses'];
 
   const [fetchingDownload, isLoadedDownload, errorDownload] = useFetching(async (id) => {
@@ -33,14 +34,14 @@ const Calc = (props) => {
   });
 
   useEffect(() => {
-    if (invoiceId && invoiceId !== 'new') {
+    if (invoiceId && invoiceId !== newUrl) {
       fetchingDownload(invoiceId);
     }
-    if (invoiceId === 'new') {
+    if (invoiceId === newUrl) {
       dispatch(downloadsIncomesAction(incomes));
       dispatch(downloadsExpensesAction(expenses));
       dispatch(newIdAction(unique()));
-      dispatch(saveIdAction('new'));
+      dispatch(saveIdAction(newUrl));
     }
   }, [invoiceId]);
 

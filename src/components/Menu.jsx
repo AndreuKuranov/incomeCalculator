@@ -2,70 +2,40 @@
 import React, { useState } from 'react';
 import cn from 'classnames';
 import './Menu.css';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import Modal from './UI/modal/Modal';
 import Button from './UI/button/Button';
 import Language from './Language';
 import Save from './Save';
-import { downloadsIncomesAction } from '../store/downloadsIncomes';
-import { downloadsExpensesAction } from '../store/downloadsExpenses';
-import { resetValueCalc } from '../date/check';
 
 const Menu = (props) => {
   const [modal, setModal] = useState(false);
-  const dispatch = useDispatch();
-  const downloadsIncomes = useSelector((state) => state.dowIn.incomes);
-  const downloadsExpenses = useSelector((state) => state.dowEx.expenses);
-  const idSave = useSelector((state) => state.id.id);
+  const navigate = useNavigate();
   const newUrl = useSelector((state) => state.newUrl.newUrl);
-
-  const onClickHome = () => {
-    // dispatch(downloadsIncomesAction(resetValueCalc(downloadsIncomes)));
-    // dispatch(downloadsExpensesAction(resetValueCalc(downloadsExpenses)));
-  };
-
-  const onClickCalculate = () => {
-    // if (idSave !== newUrl) {
-    //   dispatch(downloadsIncomesAction(resetValueCalc(downloadsIncomes)));
-    //   dispatch(downloadsExpensesAction(resetValueCalc(downloadsExpenses)));
-    // }
-  };
 
   return (
     <div className={cn('menu', props.className)}>
       <div className="menu__container container">
         <div className="menu__settings">
-
-          <Link
-            className="text_decoration"
-            style={{ padding: '0px 5px 0px 0px' }}
-            to="/incomeCalculator"
+          <Button
+            type="button"
+            title="home"
+            onClick={() => navigate('/incomeCalculator')}
           >
-            <Button
-              type="button"
-              onClick={() => onClickHome()}
-              title=""
-            >
-              <i className="material-icons">home</i>
-            </Button>
-          </Link>
-          <Link
-            className="text_decoration"
-            style={{ padding: '0px 5px 0px 0px' }}
-            to={`/incomeCalculator/${newUrl}`}
+            <i className="material-icons">home</i>
+          </Button>
+          <Button
+            type="button"
+            title="calculate"
+            onClick={() => navigate(`/incomeCalculator/${newUrl}`)}
           >
-            <Button
-              type="button"
-              onClick={() => onClickCalculate()}
-            >
-              <i className="material-icons">calculate</i>
-            </Button>
-          </Link>
-
+            <i className="material-icons">calculate</i>
+          </Button>
           <Save />
           <Button
             type="button"
+            title="settings"
             onClick={() => setModal(true)}
           >
             <i className="material-icons">settings</i>
@@ -77,6 +47,7 @@ const Menu = (props) => {
           >
             <Button
               className="menu__button"
+              title="close"
               type="button"
               onClick={() => setModal(false)}
             >
