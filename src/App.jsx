@@ -29,8 +29,11 @@ function App() {
               />
             )}
           />
-          <Route path="/incomeCalculator/:idSave" element={<Body />} />
-          <Route path="/incomeCalculator/new" element={<Body />} />
+          <Route path="/incomeCalculator/:invoiceId" element={<Body />} />
+          <Route
+            path="*"
+            element={<Body />}
+          />
         </Routes>
       </Router>
     </div>

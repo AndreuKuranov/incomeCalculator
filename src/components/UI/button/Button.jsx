@@ -9,6 +9,7 @@ const Button = ({ children, ...props }) => (
     type={props.type || 'button'}
     style={props.style}
     onClick={props.onClick}
+    title={props.title}
   >
     {children}
   </button>

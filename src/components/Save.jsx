@@ -1,58 +1,39 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Button from './UI/button/Button';
 import PostService from '../API/PostService';
 import useFetching from '../hooks/useFetching';
-import Modal from './UI/modal/Modal';
 import { saveIdAction } from '../store/saveId';
 
 const Save = () => {
   const dispatch = useDispatch();
-  const [modal, setModal] = useState(false);
-  const saveIncomes = useSelector((state) => state.saveIn.incomes);
-  const saveExpenses = useSelector((state) => state.saveEx.expenses);
+  const downloadsIncomes = useSelector((state) => state.dowIn.incomes);
+  const downloadsExpenses = useSelector((state) => state.dowEx.expenses);
   const idSave = useSelector((state) => state.id.id);
   const newUrl = useSelector((state) => state.newUrl.newUrl);
   const newId = useSelector((state) => state.newId.newId);
+  const navigate = useNavigate();
 
   const [fetchingSave, isLoadedSave, errorSave] = useFetching(async () => {
     if (idSave && idSave !== newUrl) {
-      await PostService.putItem(idSave, saveIncomes, saveExpenses);
+      await PostService.putItem(idSave, downloadsIncomes, downloadsExpenses);
     } else if (idSave === newUrl) {
-      await PostService.postItem(saveIncomes, saveExpenses, newId);
+      await PostService.postItem(downloadsIncomes, downloadsExpenses, newId);
       dispatch(saveIdAction(newId));
+      navigate(`/incomeCalculator/${newId}`);
     }
   });
 
-  useEffect(() => {
-    if (errorSave) {
-      setModal(true);
-    }
-  }, [errorSave]);
-
   return (
     <div style={{ margin: '0px 5px 0px 0px' }}>
-      <Link
-        className="text_decoration"
-        to={`/incomeCalculator/${idSave === newUrl ? newId : idSave}`}
+      <Button
+        type="button"
+        onClick={isLoadedSave ? () => {} : () => fetchingSave()}
       >
-        <Button
-          type="button"
-          onClick={isLoadedSave ? () => {} : () => fetchingSave()}
-          style={isLoadedSave ? { opacity: '0.7' } : {}}
-        >
-          <i className="material-icons">save</i>
-        </Button>
-      </Link>
-      <Modal
-        className="menu__modal"
-        visible={modal}
-        setVisible={setModal}
-      >
-        <div>Ошибка</div>
-      </Modal>
+        <i className="material-icons">save</i>
+      </Button>
     </div>
   );
 };

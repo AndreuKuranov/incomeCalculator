@@ -8,11 +8,9 @@ import Modal from './UI/modal/Modal';
 import Button from './UI/button/Button';
 import Language from './Language';
 import Save from './Save';
-import { saveIdAction } from '../store/saveId';
 import { downloadsIncomesAction } from '../store/downloadsIncomes';
 import { downloadsExpensesAction } from '../store/downloadsExpenses';
-import { newIdAction } from '../store/newId';
-import { unique, resetValueCalc } from '../date/check';
+import { resetValueCalc } from '../date/check';
 
 const Menu = (props) => {
   const [modal, setModal] = useState(false);
@@ -23,18 +21,15 @@ const Menu = (props) => {
   const newUrl = useSelector((state) => state.newUrl.newUrl);
 
   const onClickHome = () => {
-    dispatch(saveIdAction(''));
-    dispatch(downloadsIncomesAction(resetValueCalc(downloadsIncomes)));
-    dispatch(downloadsExpensesAction(resetValueCalc(downloadsExpenses)));
+    // dispatch(downloadsIncomesAction(resetValueCalc(downloadsIncomes)));
+    // dispatch(downloadsExpensesAction(resetValueCalc(downloadsExpenses)));
   };
 
   const onClickCalculate = () => {
-    if (idSave !== newUrl) {
-      dispatch(downloadsIncomesAction(resetValueCalc(downloadsIncomes)));
-      dispatch(downloadsExpensesAction(resetValueCalc(downloadsExpenses)));
-      dispatch(saveIdAction(newUrl));
-    }
-    dispatch(newIdAction(unique()));
+    // if (idSave !== newUrl) {
+    //   dispatch(downloadsIncomesAction(resetValueCalc(downloadsIncomes)));
+    //   dispatch(downloadsExpensesAction(resetValueCalc(downloadsExpenses)));
+    // }
   };
 
   return (
@@ -50,6 +45,7 @@ const Menu = (props) => {
             <Button
               type="button"
               onClick={() => onClickHome()}
+              title=""
             >
               <i className="material-icons">home</i>
             </Button>

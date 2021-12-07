@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
@@ -14,11 +15,11 @@ import {
 
 const Sum = (props) => {
   const { t } = useTranslation();
-  const saveIncomes = useSelector((state) => state.saveIn.incomes);
-  const saveExpenses = useSelector((state) => state.saveEx.expenses);
+  const downloadsIncomes = useSelector((state) => state.dowIn.incomes);
+  const downloadsExpenses = useSelector((state) => state.dowEx.expenses);
   const percent = useSelector((state) => state.per.percent);
 
-  const monthMoney = difference(saveIncomes, saveExpenses);
+  const monthMoney = difference(downloadsIncomes, downloadsExpenses);
   const dayMoney = availablePerDay(monthMoney, percent);
   const yearMoney = availablePerYear(monthMoney, percent);
 
