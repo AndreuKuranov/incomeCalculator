@@ -10,12 +10,13 @@ export const difference = (sumIncomes, sumExpenses) => {
   return (x - y).toFixed();
 };
 
-export const availablePerDay = (sum, percent) => {
-  const daysInMonth = () => {
-    const number = new Date();
-    return new Date(number.getFullYear(), number.getMonth() + 1, 0).getDate();
-  };
-  return ((sum - (sum * (percent / 100))) / daysInMonth()).toFixed();
+export const daysInMonth = () => {
+  const number = new Date();
+  return new Date(number.getFullYear(), number.getMonth() + 1, 0).getDate();
+};
+
+export const availablePerDay = (sum, percent, daysMonth) => {
+  return ((sum - (sum * (percent / 100))) / daysMonth).toFixed();
 };
 
 export const availablePerYear = (sum, percent) => ((sum * (percent / 100)) * 12).toFixed();

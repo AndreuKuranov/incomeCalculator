@@ -9,7 +9,7 @@ import Day from '../image/day.png';
 import MoneyBox from '../image/money-box.png';
 import '../i18next/i18next';
 import {
-  difference, availablePerDay, availablePerYear, nFormatter,
+  difference, availablePerDay, availablePerYear, nFormatter, daysInMonth,
 } from '../date/date';
 
 const Sum = (props) => {
@@ -19,7 +19,7 @@ const Sum = (props) => {
   const percent = useSelector((state) => state.per.percent);
 
   const monthMoney = difference(downloadsIncomes, downloadsExpenses);
-  const dayMoney = availablePerDay(monthMoney, percent);
+  const dayMoney = availablePerDay(monthMoney, percent, daysInMonth());
   const yearMoney = availablePerYear(monthMoney, percent);
 
   const results = [
