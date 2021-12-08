@@ -5,6 +5,7 @@ import './Percent.css';
 import { useTranslation } from 'react-i18next';
 import '../i18next/i18next';
 import { percentAction } from '../store/percent';
+import Range from './UI/range/Range';
 
 const Percent = (props) => {
   const { t } = useTranslation();
@@ -18,7 +19,7 @@ const Percent = (props) => {
           <div className="percent__column">
             <h3 className="percent__title text">{t('calc.percent')}</h3>
             <div className="percent__range">
-              <input
+              <Range
                 className="percent__input"
                 type="range"
                 min="0"

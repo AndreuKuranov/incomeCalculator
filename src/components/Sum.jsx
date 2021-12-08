@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
@@ -10,7 +9,7 @@ import Day from '../image/day.png';
 import MoneyBox from '../image/money-box.png';
 import '../i18next/i18next';
 import {
-  difference, availablePerDay, availablePerYear, kFormatter,
+  difference, availablePerDay, availablePerYear, nFormatter,
 } from '../date/date';
 
 const Sum = (props) => {
@@ -25,13 +24,13 @@ const Sum = (props) => {
 
   const results = [
     {
-      id: 'Month', icon: Month, title: 'calc.month', value: kFormatter(monthMoney),
+      id: 'Month', icon: Month, title: 'calc.month', value: nFormatter(monthMoney),
     },
     {
-      id: 'Day', icon: Day, title: 'calc.day', value: kFormatter(dayMoney),
+      id: 'Day', icon: Day, title: 'calc.day', value: nFormatter(dayMoney),
     },
     {
-      id: 'MoneyBox', icon: MoneyBox, title: 'calc.money_box', value: kFormatter(yearMoney),
+      id: 'MoneyBox', icon: MoneyBox, title: 'calc.money_box', value: nFormatter(yearMoney),
     },
   ];
 
