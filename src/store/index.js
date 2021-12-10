@@ -10,6 +10,7 @@ import { percent } from './percent';
 import { newId } from './newId';
 import { newUrlCalc } from './newUrlCalc';
 import { listSave } from './listSave';
+import { textError } from './textError';
 
 const rootReducer = combineReducers({
   incomes,
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   newId,
   newUrl: newUrlCalc,
   listSave,
+  textError,
 });
 
 export const store = createStore(rootReducer, composeWithDevTools());

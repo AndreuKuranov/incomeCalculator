@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Button from './UI/button/Button';
 import PostService from '../API/PostService';
 import useFetching from '../hooks/useFetching';
 import { saveIdAction } from '../store/saveId';
+import { textErrorAction } from '../store/textError';
 
 const Save = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,12 @@ const Save = () => {
       navigate(`/incomeCalculator/${newId}`);
     }
   });
+
+  useEffect(() => {
+    if (errorSave) {
+      dispatch(textErrorAction('Error save'));
+    }
+  }, [errorSave]);
 
   return (
     <div>

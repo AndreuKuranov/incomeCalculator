@@ -9,6 +9,7 @@ import Menu from './components/Menu';
 import Header from './components/Header';
 import Body from './pages/Body';
 import DownloadsList from './components/DownloadsList';
+import ModalError from './components/ModalError';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Header
           className="main__header"
         />
+        <ModalError />
         <Routes>
           <Route
             path="/incomeCalculator"

@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import Loader from 'react-loader-spinner';
 import useFetching from '../hooks/useFetching';
 import PostService from '../API/PostService';
 import BlockInput from './BlockInput';
@@ -13,6 +14,7 @@ import { downloadsIncomesAction } from '../store/downloadsIncomes';
 import { downloadsExpensesAction } from '../store/downloadsExpenses';
 import { saveIdAction } from '../store/saveId';
 import { newIdAction } from '../store/newId';
+import { textErrorAction } from '../store/textError';
 import { unique } from '../date/check';
 
 const Calc = (props) => {
@@ -45,27 +47,47 @@ const Calc = (props) => {
     }
   }, [invoiceId]);
 
+  useEffect(() => {
+    if (errorDownload) {
+      dispatch(textErrorAction('Error downloads'));
+    }
+  }, [errorDownload]);
+
   return (
     <div className={cn('calc', props.className)}>
       <div className="calc__container container">
-        <div className="calc__body">
-          <BlockInput
-            className="calc__block"
-            title={t('calc.incomes')}
-            values={downloadsIncomes}
-            set={downloadsIncomesAction}
-            id="calc.additional_income"
-            additional={additionalField}
-          />
-          <BlockInput
-            className="calc__block"
-            title={t('calc.expenses')}
-            values={downloadsExpenses}
-            set={downloadsExpensesAction}
-            id="calc.additional_expenses"
-            additional={additionalField}
-          />
-        </div>
+        {
+          !isLoadedDownload
+            ? (
+              <div className="calc__body">
+                <BlockInput
+                  className="calc__block"
+                  title={t('calc.incomes')}
+                  values={downloadsIncomes}
+                  set={downloadsIncomesAction}
+                  id="calc.additional_income"
+                  additional={additionalField}
+                />
+                <BlockInput
+                  className="calc__block"
+                  title={t('calc.expenses')}
+                  values={downloadsExpenses}
+                  set={downloadsExpensesAction}
+                  id="calc.additional_expenses"
+                  additional={additionalField}
+                />
+              </div>
+            )
+            : (
+              <Loader
+                className="calc__loader"
+                type="Puff"
+                color="#ff4400"
+                height={100}
+                width={100}
+              />
+            )
+        }
       </div>
     </div>
   );

@@ -13,6 +13,7 @@ import Download from './Download';
 import { saveIdAction } from '../store/saveId';
 import { downloadsIncomesAction } from '../store/downloadsIncomes';
 import { downloadsExpensesAction } from '../store/downloadsExpenses';
+import { textErrorAction } from '../store/textError';
 
 const DownloadsList = (props) => {
   const [modalInquiry, setModalInquiry] = useState(false);
@@ -57,6 +58,12 @@ const DownloadsList = (props) => {
       setModalInquiry(true);
     }
   }, [errorInquiry]);
+
+  useEffect(() => {
+    if (errorDelete) {
+      dispatch(textErrorAction('Error delete'));
+    }
+  }, [errorDelete]);
 
   return (
     <div className={cn('downloads__list', props.className)}>

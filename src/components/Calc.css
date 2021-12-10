@@ -15,3 +15,11 @@
 		flex: 0 1 50%;
 	}
 }
+.calc__loader {
+	width: 100%;
+	min-height: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
