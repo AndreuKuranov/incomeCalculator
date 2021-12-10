@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import cn from 'classnames';
 import './DownloadsList.css';
 import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import PostService from '../API/PostService';
 import useFetching from '../hooks/useFetching';
 import { getPageCount } from '../date/pages';
@@ -11,16 +11,12 @@ import { errorListSave } from '../date/check';
 import { useObserver } from '../hooks/useObserver';
 import Download from './Download';
 import { saveIdAction } from '../store/saveId';
-import { downloadsIncomesAction } from '../store/downloadsIncomes';
-import { downloadsExpensesAction } from '../store/downloadsExpenses';
 import { textErrorAction } from '../store/textError';
 
 const DownloadsList = (props) => {
   const [modalInquiry, setModalInquiry] = useState(false);
   const lastElement = useRef();
   const dispatch = useDispatch();
-  const incomes = useSelector((state) => state.incomes.incomes);
-  const expenses = useSelector((state) => state.expenses.expenses);
   const [listSave, setListSave] = useState([]);
   const [totalPage, setTotalPage] = useState(0);
   const [limitPage] = useState(10);
@@ -29,8 +25,6 @@ const DownloadsList = (props) => {
   const { incomeCalculator } = useParams();
   useEffect(() => {
     dispatch(saveIdAction(''));
-    dispatch(downloadsIncomesAction(incomes));
-    dispatch(downloadsExpensesAction(expenses));
   }, [incomeCalculator]);
 
   const [fetchingInquiry, isLoadedInquiry, errorInquiry] = useFetching(async (limit, page) => {

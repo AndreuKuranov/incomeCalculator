@@ -1,6 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import cl from './Modal.module.css';
+import Button from '../button/Button';
 
 const Modal = ({ children, visible, setVisible }) => {
   const rootClasses = [cl.myModal];
@@ -24,6 +25,14 @@ const Modal = ({ children, visible, setVisible }) => {
         role="button"
         tabIndex="0"
       >
+        <Button
+          className={cl.myModalBtn}
+          title="close"
+          type="button"
+          onClick={() => setVisible(false)}
+        >
+          <i className="material-icons">close</i>
+        </Button>
         {children}
       </div>
     </div>

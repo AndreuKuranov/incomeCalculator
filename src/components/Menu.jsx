@@ -44,14 +44,6 @@ const Menu = (props) => {
             visible={modal}
             setVisible={setModal}
           >
-            <Button
-              className="menu__button"
-              title="close"
-              type="button"
-              onClick={() => setModal(false)}
-            >
-              <i className="material-icons">close</i>
-            </Button>
             <Language />
           </Modal>
         </div>

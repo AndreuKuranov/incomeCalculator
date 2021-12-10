@@ -533,12 +533,12 @@
         {
           "id": "income1",
           "placeholder": "calc.salary",
-          "value": 200000
+          "value": 20000
         },
         {
           "id": "income2",
           "placeholder": "calc.part-time_job",
-          "value": 1111
+          "value": 4000000
         },
         {
           "id": "income3",
@@ -555,7 +555,7 @@
         {
           "id": "expense1",
           "placeholder": "calc.HCS",
-          "value": 2222
+          "value": 2000
         },
         {
           "id": "expense2",
@@ -573,8 +573,8 @@
           "value": 0
         }
       ],
-      "name": "2021-12-10T15:10:10.074Z",
-      "id": "inquiry43983"
+      "name": "2021-12-10T16:29:55.833Z",
+      "id": "inquiry49025"
     }
   ]
 }
