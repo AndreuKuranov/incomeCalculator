@@ -10,6 +10,7 @@ import Header from './components/Header';
 import Body from './pages/Body';
 import DownloadsList from './components/DownloadsList';
 import ModalError from './components/ModalError';
+import DeleteConfirmation from './components/DeleteConfirmation';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           className="main__header"
         />
         <ModalError />
+        <DeleteConfirmation />
         <Routes>
           <Route
             path="/incomeCalculator"

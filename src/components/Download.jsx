@@ -1,10 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Button from './UI/button/Button';
+import { deleteIdAction } from '../store/deleteId';
 
 const Download = (props) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   return (
     <div className="downloads__list__row download" key={props.value}>
@@ -21,7 +24,7 @@ const Download = (props) => {
         className="delete__button material-icons"
         type="button"
         title="delete"
-        onClick={props.isLoadedDelete ? () => {} : () => props.fetchingDelete(props.value)}
+        onClick={() => dispatch(deleteIdAction(props.value))}
       >
         <i className="material-icons">delete</i>
       </Button>

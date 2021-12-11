@@ -3,7 +3,9 @@ import cn from 'classnames';
 import cl from './Modal.module.css';
 import Button from '../button/Button';
 
-const Modal = ({ children, visible, setVisible }) => {
+const Modal = ({
+  children, visible, setVisible, ...props
+}) => {
   const rootClasses = [cl.myModal];
 
   if (visible) {
@@ -12,7 +14,7 @@ const Modal = ({ children, visible, setVisible }) => {
 
   return (
     <div
-      className={cn(rootClasses)}
+      className={cn(rootClasses, props.className)}
       onClick={() => setVisible(false)}
       aria-hidden="true"
       role="button"

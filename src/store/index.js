@@ -11,6 +11,7 @@ import { newId } from './newId';
 import { newUrlCalc } from './newUrlCalc';
 import { listSave } from './listSave';
 import { textError } from './textError';
+import { deleteId } from './deleteId';
 
 const rootReducer = combineReducers({
   incomes,
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   newUrl: newUrlCalc,
   listSave,
   textError,
+  deleteId,
 });
 
 export const store = createStore(rootReducer, composeWithDevTools());

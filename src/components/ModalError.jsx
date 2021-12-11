@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './ModalError.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { textErrorAction } from '../store/textError';
 import Modal from './UI/modal/Modal';
@@ -22,6 +23,7 @@ const ModalError = () => {
 
   return (
     <Modal
+      className="modal__error"
       visible={modal}
       setVisible={() => setModal()}
     >

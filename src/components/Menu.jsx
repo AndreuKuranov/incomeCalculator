@@ -7,6 +7,7 @@ import Modal from './UI/modal/Modal';
 import Button from './UI/button/Button';
 import Language from './Language';
 import Save from './Save';
+import DeleteSave from './DeleteSave';
 
 const Menu = (props) => {
   const [modal, setModal] = useState(false);
@@ -32,6 +33,7 @@ const Menu = (props) => {
             <i className="material-icons">calculate</i>
           </Button>
           <Save />
+          <DeleteSave />
           <Button
             type="button"
             title="settings"

@@ -15,6 +15,7 @@ import { downloadsExpensesAction } from '../store/downloadsExpenses';
 import { saveIdAction } from '../store/saveId';
 import { newIdAction } from '../store/newId';
 import { textErrorAction } from '../store/textError';
+import { listSaveAction } from '../store/listSave';
 import { unique } from '../date/check';
 
 const Calc = (props) => {
@@ -45,6 +46,7 @@ const Calc = (props) => {
       dispatch(newIdAction(unique()));
       dispatch(saveIdAction(newUrl));
     }
+    dispatch(listSaveAction([]));
   }, [invoiceId]);
 
   useEffect(() => {
