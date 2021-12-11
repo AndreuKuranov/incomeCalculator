@@ -1,0 +1,11 @@
+.delete__confirmation {
+	display: flex;
+	gap: 10px;
+}
+.delete__confirmation-button {
+	flex: 1 1 auto;
+}
+.delete__confirmation-title {
+	width: 250px;
+	text-align: center;
+}

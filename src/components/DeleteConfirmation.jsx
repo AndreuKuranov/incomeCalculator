@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { textErrorAction } from '../store/textError';
+import './DeleteConfirmation.css';
 import PostService from '../API/PostService';
 import useFetching from '../hooks/useFetching';
 import Button from './UI/button/Button';
@@ -54,20 +55,29 @@ const DeleteConfirmation = () => {
       visible={modal}
       setVisible={() => setModal()}
     >
-      <Button
-        type="button"
-        title="Да"
-        onClick={isLoadedDelete ? () => {} : () => onClick(deleteId)}
+      <h3
+        className="delete__confirmation-title"
       >
-        Да
-      </Button>
-      <Button
-        title="Нет"
-        type="button"
-        onClick={() => setModal(false)}
-      >
-        Нет
-      </Button>
+        Вы действительно хотите удалить сохранение?
+      </h3>
+      <div className="delete__confirmation">
+        <Button
+          className="delete__confirmation-button"
+          type="button"
+          title="Да"
+          onClick={isLoadedDelete ? () => {} : () => onClick(deleteId)}
+        >
+          Да
+        </Button>
+        <Button
+          className="delete__confirmation-button"
+          title="Нет"
+          type="button"
+          onClick={() => setModal(false)}
+        >
+          Нет
+        </Button>
+      </div>
     </Modal>
   );
 };
