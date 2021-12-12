@@ -21,13 +21,15 @@ export default class PostService {
     await axios.delete(`http://localhost:4000/inquiry/${idSave}`);
   }
 
-  static async putItem(idSave, saveIncomes, saveExpenses) {
-    await axios.put(`http://localhost:4000/inquiry/${idSave}`, { incomes: saveIncomes, expenses: saveExpenses, name: currentDate() });
+  static async putItem(idSave, saveIncomes, saveExpenses, per) {
+    await axios.put(`http://localhost:4000/inquiry/${idSave}`, {
+      incomes: saveIncomes, expenses: saveExpenses, name: currentDate(), percent: per,
+    });
   }
 
-  static async postItem(saveIncomes, saveExpenses, Id) {
+  static async postItem(saveIncomes, saveExpenses, Id, per) {
     await axios.post('http://localhost:4000/inquiry', {
-      incomes: saveIncomes, expenses: saveExpenses, name: currentDate(), id: Id,
+      incomes: saveIncomes, expenses: saveExpenses, name: currentDate(), id: Id, percent: per,
     });
   }
 }

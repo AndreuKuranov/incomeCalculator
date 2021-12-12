@@ -12,6 +12,7 @@ import Download from './Download';
 import { saveIdAction } from '../store/saveId';
 import { downloadsIncomesAction } from '../store/downloadsIncomes';
 import { downloadsExpensesAction } from '../store/downloadsExpenses';
+import { percentAction } from '../store/percent';
 import { listSaveAction } from '../store/listSave';
 
 const DownloadsList = (props) => {
@@ -29,6 +30,7 @@ const DownloadsList = (props) => {
   useEffect(() => {
     dispatch(downloadsIncomesAction(incomes));
     dispatch(downloadsExpensesAction(expenses));
+    dispatch(percentAction('0'));
     dispatch(saveIdAction(''));
   }, [incomeCalculator]);
 
@@ -54,9 +56,9 @@ const DownloadsList = (props) => {
 
   return (
     <div className={cn('downloads__list', props.className)}>
-      <div className="downloads__list__container container">
-        <h1 className="downloads__list__title">{errorListSave(modalInquiry, isLoadedInquiry)}</h1>
-        <div className="downloads__list__column">
+      <div className="downloads-list__container container">
+        <h1 className="downloads-list__title">{errorListSave(modalInquiry, isLoadedInquiry)}</h1>
+        <div className="downloads-list__column">
           {list.map((item) => (
             <Download
               name={item.name}

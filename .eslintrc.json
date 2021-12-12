@@ -23,6 +23,6 @@
         "react/prop-types": "off",
         "react/destructuring-assignment": "off",
         "arrow-body-style": "off",
-        "no-undef" : "off"
+        "react/button-has-type": "off"
     }
 }

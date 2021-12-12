@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
 import cn from 'classnames';
 import { useParams } from 'react-router-dom';
@@ -16,6 +15,7 @@ import { saveIdAction } from '../store/saveId';
 import { newIdAction } from '../store/newId';
 import { textErrorAction } from '../store/textError';
 import { listSaveAction } from '../store/listSave';
+import { percentAction } from '../store/percent';
 import { unique } from '../date/check';
 
 const Calc = (props) => {
@@ -33,6 +33,7 @@ const Calc = (props) => {
     const response = await PostService.getItem(id);
     dispatch(downloadsIncomesAction(response.incomes));
     dispatch(downloadsExpensesAction(response.expenses));
+    dispatch(percentAction(response.percent));
     dispatch(saveIdAction(id));
   });
 
@@ -43,6 +44,7 @@ const Calc = (props) => {
     if (invoiceId === newUrl) {
       dispatch(downloadsIncomesAction(incomes));
       dispatch(downloadsExpensesAction(expenses));
+      dispatch(percentAction('0'));
       dispatch(newIdAction(unique()));
       dispatch(saveIdAction(newUrl));
     }

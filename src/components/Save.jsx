@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -16,12 +15,13 @@ const Save = () => {
   const idSave = useSelector((state) => state.id.id);
   const newUrl = useSelector((state) => state.newUrl.newUrl);
   const newId = useSelector((state) => state.newId.newId);
+  const percent = useSelector((state) => state.per.percent);
 
   const [fetchingSave, isLoadedSave, errorSave] = useFetching(async () => {
     if (idSave && idSave !== newUrl) {
-      await PostService.putItem(idSave, downloadsIncomes, downloadsExpenses);
+      await PostService.putItem(idSave, downloadsIncomes, downloadsExpenses, percent);
     } else if (idSave === newUrl) {
-      await PostService.postItem(downloadsIncomes, downloadsExpenses, newId);
+      await PostService.postItem(downloadsIncomes, downloadsExpenses, newId, percent);
       dispatch(saveIdAction(newId));
       navigate(`/incomeCalculator/${newId}`);
     }
@@ -34,15 +34,18 @@ const Save = () => {
   }, [errorSave]);
 
   return (
-    <div>
-      <Button
-        type="button"
-        title="save"
-        onClick={isLoadedSave ? () => {} : () => fetchingSave()}
-      >
-        <i className="material-icons">save</i>
-      </Button>
-    </div>
+    idSave
+      && (
+      <div>
+        <Button
+          type="button"
+          title="save"
+          onClick={isLoadedSave ? () => {} : () => fetchingSave()}
+        >
+          <i className="material-icons">save</i>
+        </Button>
+      </div>
+      )
   );
 };
 

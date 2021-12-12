@@ -13,41 +13,51 @@ const Menu = (props) => {
   const [modal, setModal] = useState(false);
   const navigate = useNavigate();
   const newUrl = useSelector((state) => state.newUrl.newUrl);
+  const idSave = useSelector((state) => state.id.id);
 
   return (
     <div className={cn('menu', props.className)}>
       <div className="menu__container container">
         <div className="menu__settings">
-          <Button
-            type="button"
-            title="home"
-            onClick={() => navigate('/incomeCalculator')}
-          >
-            <i className="material-icons">home</i>
-          </Button>
-          <Button
-            type="button"
-            title="calculate"
-            onClick={() => navigate(`/incomeCalculator/${newUrl}`)}
-          >
-            <i className="material-icons">calculate</i>
-          </Button>
-          <Save />
-          <DeleteSave />
-          <Button
-            type="button"
-            title="settings"
-            onClick={() => setModal(true)}
-          >
-            <i className="material-icons">settings</i>
-          </Button>
-          <Modal
-            className="menu__modal"
-            visible={modal}
-            setVisible={setModal}
-          >
-            <Language />
-          </Modal>
+          <div className="menu__row-button">
+            {
+              idSave
+                && (
+                  <Button
+                    type="button"
+                    title="home"
+                    onClick={() => navigate('/incomeCalculator')}
+                  >
+                    <i className="material-icons">home</i>
+                  </Button>
+                )
+            }
+            <Save />
+            <DeleteSave />
+          </div>
+          <div className="menu__row-button menu__row-button-right">
+            <Button
+              type="button"
+              title="calculate"
+              onClick={() => navigate(`/incomeCalculator/${newUrl}`)}
+            >
+              <i className="material-icons">calculate</i>
+            </Button>
+            <Button
+              type="button"
+              title="settings"
+              onClick={() => setModal(true)}
+            >
+              <i className="material-icons">translate</i>
+            </Button>
+            <Modal
+              className="menu__modal"
+              visible={modal}
+              setVisible={setModal}
+            >
+              <Language />
+            </Modal>
+          </div>
         </div>
       </div>
     </div>

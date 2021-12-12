@@ -1,36 +1,14 @@
-.downloads__list__title {
+.downloads-list__title {
 	font-size: 28px;
 	line-height: 1.5;
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 	margin: 20px;
 }
-.downloads__list__column {
+.downloads-list__column {
 	display: grid;
 	gap: 10px;
 }
-.download {
-	display: flex;
-}
-.download__title {
-	width: 100%;
-	flex: 1 1 auto;
-	min-height: 50px;
-	background: var(--background-color);
-	color: #737373;
-	padding: 15px 20px;
-	border: none;
-	box-sizing: border-box;
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.07);
-	border-radius: 5px 0px 0px 5px;
-}
-.delete__button {
-	border-radius: 5px;
-	background-image: linear-gradient(210deg, var(--additional-color-1) 0%, red);
-}
-.download__button {
-	margin-right: 10px;
-	border-radius: 0px 5px 5px 0px;
-}
+
 .observer {
 	height: 20px;
 }

@@ -1,10 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import './Language.css';
 import Select from './UI/select/Select';
 import '../i18next/i18next';
+import { defaultName } from '../date/check';
 
 const Language = () => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const changleLanguage = (lang) => {
     i18n.changeLanguage(lang);
   };
@@ -13,6 +15,7 @@ const Language = () => {
     { value: 'en', name: 'English' },
     { value: 'de', name: 'Deutsch' },
   ];
+
   return (
     <div className="menu__row">
       <div className="menu__icon">
@@ -20,9 +23,10 @@ const Language = () => {
       </div>
       <Select
         className="menu__select"
-        defaultValue={t('calc.choose_language')}
+        defaultName={defaultName(languages, i18n)}
         onChange={(value) => changleLanguage(value)}
         options={languages}
+        defaultValue={i18n.resolvedLanguage}
       />
     </div>
   );

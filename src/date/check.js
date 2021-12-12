@@ -44,3 +44,11 @@ export const errorListSave = (inquiry, loaded) => {
 export const resetValueCalc = (calcValue) => {
   return calcValue.map((item) => ({ ...item, value: 0 }));
 };
+
+export const defaultName = (language, i18) => {
+  for (let i = 0; i < language.length; i += 1) {
+    if (language[i].value === i18.resolvedLanguage) {
+      return language[i].name;
+    }
+  }
+};
