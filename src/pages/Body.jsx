@@ -1,7 +1,7 @@
 import React from 'react';
-import Percent from '../components/Percent';
-import Sum from '../components/Sum';
-import Calc from '../components/Calc';
+import Percent from '../components/Calculator/Percent';
+import Sum from '../components/Calculator/Sum';
+import Calc from '../components/Calculator/Calc';
 
 const Body = () => {
   return (

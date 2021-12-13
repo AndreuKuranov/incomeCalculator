@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import './Language.css';
-import Select from './UI/select/Select';
-import '../i18next/i18next';
-import { defaultName } from '../date/check';
+import Select from '../UI/select/Select';
+import '../../i18next/i18next';
+import { defaultName } from '../../date/check';
 
 const Language = () => {
   const { i18n } = useTranslation();

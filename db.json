@@ -59,7 +59,7 @@
         {
           "id": "income2",
           "placeholder": "calc.part-time_job",
-          "value": 200000000
+          "value": 2000000
         },
         {
           "id": "income3",
@@ -94,9 +94,9 @@
           "value": 0
         }
       ],
-      "name": "2021-12-12T21:45:47.248Z",
-      "id": "inquiry65609",
-      "percent": "50"
+      "name": "2021-12-13T19:56:00.615Z",
+      "percent": "50",
+      "id": "inquiry65609"
     },
     {
       "incomes": [

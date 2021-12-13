@@ -2,10 +2,10 @@ import React from 'react';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 import './ItemInput.css';
-import Input from './UI/input/Input';
-import Button from './UI/button/Button';
-import '../i18next/i18next';
-import useInput from '../hooks/useInput';
+import Input from '../UI/input/Input';
+import Button from '../UI/button/Button';
+import '../../i18next/i18next';
+import useInput from '../../hooks/useInput';
 
 const ItemInput = ({ onChange, onClick, ...props }) => {
   const { t } = useTranslation();

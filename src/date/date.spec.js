@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import {
   difference, availablePerDay, availablePerYear, nFormatter,
 } from './date';

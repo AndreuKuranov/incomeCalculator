@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './DeleteSave.css';
-import Button from './UI/button/Button';
-import { deleteIdAction } from '../store/deleteId';
+import Button from '../UI/button/Button';
+import { deleteIdAction } from '../../store/deleteId';
 
 const DeleteSave = () => {
   const dispatch = useDispatch();
@@ -16,6 +16,7 @@ const DeleteSave = () => {
         <Button
           className="delete-save"
           type="button"
+          title="delete"
           onClick={() => dispatch(deleteIdAction(idSave))}
         >
           <i className="material-icons">delete</i>

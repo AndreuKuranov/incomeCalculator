@@ -8,30 +8,32 @@ import useFetching from '../hooks/useFetching';
 import { getPageCount } from '../date/pages';
 import { errorListSave } from '../date/check';
 import { useObserver } from '../hooks/useObserver';
-import Download from './Download';
+import Download from '../components/Download';
 import { saveIdAction } from '../store/saveId';
 import { downloadsIncomesAction } from '../store/downloadsIncomes';
 import { downloadsExpensesAction } from '../store/downloadsExpenses';
 import { percentAction } from '../store/percent';
 import { listSaveAction } from '../store/listSave';
+import { newIdAction } from '../store/newId';
 
 const DownloadsList = (props) => {
   const [modalInquiry, setModalInquiry] = useState(false);
   const lastElement = useRef();
   const dispatch = useDispatch();
-  const list = useSelector((state) => state.listSave.listSave);
+  const { incomeCalculator } = useParams();
   const [totalPage, setTotalPage] = useState(0);
   const [limitPage] = useState(5);
   const [pageNumber, setPageNumber] = useState(1);
+  const list = useSelector((state) => state.listSave.listSave);
   const incomes = useSelector((state) => state.incomes.incomes);
   const expenses = useSelector((state) => state.expenses.expenses);
 
-  const { incomeCalculator } = useParams();
   useEffect(() => {
     dispatch(downloadsIncomesAction(incomes));
     dispatch(downloadsExpensesAction(expenses));
     dispatch(percentAction('0'));
     dispatch(saveIdAction(''));
+    dispatch(newIdAction(''));
   }, [incomeCalculator]);
 
   const [fetchingInquiry, isLoadedInquiry, errorInquiry] = useFetching(async (limit, page) => {

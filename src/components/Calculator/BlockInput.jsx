@@ -4,9 +4,9 @@ import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import './BlockInput.css';
 import ItemInput from './ItemInput';
-import Button from './UI/button/Button';
-import '../i18next/i18next';
-import { placeholder, resetValueCalc } from '../date/check';
+import Button from '../UI/button/Button';
+import '../../i18next/i18next';
+import { placeholder, resetValueCalc } from '../../date/check';
 
 const BlockInput = ({ additional, ...props }) => {
   const { t } = useTranslation();

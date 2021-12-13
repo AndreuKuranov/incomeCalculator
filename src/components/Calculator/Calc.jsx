@@ -4,19 +4,19 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import Loader from 'react-loader-spinner';
-import useFetching from '../hooks/useFetching';
-import PostService from '../API/PostService';
+import useFetching from '../../hooks/useFetching';
+import PostService from '../../API/PostService';
 import BlockInput from './BlockInput';
 import './Calc.css';
-import '../i18next/i18next';
-import { downloadsIncomesAction } from '../store/downloadsIncomes';
-import { downloadsExpensesAction } from '../store/downloadsExpenses';
-import { saveIdAction } from '../store/saveId';
-import { newIdAction } from '../store/newId';
-import { textErrorAction } from '../store/textError';
-import { listSaveAction } from '../store/listSave';
-import { percentAction } from '../store/percent';
-import { unique } from '../date/check';
+import '../../i18next/i18next';
+import { downloadsIncomesAction } from '../../store/downloadsIncomes';
+import { downloadsExpensesAction } from '../../store/downloadsExpenses';
+import { saveIdAction } from '../../store/saveId';
+import { newIdAction } from '../../store/newId';
+import { textErrorAction } from '../../store/textError';
+import { listSaveAction } from '../../store/listSave';
+import { percentAction } from '../../store/percent';
+import { unique } from '../../date/check';
 
 const Calc = (props) => {
   const { t } = useTranslation();
@@ -45,8 +45,8 @@ const Calc = (props) => {
       dispatch(downloadsIncomesAction(incomes));
       dispatch(downloadsExpensesAction(expenses));
       dispatch(percentAction('0'));
+      dispatch(saveIdAction(invoiceId));
       dispatch(newIdAction(unique()));
-      dispatch(saveIdAction(newUrl));
     }
     dispatch(listSaveAction([]));
   }, [invoiceId]);

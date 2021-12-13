@@ -2,15 +2,12 @@ import React from 'react';
 import './style/App.css';
 import {
   BrowserRouter as Router,
-  Routes,
-  Route,
 } from 'react-router-dom';
-import Menu from './components/Menu';
+import Menu from './components/Menu/Menu';
 import Header from './components/Header';
-import Body from './pages/Body';
-import DownloadsList from './components/DownloadsList';
 import ModalError from './components/ModalError';
 import DeleteConfirmation from './components/DeleteConfirmation';
+import AppRouter from './components/AppRouter';
 
 function App() {
   return (
@@ -24,21 +21,7 @@ function App() {
         />
         <ModalError />
         <DeleteConfirmation />
-        <Routes>
-          <Route
-            path="/incomeCalculator"
-            element={(
-              <DownloadsList
-                className="main__downloads"
-              />
-            )}
-          />
-          <Route path="/incomeCalculator/:invoiceId" element={<Body />} />
-          <Route
-            path="*"
-            element={<Body />}
-          />
-        </Routes>
+        <AppRouter />
       </Router>
     </div>
   );

@@ -26,11 +26,6 @@ const DeleteConfirmation = () => {
       navigate(`/incomeCalculator/${newUrl}`);
     }
   });
-  useEffect(() => {
-    if (errorDelete) {
-      dispatch(textErrorAction('Error delete'));
-    }
-  }, [errorDelete]);
 
   const onClick = (Id) => {
     fetchingDelete(Id);
@@ -48,6 +43,12 @@ const DeleteConfirmation = () => {
       dispatch(deleteIdAction(''));
     }
   }, [modal]);
+
+  useEffect(() => {
+    if (errorDelete) {
+      dispatch(textErrorAction('Error delete'));
+    }
+  }, [errorDelete]);
 
   return (
     <Modal

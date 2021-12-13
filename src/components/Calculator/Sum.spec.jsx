@@ -1,12 +1,12 @@
-import React, { Suspense } from 'react';
+/* eslint-disable no-undef */
+import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
 import Sum from './Sum';
-import Month from '../image/month.png';
-import Day from '../image/day.png';
-import MoneyBox from '../image/money-box.png';
-import Loader from './Loader';
+import Month from '../../image/month.png';
+import Day from '../../image/day.png';
+import MoneyBox from '../../image/money-box.png';
 
 let container = null;
 beforeEach(() => {
@@ -36,9 +36,7 @@ describe('Sum', () => {
       ];
 
       render(
-        <Suspense fallback={<Loader />}>
-          <Sum results={results} />
-        </Suspense>,
+        <Sum results={results} />,
         container,
       );
     });

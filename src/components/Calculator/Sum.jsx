@@ -4,13 +4,13 @@ import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import './Sum.css';
 import Column from './Column';
-import Month from '../image/month.png';
-import Day from '../image/day.png';
-import MoneyBox from '../image/money-box.png';
-import '../i18next/i18next';
+import Month from '../../image/month.png';
+import Day from '../../image/day.png';
+import MoneyBox from '../../image/money-box.png';
+import '../../i18next/i18next';
 import {
   difference, availablePerDay, availablePerYear, nFormatter, daysInMonth,
-} from '../date/date';
+} from '../../date/date';
 
 const Sum = (props) => {
   const { t } = useTranslation();
