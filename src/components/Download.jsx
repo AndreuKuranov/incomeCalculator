@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import './Download.css';
 import Button from './UI/button/Button';
-import { deleteIdAction } from '../store/deleteId';
+import { deleteIdAction } from '../store/id';
 
 const Download = (props) => {
   const navigate = useNavigate();

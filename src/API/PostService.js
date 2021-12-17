@@ -12,17 +12,17 @@ export default class PostService {
     return response;
   }
 
-  static async getItem(idSave) {
-    const response = await axios.get(`http://localhost:4000/inquiry/${idSave}`);
+  static async getItem(id) {
+    const response = await axios.get(`http://localhost:4000/inquiry/${id}`);
     return response.data;
   }
 
-  static async deleteItem(idSave) {
-    await axios.delete(`http://localhost:4000/inquiry/${idSave}`);
+  static async deleteItem(id) {
+    await axios.delete(`http://localhost:4000/inquiry/${id}`);
   }
 
-  static async putItem(idSave, saveIncomes, saveExpenses, per) {
-    await axios.put(`http://localhost:4000/inquiry/${idSave}`, {
+  static async putItem(id, saveIncomes, saveExpenses, per) {
+    await axios.put(`http://localhost:4000/inquiry/${id}`, {
       incomes: saveIncomes, expenses: saveExpenses, name: currentDate(), percent: per,
     });
   }

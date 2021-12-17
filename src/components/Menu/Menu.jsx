@@ -1,10 +1,10 @@
 import React from 'react';
 import cn from 'classnames';
 import './Menu.css';
-import Save from './Save';
-import DeleteSave from './DeleteSave';
-import Home from './Home';
-import NewCalculate from './NewCalculate';
+import Save from '../Save';
+import DeleteSave from '../DeleteSave';
+import Home from '../Home';
+import NewCalculate from '../NewCalculate';
 import Translate from '../Translate/Translate';
 
 const Menu = (props) => {

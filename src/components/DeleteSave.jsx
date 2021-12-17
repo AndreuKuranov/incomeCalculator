@@ -1,23 +1,23 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './DeleteSave.css';
-import Button from '../UI/button/Button';
-import { deleteIdAction } from '../../store/deleteId';
+import Button from './UI/button/Button';
+import { deleteIdAction } from '../store/id';
 
 const DeleteSave = () => {
   const dispatch = useDispatch();
-  const idSave = useSelector((state) => state.id.id);
-  const newUrl = useSelector((state) => state.newUrl.newUrl);
+  const currentRoute = useSelector((state) => state.route.currentRoute);
+  const newRoute = useSelector((state) => state.route.newRoute);
 
   return (
-    (idSave && idSave !== newUrl)
+    (currentRoute && currentRoute !== newRoute)
     && (
       <div>
         <Button
           className="delete-save"
           type="button"
           title="delete"
-          onClick={() => dispatch(deleteIdAction(idSave))}
+          onClick={() => dispatch(deleteIdAction(currentRoute))}
         >
           <i className="material-icons">delete</i>
         </Button>

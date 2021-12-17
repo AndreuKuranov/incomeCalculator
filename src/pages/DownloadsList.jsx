@@ -9,12 +9,10 @@ import { getPageCount } from '../date/pages';
 import { errorListSave } from '../date/check';
 import { useObserver } from '../hooks/useObserver';
 import Download from '../components/Download';
-import { saveIdAction } from '../store/saveId';
-import { downloadsIncomesAction } from '../store/downloadsIncomes';
-import { downloadsExpensesAction } from '../store/downloadsExpenses';
-import { percentAction } from '../store/percent';
+import { currentRouteAction } from '../store/route';
+import { downloadsIncomesAction, downloadsExpensesAction, percentAction } from '../store/downloads';
 import { listSaveAction } from '../store/listSave';
-import { newIdAction } from '../store/newId';
+import { newIdAction } from '../store/id';
 
 const DownloadsList = (props) => {
   const [modalInquiry, setModalInquiry] = useState(false);
@@ -25,14 +23,14 @@ const DownloadsList = (props) => {
   const [limitPage] = useState(5);
   const [pageNumber, setPageNumber] = useState(1);
   const list = useSelector((state) => state.listSave.listSave);
-  const incomes = useSelector((state) => state.incomes.incomes);
-  const expenses = useSelector((state) => state.expenses.expenses);
+  const incomes = useSelector((state) => state.sample.incomes);
+  const expenses = useSelector((state) => state.sample.expenses);
 
   useEffect(() => {
     dispatch(downloadsIncomesAction(incomes));
     dispatch(downloadsExpensesAction(expenses));
     dispatch(percentAction('0'));
-    dispatch(saveIdAction(''));
+    dispatch(currentRouteAction(''));
     dispatch(newIdAction(''));
   }, [incomeCalculator]);
 

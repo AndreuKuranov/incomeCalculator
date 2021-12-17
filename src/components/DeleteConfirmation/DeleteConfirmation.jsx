@@ -1,29 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { textErrorAction } from '../store/textError';
+import { textErrorAction } from '../../store/textError';
 import './DeleteConfirmation.css';
-import PostService from '../API/PostService';
-import useFetching from '../hooks/useFetching';
-import Button from './UI/button/Button';
-import Modal from './UI/modal/Modal';
-import { deleteIdAction } from '../store/deleteId';
-import { listSaveAction } from '../store/listSave';
+import PostService from '../../API/PostService';
+import useFetching from '../../hooks/useFetching';
+import Button from '../UI/button/Button';
+import Modal from '../UI/modal/Modal';
+import { deleteIdAction } from '../../store/id';
+import { listSaveAction } from '../../store/listSave';
 
 const DeleteConfirmation = () => {
   const [modal, setModal] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const deleteId = useSelector((state) => state.deleteId.id);
+  const deleteId = useSelector((state) => state.id.deleteId);
   const list = useSelector((state) => state.listSave.listSave);
-  const idSave = useSelector((state) => state.id.id);
-  const newUrl = useSelector((state) => state.newUrl.newUrl);
+  const currentRoute = useSelector((state) => state.route.currentRoute);
+  const newRoute = useSelector((state) => state.route.newRoute);
 
   const [fetchingDelete, isLoadedDelete, errorDelete] = useFetching(async (id) => {
     await PostService.deleteItem(id);
     dispatch(listSaveAction(list.filter((e) => e.value !== id)));
-    if (idSave) {
-      navigate(`/incomeCalculator/${newUrl}`);
+    if (currentRoute) {
+      navigate(`/incomeCalculator/${newRoute}`);
     }
   });
 

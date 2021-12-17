@@ -1,23 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import './ModalError.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { textErrorAction } from '../store/textError';
-import Modal from './UI/modal/Modal';
+import { textErrorAction } from '../../store/textError';
+import { downloadsErrorAction } from '../../store/downloads';
+import Modal from '../UI/modal/Modal';
 
 const ModalError = () => {
   const [modal, setModal] = useState(false);
   const dispatch = useDispatch();
   const textError = useSelector((state) => state.textError.text);
+  const downloadsError = useSelector((state) => state.downloads.error);
 
   useEffect(() => {
-    if (textError) {
+    if (textError || downloadsError) {
       setModal(true);
     }
-  }, [textError]);
+  }, [textError, downloadsError]);
 
   useEffect(() => {
     if (!modal) {
       dispatch(textErrorAction(''));
+      dispatch(downloadsErrorAction(''));
     }
   }, [modal]);
 
@@ -27,7 +30,7 @@ const ModalError = () => {
       visible={modal}
       setVisible={() => setModal()}
     >
-      <div>{textError}</div>
+      <div>{textError || downloadsError}</div>
     </Modal>
   );
 };

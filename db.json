@@ -64,7 +64,7 @@
         {
           "id": "income3",
           "placeholder": "calc.additional_income",
-          "value": 0
+          "value": 3
         },
         {
           "id": "income4",
@@ -94,8 +94,8 @@
           "value": 0
         }
       ],
-      "name": "2021-12-13T19:56:00.615Z",
-      "percent": "50",
+      "name": "2021-12-16T18:56:44.876Z",
+      "percent": "35",
       "id": "inquiry65609"
     },
     {
@@ -157,7 +157,7 @@
         {
           "id": "income2",
           "placeholder": "calc.part-time_job",
-          "value": 0
+          "value": 34534
         },
         {
           "id": "income3",
@@ -179,7 +179,7 @@
         {
           "id": "expense2",
           "placeholder": "calc.mobile_connection",
-          "value": 0
+          "value": 3453453
         },
         {
           "id": "expense3",
@@ -192,9 +192,9 @@
           "value": 0
         }
       ],
-      "name": "2021-12-12T21:56:48.379Z",
-      "id": "inquiry71396",
-      "percent": "20"
+      "name": "2021-12-16T18:39:46.045Z",
+      "percent": "20",
+      "id": "inquiry71396"
     },
     {
       "incomes": [
@@ -388,9 +388,9 @@
           "value": 0
         }
       ],
-      "name": "2021-12-12T22:09:48.429Z",
-      "id": "inquiry29653",
-      "percent": "44"
+      "name": "2021-12-16T18:47:43.111Z",
+      "percent": "44",
+      "id": "inquiry29653"
     },
     {
       "incomes": [
@@ -544,12 +544,12 @@
         {
           "id": "income1",
           "placeholder": "calc.salary",
-          "value": 465456
+          "value": 234
         },
         {
           "id": "income2",
           "placeholder": "calc.part-time_job",
-          "value": 4564
+          "value": 2342324
         },
         {
           "id": "income3",
@@ -566,12 +566,12 @@
         {
           "id": "expense1",
           "placeholder": "calc.HCS",
-          "value": 564
+          "value": 234
         },
         {
           "id": "expense2",
           "placeholder": "calc.mobile_connection",
-          "value": 4564
+          "value": 234
         },
         {
           "id": "expense3",
@@ -584,9 +584,9 @@
           "value": 0
         }
       ],
-      "name": "2021-12-12T22:10:55.843Z",
-      "id": "inquiry94070",
-      "percent": "96"
+      "name": "2021-12-17T04:54:33.266Z",
+      "id": "inquiry53143",
+      "percent": "75"
     }
   ]
 }

@@ -5,8 +5,8 @@ import {
 } from 'react-router-dom';
 import Menu from './components/Menu/Menu';
 import Header from './components/Header';
-import ModalError from './components/ModalError';
-import DeleteConfirmation from './components/DeleteConfirmation';
+import ModalError from './components/ModalError/ModalError';
+import DeleteConfirmation from './components/DeleteConfirmation/DeleteConfirmation';
 import AppRouter from './components/AppRouter';
 
 function App() {

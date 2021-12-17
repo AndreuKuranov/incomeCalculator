@@ -14,9 +14,9 @@ import {
 
 const Sum = (props) => {
   const { t } = useTranslation();
-  const downloadsIncomes = useSelector((state) => state.dowIn.incomes);
-  const downloadsExpenses = useSelector((state) => state.dowEx.expenses);
-  const percent = useSelector((state) => state.per.percent);
+  const downloadsIncomes = useSelector((state) => state.downloads.incomes);
+  const downloadsExpenses = useSelector((state) => state.downloads.expenses);
+  const percent = useSelector((state) => state.downloads.percent);
 
   const monthMoney = difference(downloadsIncomes, downloadsExpenses);
   const dayMoney = availablePerDay(monthMoney, percent, daysInMonth());

@@ -1,30 +1,21 @@
 /* eslint-disable import/prefer-default-export */
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { saveId } from './saveId';
-import { incomes } from './incomes';
-import { expenses } from './expenses';
-import { downloadsIncomes } from './downloadsIncomes';
-import { downloadsExpenses } from './downloadsExpenses';
-import { percent } from './percent';
-import { newId } from './newId';
-import { newUrlCalc } from './newUrlCalc';
+import thunk from 'redux-thunk';
+import { sample } from './sample';
+import { downloads } from './downloads';
+import { id } from './id';
+import { route } from './route';
 import { listSave } from './listSave';
 import { textError } from './textError';
-import { deleteId } from './deleteId';
 
 const rootReducer = combineReducers({
-  incomes,
-  expenses,
-  id: saveId,
-  dowIn: downloadsIncomes,
-  dowEx: downloadsExpenses,
-  per: percent,
-  newId,
-  newUrl: newUrlCalc,
+  sample,
+  downloads,
+  route,
+  id,
   listSave,
   textError,
-  deleteId,
 });
 
-export const store = createStore(rootReducer, composeWithDevTools());
+export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));

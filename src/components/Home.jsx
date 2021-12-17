@@ -1,14 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import Button from '../UI/button/Button';
+import Button from './UI/button/Button';
 
 const Home = () => {
   const navigate = useNavigate();
-  const idSave = useSelector((state) => state.id.id);
+  const currentRoute = useSelector((state) => state.route.currentRoute);
 
   return (
-    idSave
+    currentRoute
       && (
         <Button
           type="button"

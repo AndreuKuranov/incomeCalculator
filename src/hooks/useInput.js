@@ -7,7 +7,8 @@ const useInput = (initialValue, validations, className, resetLabel, setResetLabe
   const [isFocus, setFocus] = useState(false);
   const [classLabelFocus, setClassLabelFocus] = useState('');
   const valid = useValidation(initialValue, validations, isDirty, isFocus);
-  const idSave = useSelector((state) => state.id.id);
+  const currentRoute = useSelector((state) => state.route.currentRoute);
+  const newRoute = useSelector((state) => state.route.newRoute);
 
   const onFocus = () => {
     setClassLabelFocus(className);
@@ -36,10 +37,10 @@ const useInput = (initialValue, validations, className, resetLabel, setResetLabe
   }, [resetLabel]);
 
   useEffect(() => {
-    if (!initialValue || idSave === 'new') {
+    if (!initialValue || currentRoute === newRoute) {
       setClassLabelFocus('');
     }
-  }, [idSave]);
+  }, [currentRoute]);
 
   return {
     onBlur,

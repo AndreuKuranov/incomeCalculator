@@ -16,10 +16,10 @@ export const daysInMonth = () => {
 };
 
 export const availablePerDay = (sum, percent, daysMonth) => {
-  return ((sum - (sum * (percent / 100))) / daysMonth).toFixed();
+  return ((sum - (sum * (+percent / 100))) / daysMonth).toFixed();
 };
 
-export const availablePerYear = (sum, percent) => ((sum * (percent / 100)) * 12).toFixed();
+export const availablePerYear = (sum, percent) => ((sum * (+percent / 100)) * 12).toFixed();
 
 export const currentDate = () => new Date().toISOString();
 
