@@ -11,7 +11,7 @@ ReactDOM.render(
     <Provider store={store}>
       <Suspense fallback={(
         <Loader
-          className="calc__loader"
+          // className="calc__loader"
           type="Puff"
           color="#ff4400"
           height={100}

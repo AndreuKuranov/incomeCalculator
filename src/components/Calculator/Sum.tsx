@@ -1,6 +1,5 @@
 import React from 'react';
 import cn from 'classnames';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import './Sum.css';
 import Column from './Column';
@@ -11,12 +10,13 @@ import '../../i18next/i18next';
 import {
   difference, availablePerDay, availablePerYear, nFormatter, daysInMonth,
 } from '../../date/date';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
-const Sum = (props) => {
+const Sum: React.FC = (props: any) => {
   const { t } = useTranslation();
-  const downloadsIncomes = useSelector((state) => state.downloads.incomes);
-  const downloadsExpenses = useSelector((state) => state.downloads.expenses);
-  const percent = useSelector((state) => state.downloads.percent);
+  const downloadsIncomes = useTypedSelector((state) => state.downloads.incomes);
+  const downloadsExpenses = useTypedSelector((state) => state.downloads.expenses);
+  const percent = useTypedSelector((state) => state.downloads.percent);
 
   const monthMoney = difference(downloadsIncomes, downloadsExpenses);
   const dayMoney = availablePerDay(monthMoney, percent, daysInMonth());

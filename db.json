@@ -20,7 +20,7 @@
         {
           "id": "income4",
           "placeholder": "calc.additional_income",
-          "value": 0
+          "value": 234
         }
       ],
       "expenses": [
@@ -37,7 +37,7 @@
         {
           "id": "expense3",
           "placeholder": "calc.home_internet",
-          "value": 0
+          "value": 234
         },
         {
           "id": "expense4",
@@ -45,8 +45,8 @@
           "value": 0
         }
       ],
-      "name": "2021-12-12T21:28:16.120Z",
-      "percent": "6",
+      "name": "2021-12-17T14:05:58.031Z",
+      "percent": "13",
       "id": "inquiry76648"
     },
     {

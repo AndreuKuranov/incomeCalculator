@@ -13,6 +13,7 @@ import { newIdAction } from '../../store/id';
 import { listSaveAction } from '../../store/listSave';
 import { unique } from '../../date/check';
 import { getDownloadsItem } from '../../asynsActions/getDownloadsItem';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 const Calc = (props) => {
   const { t } = useTranslation();
@@ -20,9 +21,9 @@ const Calc = (props) => {
   const { invoiceId } = useParams();
   const incomes = useSelector((state) => state.sample.incomes);
   const expenses = useSelector((state) => state.sample.expenses);
-  const downloadsIncomes = useSelector((state) => state.downloads.incomes);
-  const downloadsExpenses = useSelector((state) => state.downloads.expenses);
-  const downloadsLoaded = useSelector((state) => state.downloads.loaded);
+  const downloadsIncomes = useTypedSelector((state) => state.downloads.incomes);
+  const downloadsExpenses = useTypedSelector((state) => state.downloads.expenses);
+  const downloadsLoaded = useTypedSelector((state) => state.downloads.loaded);
   const newRoute = useSelector((state) => state.route.newRoute);
   const additionalField = ['calc.additional_income', 'calc.additional_expenses'];
 
