@@ -16,8 +16,8 @@ export enum DownloadActionTypes {
 	DOWNLOADS_INCOMES = 'DOWNLOADS_INCOMES',
 	DOWNLOADS_EXPENSES = 'DOWNLOADS_EXPENSES',
 	PERCENT = 'PERCENT',
-	DOWNLOADS_LOADED = 'DOWNLOADS_LOADED',
-	DOWNLOADS_ERROR = 'DOWNLOADS_ERROR',
+	LOADED = 'LOADED',
+	ERROR = 'ERROR',
 }
 
 interface FetchDownloadsIncomesAction {
@@ -28,17 +28,17 @@ interface FetchDownloadsExpensesAction {
 	type: DownloadActionTypes.DOWNLOADS_EXPENSES;
 	payload: IDownloadItem[];
 }
-interface FetchDownloadsPercentAction {
+interface FetchPercentAction {
 	type: DownloadActionTypes.PERCENT;
 	payload: number;
 }
-interface FetchDownloadsLoadedAction {
-	type: DownloadActionTypes.DOWNLOADS_LOADED;
+interface FetchLoadedAction {
+	type: DownloadActionTypes.LOADED;
 	payload: boolean;
 }
-interface FetchDownloadsErrorAction {
-	type: DownloadActionTypes.DOWNLOADS_ERROR;
+interface FetchErrorAction {
+	type: DownloadActionTypes.ERROR;
 	payload: string;
 }
 
-export type DownloadsAction = FetchDownloadsIncomesAction | FetchDownloadsExpensesAction | FetchDownloadsPercentAction | FetchDownloadsLoadedAction | FetchDownloadsErrorAction
+export type DownloadsAction = FetchDownloadsIncomesAction | FetchDownloadsExpensesAction | FetchPercentAction | FetchLoadedAction | FetchErrorAction

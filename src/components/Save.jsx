@@ -1,37 +1,24 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Button from './UI/button/Button';
-import PostService from '../API/PostService';
-import useFetching from '../hooks/useFetching';
-import { currentRouteAction } from '../store/route';
-import { textErrorAction } from '../store/textError';
+import { saveAsynsActions } from '../asynsActions/saveAsynsActions';
+import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const Save = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const downloadsIncomes = useSelector((state) => state.downloads.incomes);
-  const downloadsExpenses = useSelector((state) => state.downloads.expenses);
-  const percent = useSelector((state) => state.downloads.percent);
+  const downloadsIncomes = useTypedSelector((state) => state.downloads.incomes);
+  const downloadsExpenses = useTypedSelector((state) => state.downloads.expenses);
+  const loaded = useTypedSelector((state) => state.downloads.loaded);
+  const percent = useTypedSelector((state) => state.downloads.percent);
   const currentRoute = useSelector((state) => state.route.currentRoute);
   const newRoute = useSelector((state) => state.route.newRoute);
   const newId = useSelector((state) => state.id.newId);
 
-  const [fetchingSave, isLoadedSave, errorSave] = useFetching(async () => {
-    if (currentRoute && currentRoute !== newRoute) {
-      await PostService.putItem(currentRoute, downloadsIncomes, downloadsExpenses, percent);
-    } else if (currentRoute === newRoute) {
-      await PostService.postItem(downloadsIncomes, downloadsExpenses, newId, percent);
-      dispatch(currentRouteAction(newId));
-      navigate(`/incomeCalculator/${newId}`);
-    }
-  });
-
-  useEffect(() => {
-    if (errorSave) {
-      dispatch(textErrorAction('Error save'));
-    }
-  }, [errorSave]);
+  const nav = (id) => {
+    navigate(`/incomeCalculator/${id}`);
+  }
 
   return (
     currentRoute
@@ -40,7 +27,7 @@ const Save = () => {
         <Button
           type="button"
           title="save"
-          onClick={isLoadedSave ? () => {} : () => fetchingSave()}
+          onClick={loaded ? () => {} : () => dispatch(saveAsynsActions(currentRoute, newRoute, downloadsIncomes, downloadsExpenses, percent, newId, nav))}
         >
           <i className="material-icons">save</i>
         </Button>

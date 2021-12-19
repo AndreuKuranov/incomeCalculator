@@ -12,7 +12,7 @@ import { currentRouteAction } from '../../store/route';
 import { newIdAction } from '../../store/id';
 import { listSaveAction } from '../../store/listSave';
 import { unique } from '../../date/check';
-import { getDownloadsItem } from '../../asynsActions/getDownloadsItem';
+import { downloadsAsynsActions } from '../../asynsActions/downloadsAsynsActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 const Calc = (props) => {
@@ -23,18 +23,18 @@ const Calc = (props) => {
   const expenses = useSelector((state) => state.sample.expenses);
   const downloadsIncomes = useTypedSelector((state) => state.downloads.incomes);
   const downloadsExpenses = useTypedSelector((state) => state.downloads.expenses);
-  const downloadsLoaded = useTypedSelector((state) => state.downloads.loaded);
+  const loaded = useTypedSelector((state) => state.downloads.loaded);
   const newRoute = useSelector((state) => state.route.newRoute);
   const additionalField = ['calc.additional_income', 'calc.additional_expenses'];
 
   useEffect(() => {
     if (invoiceId && invoiceId !== newRoute) {
-      dispatch(getDownloadsItem(invoiceId));
+      dispatch(downloadsAsynsActions(invoiceId));
     }
     if (invoiceId === newRoute) {
       dispatch(downloadsIncomesAction(incomes));
       dispatch(downloadsExpensesAction(expenses));
-      dispatch(percentAction('0'));
+      dispatch(percentAction(0));
       dispatch(currentRouteAction(invoiceId));
       dispatch(newIdAction(unique()));
     }
@@ -45,7 +45,7 @@ const Calc = (props) => {
     <div className={cn('calc', props.className)}>
       <div className="calc__container container">
         {
-          !downloadsLoaded
+          !loaded
             ? (
               <div className="calc__body">
                 <BlockInput
@@ -67,13 +67,14 @@ const Calc = (props) => {
               </div>
             )
             : (
-              <Loader
-                className="calc__loader"
-                type="Puff"
-                color="#ff4400"
-                height={100}
-                width={100}
-              />
+              <div className="calc__loader">
+                <Loader
+                  type="Puff"
+                  color="#ff4400"
+                  height={100}
+                  width={100}
+                />
+              </div>
             )
         }
       </div>

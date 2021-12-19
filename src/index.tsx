@@ -10,13 +10,14 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Suspense fallback={(
-        <Loader
-          // className="calc__loader"
-          type="Puff"
-          color="#ff4400"
-          height={100}
-          width={100}
-        />
+        <div className="calc__loader">
+          <Loader 
+            type="Puff"
+            color="#ff4400"
+            height={100}
+            width={100}
+          />
+        </div>
       )}
       >
         <App />

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './ModalError.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { textErrorAction } from '../../store/textError';
-import { downloadsErrorAction } from '../../store/downloads';
+import { errorAction } from '../../store/downloads';
 import Modal from '../UI/modal/Modal';
 
 const ModalError = () => {
@@ -20,7 +20,7 @@ const ModalError = () => {
   useEffect(() => {
     if (!modal) {
       dispatch(textErrorAction(''));
-      dispatch(downloadsErrorAction(''));
+      dispatch(errorAction(''));
     }
   }, [modal]);
 

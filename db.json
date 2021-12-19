@@ -135,7 +135,7 @@
         {
           "id": "expense3",
           "placeholder": "calc.home_internet",
-          "value": 0
+          "value": 213
         },
         {
           "id": "expense4",
@@ -143,9 +143,9 @@
           "value": 0
         }
       ],
-      "name": "2021-12-12T21:55:20.617Z",
-      "id": "inquiry24880",
-      "percent": "10"
+      "name": "2021-12-19T13:43:47.380Z",
+      "percent": "16",
+      "id": "inquiry24880"
     },
     {
       "incomes": [
