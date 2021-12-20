@@ -14,11 +14,9 @@ import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 const Sum: React.FC = (props: any) => {
   const { t } = useTranslation();
-  const downloadsIncomes = useTypedSelector((state) => state.downloads.incomes);
-  const downloadsExpenses = useTypedSelector((state) => state.downloads.expenses);
-  const percent = useTypedSelector((state) => state.downloads.percent);
+  const { incomes, expenses, percent }= useTypedSelector((state) => state.downloads);
 
-  const monthMoney = difference(downloadsIncomes, downloadsExpenses);
+  const monthMoney = difference(incomes, expenses);
   const dayMoney = availablePerDay(monthMoney, percent, daysInMonth());
   const yearMoney = availablePerYear(monthMoney, percent);
 

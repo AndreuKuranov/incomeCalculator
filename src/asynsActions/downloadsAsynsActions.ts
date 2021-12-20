@@ -5,9 +5,10 @@ import { currentRouteAction } from '../store/route';
 import PostService from '../API/PostService';
 import { DownloadsAction, DownloadState } from '../types/downloadsType';
 import { Dispatch } from 'react';
+import { RouteAction } from '../types/routeType';
 
 export const downloadsAsynsActions = (id: string) => {
-  return async (dispatch: Dispatch<DownloadsAction | any>) => {
+  return async (dispatch: Dispatch<DownloadsAction | RouteAction>) => {
     try {
       dispatch(loadedAction(true));
       const response: DownloadState = await PostService.getItem(id);

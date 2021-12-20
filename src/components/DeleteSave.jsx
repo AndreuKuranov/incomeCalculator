@@ -1,13 +1,13 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './DeleteSave.css';
 import Button from './UI/button/Button';
 import { deleteIdAction } from '../store/id';
+import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const DeleteSave = () => {
   const dispatch = useDispatch();
-  const currentRoute = useSelector((state) => state.route.currentRoute);
-  const newRoute = useSelector((state) => state.route.newRoute);
+  const { newRoute, currentRoute } = useTypedSelector((state) => state.route)
 
   return (
     (currentRoute && currentRoute !== newRoute)

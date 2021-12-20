@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import cn from 'classnames';
 import { useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import Loader from 'react-loader-spinner';
 import BlockInput from './BlockInput';
@@ -15,16 +15,13 @@ import { unique } from '../../date/check';
 import { downloadsAsynsActions } from '../../asynsActions/downloadsAsynsActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 
-const Calc = (props) => {
+const Calc: React.FC = (props: any) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const { invoiceId } = useParams();
-  const incomes = useSelector((state) => state.sample.incomes);
-  const expenses = useSelector((state) => state.sample.expenses);
-  const downloadsIncomes = useTypedSelector((state) => state.downloads.incomes);
-  const downloadsExpenses = useTypedSelector((state) => state.downloads.expenses);
-  const loaded = useTypedSelector((state) => state.downloads.loaded);
-  const newRoute = useSelector((state) => state.route.newRoute);
+  const { incomesDefault, expensesDefault } = useTypedSelector((state) => state.defaultCalc);
+  const { incomes, expenses, loaded }= useTypedSelector((state) => state.downloads);
+  const { newRoute } = useTypedSelector((state) => state.route);
   const additionalField = ['calc.additional_income', 'calc.additional_expenses'];
 
   useEffect(() => {
@@ -32,8 +29,8 @@ const Calc = (props) => {
       dispatch(downloadsAsynsActions(invoiceId));
     }
     if (invoiceId === newRoute) {
-      dispatch(downloadsIncomesAction(incomes));
-      dispatch(downloadsExpensesAction(expenses));
+      dispatch(downloadsIncomesAction(incomesDefault));
+      dispatch(downloadsExpensesAction(expensesDefault));
       dispatch(percentAction(0));
       dispatch(currentRouteAction(invoiceId));
       dispatch(newIdAction(unique()));
@@ -51,7 +48,7 @@ const Calc = (props) => {
                 <BlockInput
                   className="calc__block"
                   title={t('calc.incomes')}
-                  values={downloadsIncomes}
+                  values={incomes}
                   set={downloadsIncomesAction}
                   id="calc.additional_income"
                   additional={additionalField}
@@ -59,7 +56,7 @@ const Calc = (props) => {
                 <BlockInput
                   className="calc__block"
                   title={t('calc.expenses')}
-                  values={downloadsExpenses}
+                  values={expenses}
                   set={downloadsExpensesAction}
                   id="calc.additional_expenses"
                   additional={additionalField}

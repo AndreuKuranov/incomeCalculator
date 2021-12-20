@@ -9,7 +9,7 @@ import ModalError from './components/ModalError/ModalError';
 import DeleteConfirmation from './components/DeleteConfirmation/DeleteConfirmation';
 import AppRouter from './components/AppRouter';
 
-function App() {
+const App = () => {
   return (
     <div className="main">
       <Router>

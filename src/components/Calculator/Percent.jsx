@@ -1,16 +1,17 @@
 import React from 'react';
 import cn from 'classnames';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './Percent.css';
 import { useTranslation } from 'react-i18next';
 import '../../i18next/i18next';
 import { percentAction } from '../../store/downloads';
 import Range from '../UI/range/Range';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 const Percent = (props) => {
   const { t } = useTranslation();
-  const percent = useSelector((state) => state.downloads.percent);
   const dispatch = useDispatch();
+  const { percent } = useTypedSelector((state) => state.downloads);
 
   return (
     <div className={cn('percent', props.className)}>

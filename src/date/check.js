@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 import { currentDate } from './date';
 
 export const checkSaveId = (listSave) => {

@@ -1,34 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { textErrorAction } from '../../store/textError';
 import './DeleteConfirmation.css';
-import PostService from '../../API/PostService';
-import useFetching from '../../hooks/useFetching';
 import Button from '../UI/button/Button';
 import Modal from '../UI/modal/Modal';
 import { deleteIdAction } from '../../store/id';
-import { listSaveAction } from '../../store/listSave';
+import { deleteAsynsActions } from '../../asynsActions/deleteAsynsActions';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 const DeleteConfirmation = () => {
   const [modal, setModal] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const deleteId = useSelector((state) => state.id.deleteId);
-  const list = useSelector((state) => state.listSave.listSave);
-  const currentRoute = useSelector((state) => state.route.currentRoute);
-  const newRoute = useSelector((state) => state.route.newRoute);
+  const { deleteId } = useTypedSelector((state) => state.id);
+  const { listSave }= useTypedSelector((state) => state.listSave);
+  const { newRoute, currentRoute } = useTypedSelector((state) => state.route)
+  const { loaded } = useTypedSelector((state) => state.downloads);
 
-  const [fetchingDelete, isLoadedDelete, errorDelete] = useFetching(async (id) => {
-    await PostService.deleteItem(id);
-    dispatch(listSaveAction(list.filter((e) => e.value !== id)));
-    if (currentRoute) {
-      navigate(`/incomeCalculator/${newRoute}`);
-    }
-  });
+  const nav = (route) => {
+    navigate(`/incomeCalculator/${route}`);
+  }
 
   const onClick = (Id) => {
-    fetchingDelete(Id);
+    dispatch(deleteAsynsActions(Id, currentRoute, newRoute, listSave, nav));
     setModal(false);
   };
 
@@ -43,12 +37,6 @@ const DeleteConfirmation = () => {
       dispatch(deleteIdAction(''));
     }
   }, [modal]);
-
-  useEffect(() => {
-    if (errorDelete) {
-      dispatch(textErrorAction('Error delete'));
-    }
-  }, [errorDelete]);
 
   return (
     <Modal
@@ -65,7 +53,7 @@ const DeleteConfirmation = () => {
           className="delete__confirmation-button"
           type="button"
           title="Да"
-          onClick={isLoadedDelete ? () => {} : () => onClick(deleteId)}
+          onClick={loaded ? () => {} : () => onClick(deleteId)}
         >
           Да
         </Button>
