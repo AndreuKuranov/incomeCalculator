@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
 import classes from './Select.module.css';
+import { LanguagesType } from '../../../types/types';
 
-const Select = ({
-  options, defaultName, value, onChange, ...props
+interface SelectProps {
+  className?: string,
+  defaultName: string,
+  onChange: any,
+  options: LanguagesType[],
+  defaultValue: string,
+  value?: any,
+}
+
+const Select: FC<SelectProps> = ({
+  options, defaultName, onChange, ...props
 }) => (
   <select
     className={cn(classes.mySelect, props.className)}
-    value={value}
-    onChange={(event) => onChange(event.target.value)}
+    value={props.value}
+    onChange={onChange}
   >
     <option value={props.defaultValue}>{defaultName}</option>
     {options.map((option) => (

@@ -5,7 +5,7 @@ import Button from './UI/button/Button';
 import { deleteIdAction } from '../store/id';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 
-const DeleteSave = () => {
+const DeleteSave: any = () => {
   const dispatch = useDispatch();
   const { newRoute, currentRoute } = useTypedSelector((state) => state.route)
 

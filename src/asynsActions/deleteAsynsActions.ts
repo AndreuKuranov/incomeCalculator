@@ -5,9 +5,9 @@ import { listSaveAction } from '../store/listSave';
 import PostService from '../API/PostService';
 import { DownloadsAction } from '../types/downloadsType';
 import { Dispatch } from 'react';
-import { ListAction } from '../types/listSaveType';
+import { IListSave, ListAction } from '../types/listSaveType';
 
-export const deleteAsynsActions = (id: string, currentRoute: string, newRoute: string, list: [], nav: any) => {
+export const deleteAsynsActions = (id: string, currentRoute: string, newRoute: string, list: IListSave[], nav: any) => {
   return async (dispatch: Dispatch<DownloadsAction | ListAction>) => {
     try {
       dispatch(loadedAction(true));

@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import './Download.css';
 import Button from './UI/button/Button';
 import { deleteIdAction } from '../store/id';
 
-const Download = (props) => {
+interface DownloadProps {
+  className?: string,
+  value: string,
+	name: string,
+}
+
+const Download: FC<DownloadProps> = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   return (
-    <div className="downloads-list__row download" key={props.value}>
+    <div className="downloads-list__row download">
       <div className="download__title">{props.name}</div>
       <Button
         className="download__button"

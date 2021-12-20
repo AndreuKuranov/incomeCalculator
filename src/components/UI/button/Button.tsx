@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
 import classes from './Button.module.css';
 
-const Button = ({ children, ...props }) => (
+interface ButtonProps {
+  className?: string,
+  type?: "button" | "reset" | "submit",
+  onClick: () => void,
+  title?: string,
+}
+
+const Button: FC<ButtonProps> = (props) => (
   <button
     className={cn(classes.myBtn, props.className)}
     type={props.type || 'button'}
-    style={props.style}
     onClick={props.onClick}
     title={props.title}
   >
-    {children}
+    {props.children}
   </button>
 );
 

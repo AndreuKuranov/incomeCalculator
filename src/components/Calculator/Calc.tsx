@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, FC } from 'react';
 import cn from 'classnames';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -15,10 +15,14 @@ import { unique } from '../../date/check';
 import { downloadsAsynsActions } from '../../asynsActions/downloadsAsynsActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 
-const Calc: React.FC = (props: any) => {
+interface CalcProps {
+  className?: string,
+}
+
+const Calc: FC<CalcProps> = (props) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const { invoiceId } = useParams();
+  const { invoiceId } = useParams<string>();
   const { incomesDefault, expensesDefault } = useTypedSelector((state) => state.defaultCalc);
   const { incomes, expenses, loaded }= useTypedSelector((state) => state.downloads);
   const { newRoute } = useTypedSelector((state) => state.route);
@@ -49,7 +53,7 @@ const Calc: React.FC = (props: any) => {
                   className="calc__block"
                   title={t('calc.incomes')}
                   values={incomes}
-                  set={downloadsIncomesAction}
+                  setDownloadsAction={downloadsIncomesAction}
                   id="calc.additional_income"
                   additional={additionalField}
                 />
@@ -57,7 +61,7 @@ const Calc: React.FC = (props: any) => {
                   className="calc__block"
                   title={t('calc.expenses')}
                   values={expenses}
-                  set={downloadsExpensesAction}
+                  setDownloadsAction={downloadsExpensesAction}
                   id="calc.additional_expenses"
                   additional={additionalField}
                 />

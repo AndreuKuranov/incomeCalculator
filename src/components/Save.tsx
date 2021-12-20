@@ -5,7 +5,7 @@ import Button from './UI/button/Button';
 import { saveAsynsActions } from '../asynsActions/saveAsynsActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 
-const Save = () => {
+const Save: any = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { incomes, expenses, loaded, percent } = useTypedSelector((state) => state.downloads);

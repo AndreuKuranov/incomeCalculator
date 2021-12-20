@@ -9,7 +9,7 @@ import { deleteAsynsActions } from '../../asynsActions/deleteAsynsActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 const DeleteConfirmation = () => {
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState<boolean>(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { deleteId } = useTypedSelector((state) => state.id);
@@ -17,11 +17,11 @@ const DeleteConfirmation = () => {
   const { newRoute, currentRoute } = useTypedSelector((state) => state.route)
   const { loaded } = useTypedSelector((state) => state.downloads);
 
-  const nav = (route) => {
+  const nav = (route: string) => {
     navigate(`/incomeCalculator/${route}`);
   }
 
-  const onClick = (Id) => {
+  const onClick = (Id: string) => {
     dispatch(deleteAsynsActions(Id, currentRoute, newRoute, listSave, nav));
     setModal(false);
   };
@@ -41,7 +41,7 @@ const DeleteConfirmation = () => {
   return (
     <Modal
       visible={modal}
-      setVisible={() => setModal()}
+      setVisible={setModal}
     >
       <h3
         className="delete__confirmation-title"

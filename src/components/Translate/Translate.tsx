@@ -4,7 +4,7 @@ import Button from '../UI/button/Button';
 import Language from './Language';
 
 const Translate = () => {
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState<boolean>(false);
 
   return (
     <div>

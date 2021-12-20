@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
 import { useDispatch } from 'react-redux';
 import './Percent.css';
@@ -7,8 +7,13 @@ import '../../i18next/i18next';
 import { percentAction } from '../../store/downloads';
 import Range from '../UI/range/Range';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { EventType } from '../../types/types';
 
-const Percent = (props) => {
+interface PercentProps {
+  className?: string,
+}
+
+const Percent: FC<PercentProps> = (props) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const { percent } = useTypedSelector((state) => state.downloads);
@@ -26,7 +31,7 @@ const Percent = (props) => {
                 min="0"
                 max="100"
                 value={percent}
-                onChange={(event) => dispatch(percentAction(event.target.value))}
+                onChange={(e: EventType) => dispatch(percentAction(e.target.value))}
               />
             </div>
             <div className="percent__text text">

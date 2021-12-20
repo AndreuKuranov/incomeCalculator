@@ -1,8 +1,13 @@
-/* eslint-disable no-unused-expressions */
 import React, { useEffect, useState } from 'react';
+import { ValidationsType } from '../types/types';
 
-const useValidation = (value, validations, isDirty, isFocus) => {
-  const [NumberError, setNumberError] = useState(validations.NumberError);
+const useValidation = (
+  value: number,
+  validations: ValidationsType,
+  isDirty: boolean,
+  isFocus: boolean,
+) => {
+  const [NumberError, setNumberError] = useState<boolean>(validations.NumberError);
 
   useEffect(() => {
     value >= 0 ? setNumberError(false) : setNumberError(true);

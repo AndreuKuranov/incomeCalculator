@@ -29,7 +29,7 @@ const DownloadsList = (props) => {
   useEffect(() => {
     dispatch(downloadsIncomesAction(incomesDefault));
     dispatch(downloadsExpensesAction(expensesDefault));
-    dispatch(percentAction('0'));
+    dispatch(percentAction(0));
     dispatch(currentRouteAction(''));
     dispatch(newIdAction(''));
   }, [incomeCalculator]);

@@ -1,21 +1,27 @@
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
 import useValidation from './useValidation';
+import { useTypedSelector } from '../hooks/useTypedSelector';
+import { ValidationsType } from '../types/types';
 
-const useInput = (initialValue, validations, className, resetLabel, setResetLabel) => {
-  const [isDirty, setDirty] = useState(false);
-  const [isFocus, setFocus] = useState(false);
-  const [classLabelFocus, setClassLabelFocus] = useState('');
+const useInput = (
+  initialValue: number, 
+  validations: ValidationsType, 
+  className: string, 
+  resetLabel: boolean, 
+  setResetLabel: any,
+) => {
+  const [isDirty, setDirty] = useState<boolean>(false);
+  const [isFocus, setFocus] = useState<boolean>(false);
+  const [classLabelFocus, setClassLabelFocus] = useState<string>('');
   const valid = useValidation(initialValue, validations, isDirty, isFocus);
-  const currentRoute = useSelector((state) => state.route.currentRoute);
-  const newRoute = useSelector((state) => state.route.newRoute);
+  const { newRoute, currentRoute } = useTypedSelector((state) => state.route);
 
   const onFocus = () => {
     setClassLabelFocus(className);
     setFocus(true);
   };
 
-  const onBlur = (e) => {
+  const onBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     setDirty(true);
     setFocus(false);
     if (!e.target.value) {

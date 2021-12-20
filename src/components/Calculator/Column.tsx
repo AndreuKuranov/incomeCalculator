@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
 import './Column.css';
 
-const Column = (props) => (
+interface ColumnProps {
+  className?: string,
+  icon: string,
+  id: string,
+  title: string,
+  value: string,
+  currency: string,
+}
+
+const Column: FC<ColumnProps> = (props) => (
   <div className={cn('column', props.className)}>
     <div className="column__item">
       <div className="column__icon">

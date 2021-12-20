@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
 import classes from './Input.module.css';
 
-const Input = (props) => (
+interface InputProps {
+  className?: string,
+  type: string,
+  autoсomplete?: string,
+  placeholder?: string,
+  id?: any,
+  value: number | string,
+  onChange: any,
+  onFocus: any,
+  onBlur: any,
+}
+
+const Input: FC<InputProps> = (props) => (
   <input
     className={cn(classes.myInput, props.className)}
-    autoсomplete={props.autoсomplete}
+    autoComplete={props.autoсomplete}
     type={props.type}
     placeholder={props.placeholder}
     id={props.id}

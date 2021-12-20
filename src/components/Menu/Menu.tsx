@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
 import './Menu.css';
 import Save from '../Save';
@@ -7,7 +7,11 @@ import Home from '../Home';
 import NewCalculate from '../NewCalculate';
 import Translate from '../Translate/Translate';
 
-const Menu = (props) => {
+interface MenuProps {
+  className?: string,
+}
+
+const Menu: FC<MenuProps> = (props) => {
   return (
     <div className={cn('menu', props.className)}>
       <div className="menu__container container">

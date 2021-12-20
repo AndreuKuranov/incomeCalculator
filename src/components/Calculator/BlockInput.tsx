@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import cn from 'classnames';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -7,26 +7,36 @@ import ItemInput from './ItemInput';
 import Button from '../UI/button/Button';
 import '../../i18next/i18next';
 import { placeholder, resetValueCalc } from '../../date/check';
+import { DownloadsAction, IDownloadItem } from '../../types/downloadsType';
 
-const BlockInput = ({ additional, ...props }) => {
+interface BlockInputProps {
+  className?: string,
+  title: string,
+  values: IDownloadItem[],
+  setDownloadsAction: (payload: IDownloadItem[]) => DownloadsAction,
+  id: string,
+  additional: string[],
+}
+
+const BlockInput: FC<BlockInputProps> = ({ setDownloadsAction, ...props}) => {
   const { t } = useTranslation();
-  const [resetLabel, setResetLabel] = useState(false);
+  const [resetLabel, setResetLabel] = useState<boolean>(false);
   const dispatch = useDispatch();
 
-  const calc = (Id, val) => {
-    dispatch(props.set(props.values.map((item) => (item.id !== Id ? item : { ...item, value: +val }))));
+  const calc = (Id: string, val: number) => {
+    dispatch(setDownloadsAction(props.values.map((item) => (item.id !== Id ? item : { ...item, value: +val }))));
   };
 
-  const addDelete = (item) => {
-    dispatch(props.set(props.values.filter((e) => e.id !== item.id)));
+  const addDelete = (item: IDownloadItem) => {
+    dispatch(setDownloadsAction(props.values.filter((e) => e.id !== item.id)));
   };
 
   const newInput = () => {
-    dispatch(props.set([...props.values, { id: Date.now(), placeholder: placeholder(additional, props.id), value: 0 }]));
+    dispatch(setDownloadsAction([...props.values, { id: String(Date.now()), placeholder: placeholder(props.additional, props.id), value: 0 }]));
   };
 
   const reset = () => {
-    dispatch(props.set(resetValueCalc(props.values)));
+    dispatch(setDownloadsAction(resetValueCalc(props.values)));
     setResetLabel(true);
   };
 

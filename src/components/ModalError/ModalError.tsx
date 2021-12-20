@@ -6,7 +6,7 @@ import Modal from '../UI/modal/Modal';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 const ModalError = () => {
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState<boolean>(false);
   const dispatch = useDispatch();
   const downloadsError = useTypedSelector((state) => state.downloads.error);
 
@@ -26,7 +26,7 @@ const ModalError = () => {
     <Modal
       className="modal__error"
       visible={modal}
-      setVisible={() => setModal()}
+      setVisible={setModal}
     >
       <div>{downloadsError}</div>
     </Modal>

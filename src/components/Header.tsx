@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
 import './Header.css';
-
 import { useTranslation } from 'react-i18next';
 import '../i18next/i18next';
 
-const Header = (props) => {
+interface HeaderProps {
+  className?: string,
+}
+
+const Header: FC<HeaderProps> = (props) => {
   const { t } = useTranslation();
   return (
     <div className={cn('header', props.className)}>

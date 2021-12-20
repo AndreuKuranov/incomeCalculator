@@ -1,7 +1,12 @@
 import { useEffect, useRef } from 'react';
 
-export const useObserver = (ref, canLoad, isLoading, callback) => {
-  const observer = useRef();
+export const useObserver = (
+  ref: any,
+  canLoad: number,
+  isLoading: boolean,
+  callback: any,
+) => {
+  const observer = useRef<any>();
 
   useEffect(() => {
     if (isLoading) return;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 import './Sum.css';
@@ -11,8 +11,13 @@ import {
   difference, availablePerDay, availablePerYear, nFormatter, daysInMonth,
 } from '../../date/date';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { ResultsType } from '../../types/types';
 
-const Sum: React.FC = (props: any) => {
+interface SumProps {
+  className?: string,
+}
+
+const Sum: FC<SumProps> = (props) => {
   const { t } = useTranslation();
   const { incomes, expenses, percent }= useTypedSelector((state) => state.downloads);
 
@@ -20,7 +25,7 @@ const Sum: React.FC = (props: any) => {
   const dayMoney = availablePerDay(monthMoney, percent, daysInMonth());
   const yearMoney = availablePerYear(monthMoney, percent);
 
-  const results = [
+  const results: ResultsType[] = [
     {
       id: 'Month', icon: Month, title: 'calc.month', value: nFormatter(monthMoney),
     },
