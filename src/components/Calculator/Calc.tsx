@@ -10,7 +10,7 @@ import '../../i18next/i18next';
 import { downloadsIncomesAction, downloadsExpensesAction, percentAction } from '../../store/downloads';
 import { currentRouteAction } from '../../store/route';
 import { newIdAction } from '../../store/id';
-import { listSaveAction } from '../../store/listSave';
+import { listSaveAction, totalPageAction, pageNumberAction } from '../../store/listSave';
 import { unique } from '../../date/check';
 import { downloadsAsynsActions } from '../../asynsActions/downloadsAsynsActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
@@ -40,6 +40,8 @@ const Calc: FC<CalcProps> = (props) => {
       dispatch(newIdAction(unique()));
     }
     dispatch(listSaveAction([]));
+    dispatch(totalPageAction(0));
+    dispatch(pageNumberAction(1));
   }, [invoiceId]);
 
   return (

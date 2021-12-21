@@ -4,7 +4,7 @@ import classes from './Input.module.css';
 
 interface InputProps {
   className?: string,
-  type: string,
+  type: 'number' | 'text' | 'email' | 'password',
   autoсomplete?: string,
   placeholder?: string,
   id?: any,

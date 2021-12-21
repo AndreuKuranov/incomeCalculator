@@ -2,16 +2,16 @@ import { useEffect, useRef } from 'react';
 
 export const useObserver = (
   ref: any,
-  canLoad: number,
+  canLoad: boolean,
   isLoading: boolean,
-  callback: any,
+  callback: () => void,
 ) => {
   const observer = useRef<any>();
 
   useEffect(() => {
     if (isLoading) return;
     if (observer.current) observer.current.disconnect();
-    const cb = (entries) => {
+    const cb = (entries: any) => {
       if (entries[0].isIntersecting && canLoad) {
         callback();
       }

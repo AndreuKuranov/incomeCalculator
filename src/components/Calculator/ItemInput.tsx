@@ -11,7 +11,7 @@ import { EventType } from '../../types/types';
 interface ItemInputProps {
   className?: string,
   autoсomplete?: string,
-  typeInput: string,
+  typeInput: 'number',
   id: string,
   placeholder: string,
   onChange: (id: string, value: number) => void,
