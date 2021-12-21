@@ -17,12 +17,8 @@ const DeleteConfirmation = () => {
   const { newRoute, currentRoute } = useTypedSelector((state) => state.route)
   const { loaded } = useTypedSelector((state) => state.downloads);
 
-  const nav = (route: string) => {
-    navigate(`/incomeCalculator/${route}`);
-  }
-
-  const onClick = (Id: string) => {
-    dispatch(deleteAsynsActions(Id, currentRoute, newRoute, listSave, nav));
+  const onClick = () => {
+    dispatch(deleteAsynsActions(deleteId, currentRoute, newRoute, listSave, navigate));
     setModal(false);
   };
 
@@ -53,7 +49,7 @@ const DeleteConfirmation = () => {
           className="delete__confirmation-button"
           type="button"
           title="Да"
-          onClick={loaded ? () => {} : () => onClick(deleteId)}
+          onClick={loaded ? () => {} : () => onClick()}
         >
           Да
         </Button>

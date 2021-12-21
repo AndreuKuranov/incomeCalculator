@@ -495,17 +495,17 @@
         {
           "id": "income1",
           "placeholder": "calc.salary",
-          "value": 234
+          "value": 234234
         },
         {
           "id": "income2",
           "placeholder": "calc.part-time_job",
-          "value": 2342324
+          "value": 234
         },
         {
           "id": "income3",
           "placeholder": "calc.additional_income",
-          "value": 0
+          "value": 234
         },
         {
           "id": "income4",
@@ -535,58 +535,58 @@
           "value": 0
         }
       ],
-      "name": "2021-12-17T04:54:33.266Z",
-      "id": "inquiry53143",
-      "percent": "75"
+      "name": "2021-12-21T21:22:14.070Z",
+      "id": "inquiry96165",
+      "percent": "22"
     },
     {
       "incomes": [
         {
           "id": "income1",
           "placeholder": "calc.salary",
-          "value": 234234
+          "value": 234768
         },
         {
           "id": "income2",
           "placeholder": "calc.part-time_job",
-          "value": 2342424
+          "value": 678678
         },
         {
           "id": "income3",
           "placeholder": "calc.additional_income",
-          "value": 23423
+          "value": 678
         },
         {
           "id": "income4",
           "placeholder": "calc.additional_income",
-          "value": 0
+          "value": 678
         }
       ],
       "expenses": [
         {
           "id": "expense1",
           "placeholder": "calc.HCS",
-          "value": 234234
+          "value": 678
         },
         {
           "id": "expense2",
           "placeholder": "calc.mobile_connection",
-          "value": 324
+          "value": 678
         },
         {
           "id": "expense3",
           "placeholder": "calc.home_internet",
-          "value": 0
+          "value": 678
         },
         {
           "id": "expense4",
           "placeholder": "calc.credit",
-          "value": 0
+          "value": 768
         }
       ],
-      "name": "2021-12-21T14:15:35.234Z",
-      "id": "inquiry72467",
-      "percent": "25"
+      "name": "2021-12-21T21:22:25.280Z",
+      "id": "inquiry48450",
+      "percent": "14"
     }
   ]
 }

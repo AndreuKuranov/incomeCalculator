@@ -2,6 +2,7 @@ import React from 'react';
 import Percent from '../components/Calculator/Percent';
 import Sum from '../components/Calculator/Sum';
 import Calc from '../components/Calculator/Calc';
+import Result from '../components/Calculator/Result';
 
 const Body = () => {
   return (
@@ -14,6 +15,9 @@ const Body = () => {
       />
       <Percent
         className="main__percent"
+      />
+      <Result 
+        className="main__result"
       />
     </div>
   );

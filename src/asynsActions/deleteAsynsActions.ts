@@ -14,7 +14,7 @@ export const deleteAsynsActions = (id: string, currentRoute: string, newRoute: s
       await PostService.deleteItem(id);
       dispatch(listSaveAction(list.filter((e: { value: string }) => e.value !== id)));
       if (currentRoute) {
-        nav(newRoute)
+        nav(`/incomeCalculator/${newRoute}`)
       }
     } catch (e) {
       dispatch(errorAction('delete error'));

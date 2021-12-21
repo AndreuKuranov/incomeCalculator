@@ -25,7 +25,7 @@ export const saveAsynsActions = (
 			} else if (currentRoute === newRoute) {
 				await PostService.postItem(incomes, expenses, newId, percent);
 				dispatch(currentRouteAction(newId));
-				nev(newId);
+				nev(`/incomeCalculator/${newId}`);
 			}
 		} catch (e) {
 			dispatch(errorAction('Error save'));

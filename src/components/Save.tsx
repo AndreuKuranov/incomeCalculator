@@ -12,10 +12,6 @@ const Save: any = () => {
   const { newRoute, currentRoute } = useTypedSelector((state) => state.route);
   const { newId } = useTypedSelector((state) => state.id);
 
-  const nav = (id: string) => {
-    navigate(`/incomeCalculator/${id}`);
-  }
-
   return (
     currentRoute
       && (
@@ -23,7 +19,7 @@ const Save: any = () => {
         <Button
           type="button"
           title="save"
-          onClick={loaded ? () => {} : () => dispatch(saveAsynsActions(currentRoute, newRoute, incomes, expenses, percent, newId, nav))}
+          onClick={loaded ? () => {} : () => dispatch(saveAsynsActions(currentRoute, newRoute, incomes, expenses, percent, newId, navigate))}
         >
           <i className="material-icons">save</i>
         </Button>

@@ -1,0 +1,26 @@
+.result__body {
+	padding: 30px 0;
+}
+.result__column {
+	box-sizing: border-box;
+	padding: 0 10px;
+	flex: 1;
+	margin: 0 0 20px 0;
+}
+@media (max-width: 870px) {
+	.result__column {
+		flex: 0 1 50%;
+	}
+}
+@media (min-width: 600px) {
+	.result__body {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -10px -20px;
+	}
+}
+@media (max-width: 601px) {
+	.result__column {
+		padding: 0;
+	}
+}
