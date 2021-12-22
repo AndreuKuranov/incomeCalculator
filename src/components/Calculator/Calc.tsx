@@ -3,7 +3,6 @@ import cn from 'classnames';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import Loader from 'react-loader-spinner';
 import BlockInput from './BlockInput';
 import './Calc.css';
 import '../../i18next/i18next';
@@ -14,6 +13,7 @@ import { listSaveAction, totalPageAction, pageNumberAction } from '../../store/l
 import { unique } from '../../date/check';
 import { downloadsAsynsActions } from '../../asynsActions/downloadsAsynsActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
+import Loaders from '../Loaders';
 
 interface CalcProps {
   className?: string,
@@ -70,14 +70,9 @@ const Calc: FC<CalcProps> = (props) => {
               </div>
             )
             : (
-              <div className="calc__loader">
-                <Loader
-                  type="Puff"
-                  color="#ff4400"
-                  height={100}
-                  width={100}
-                />
-              </div>
+              <Loaders 
+                className="calc__loader"
+              />
             )
         }
       </div>
