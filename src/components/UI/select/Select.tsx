@@ -5,7 +5,7 @@ import { LanguagesType } from '../../../types/types';
 
 interface SelectProps {
   className?: string,
-  defaultName: string,
+  defaultName: string | undefined,
   onChange: any,
   options: LanguagesType[],
   defaultValue: string,

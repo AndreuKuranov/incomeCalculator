@@ -8,7 +8,7 @@ import Day from '../../image/day.png';
 import MoneyBox from '../../image/money-box.png';
 import '../../i18next/i18next';
 import {
-  difference, availablePerDay, availablePerYear, nFormatter, daysInMonth,
+  difference, availablePerDay, availablePerYear, nFormatter,
 } from '../../date/date';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { ResultsType } from '../../types/types';
@@ -22,7 +22,7 @@ const Sum: FC<SumProps> = (props) => {
   const { incomes, expenses, percent }= useTypedSelector((state) => state.downloads);
 
   const monthMoney = difference(incomes, expenses);
-  const dayMoney = availablePerDay(monthMoney, percent, daysInMonth());
+  const dayMoney = availablePerDay(monthMoney, percent);
   const yearMoney = availablePerYear(monthMoney, percent);
 
   const results: ResultsType[] = [

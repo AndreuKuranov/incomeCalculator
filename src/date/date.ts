@@ -1,4 +1,6 @@
-export const difference = (sumIncomes, sumExpenses) => {
+import { IDownloadItem } from "../types/downloadsType";
+
+export const difference = (sumIncomes: IDownloadItem[], sumExpenses: IDownloadItem[]) => {
   let x = 0;
   let y = 0;
   for (let i = 0; i < sumIncomes.length; i += 1) {
@@ -15,23 +17,23 @@ export const daysInMonth = () => {
   return new Date(number.getFullYear(), number.getMonth() + 1, 0).getDate();
 };
 
-export const availablePerDay = (sum, percent, daysMonth) => {
-  return ((sum - (sum * (percent / 100))) / daysMonth).toFixed();
+export const availablePerDay = (sum: string, percent: number) => {
+  return ((+sum - (+sum * (percent / 100))) / daysInMonth()).toFixed();
 };
 
-export const availablePerYear = (sum, percent) => ((sum * (percent / 100)) * 12).toFixed();
+export const availablePerYear = (sum: string, percent: number) => ((+sum * (percent / 100)) * 12).toFixed();
 
 export const currentDate = () => new Date().toISOString();
 
-export const spendAMonth = (sum, percent) => {
-  return ((sum - (sum * (percent / 100)))).toFixed();
+export const spendAMonth = (sum: string, percent: number) => {
+  return ((+sum - (+sum * (percent / 100)))).toFixed();
 }
 
-export const hoardAMonth = (sum, percent) => {
-  return (((sum * (percent / 100)))).toFixed();
+export const hoardAMonth = (sum: string, percent: number) => {
+  return (((+sum * (percent / 100)))).toFixed();
 }
 
-export const nFormatter = (num) => {
+export const nFormatter = (num: any) => {
   const si = [
     { value: 1, symbol: '' },
     { value: 1E3, symbol: 'k' },
@@ -42,7 +44,7 @@ export const nFormatter = (num) => {
     { value: 1E18, symbol: 'E' },
   ];
   const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
-  let i;
+  let i: any;
   for (i = si.length - 1; i > 0; i -= 1) {
     if (num >= si[i].value) {
       break;
