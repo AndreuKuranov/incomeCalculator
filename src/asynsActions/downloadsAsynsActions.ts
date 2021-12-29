@@ -1,5 +1,5 @@
 import {
-  downloadsIncomesAction, downloadsExpensesAction, percentAction, loadedAction, errorAction,
+  downloadsAction, loadedAction, errorAction,
 } from '../store/downloads';
 import { currentRouteAction } from '../store/route';
 import PostService from '../API/PostService';
@@ -13,9 +13,7 @@ export const downloadsAsynsActions = (id: string) => {
       dispatch(loadedAction(true));
       const response: DownloadState = await PostService.getItem(id);
       setTimeout(() => {
-        dispatch(downloadsIncomesAction(response.incomes));
-        dispatch(downloadsExpensesAction(response.expenses));
-        dispatch(percentAction(response.percent));
+        dispatch(downloadsAction(response.incomes, response.expenses, response.percent));
         dispatch(currentRouteAction(id));
       }, 500);
     } catch (e) {

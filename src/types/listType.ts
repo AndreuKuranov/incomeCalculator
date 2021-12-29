@@ -1,5 +1,5 @@
 export interface IListSave {
-	value: string,
+	id: string,
 	name: string,
 }
 
@@ -13,6 +13,9 @@ export interface ListState {
 }
 
 export enum ListActionTypes {
+	LIST = 'LIST',
+	LIST_OBSERVER = 'LIST_OBSERVER',
+	LIST_DELETE = 'LIST_DELETE',
 	LIST_SAVE = 'LIST_SAVE',
 	LIST_LOADED = 'LIST_LOADED',
 	LIST_ERROR = 'LIST_ERROR',
@@ -21,6 +24,21 @@ export enum ListActionTypes {
 	PAGE_NUMBER = 'PAGE_NUMBER',
 }
 
+interface FetchListAction {
+	type: ListActionTypes.LIST;
+	payloadListSave: IListSave[];
+	payloadTotalPage: number;
+	payloadPageNumber: number;
+}
+interface FetchListObserverAction {
+	type: ListActionTypes.LIST_OBSERVER;
+	payloadResponse: any;
+	payloadTotalCount: any;
+}
+interface FetchListDeleteAction {
+	type: ListActionTypes.LIST_DELETE;
+	payload: string;
+}
 interface FetchListSaveAction {
 	type: ListActionTypes.LIST_SAVE;
 	payload: IListSave[];
@@ -46,4 +64,13 @@ interface FetchPageNumberAction {
 	payload: number;
 }
 
-export type ListAction = FetchListSaveAction | FetchListLoadedAction | FetchListErrorAction | FetchTotalPageAction | FetchLimitPageAction | FetchPageNumberAction
+export type ListAction = 
+FetchListDeleteAction | 
+FetchListObserverAction | 
+FetchListAction | 
+FetchListSaveAction | 
+FetchListLoadedAction | 
+FetchListErrorAction | 
+FetchTotalPageAction | 
+FetchLimitPageAction | 
+FetchPageNumberAction

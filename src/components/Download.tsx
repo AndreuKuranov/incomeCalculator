@@ -7,7 +7,7 @@ import { deleteIdAction } from '../store/id';
 
 interface DownloadProps {
   className?: string,
-  value: string,
+  id: string,
 	name: string,
 }
 
@@ -22,7 +22,7 @@ const Download: FC<DownloadProps> = (props) => {
         className="download__button"
         type="button"
         title="download"
-        onClick={() => navigate(`/incomeCalculator/${props.value}`)}
+        onClick={() => navigate(`/incomeCalculator/${props.id}`)}
       >
         <i className="material-icons">download</i>
       </Button>
@@ -30,7 +30,7 @@ const Download: FC<DownloadProps> = (props) => {
         className="download-delete__button material-icons"
         type="button"
         title="delete"
-        onClick={() => dispatch(deleteIdAction(props.value))}
+        onClick={() => dispatch(deleteIdAction(props.id))}
       >
         <i className="material-icons">delete</i>
       </Button>

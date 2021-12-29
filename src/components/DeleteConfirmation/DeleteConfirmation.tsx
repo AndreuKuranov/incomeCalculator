@@ -13,12 +13,11 @@ const DeleteConfirmation = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { deleteId } = useTypedSelector((state) => state.id);
-  const { listSave }= useTypedSelector((state) => state.listSave);
   const { newRoute, currentRoute } = useTypedSelector((state) => state.route)
   const { loaded } = useTypedSelector((state) => state.downloads);
 
   const onClick = () => {
-    dispatch(deleteAsynsActions(deleteId, currentRoute, newRoute, listSave, navigate));
+    dispatch(deleteAsynsActions(deleteId, currentRoute, newRoute, navigate));
     setModal(false);
   };
 

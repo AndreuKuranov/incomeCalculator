@@ -10,12 +10,14 @@ const defaultState: DownloadState = {
 
 export const downloads = (state = defaultState, action: DownloadsAction): DownloadState => {
   switch (action.type) {
+    case DownloadActionTypes.DOWNLOADS:
+      return { ...state, incomes: action.payloadIncomes, expenses: action.payloadExpenses, percent: Number(action.payloadPercent) };
     case DownloadActionTypes.DOWNLOADS_INCOMES:
       return { ...state, incomes: action.payload };
     case DownloadActionTypes.DOWNLOADS_EXPENSES:
       return { ...state, expenses: action.payload };
     case DownloadActionTypes.PERCENT:
-      return { ...state, percent: action.payload };
+      return { ...state, percent: Number(action.payload) };
     case DownloadActionTypes.LOADED:
       return { ...state, loaded: action.payload };
     case DownloadActionTypes.ERROR:
@@ -25,6 +27,13 @@ export const downloads = (state = defaultState, action: DownloadsAction): Downlo
   }
 };
 
+export const downloadsAction = (
+  payloadIncomes: IDownloadItem[], 
+  payloadExpenses: IDownloadItem[], 
+  payloadPercent: number
+): DownloadsAction => ({ 
+  type: DownloadActionTypes.DOWNLOADS, payloadIncomes, payloadExpenses, payloadPercent 
+});
 export const downloadsIncomesAction = (payload: IDownloadItem[]): DownloadsAction => ({ type: DownloadActionTypes.DOWNLOADS_INCOMES, payload });
 export const downloadsExpensesAction = (payload: IDownloadItem[]): DownloadsAction => ({ type: DownloadActionTypes.DOWNLOADS_EXPENSES, payload });
 export const percentAction = (payload: number): DownloadsAction => ({ type: DownloadActionTypes.PERCENT, payload });

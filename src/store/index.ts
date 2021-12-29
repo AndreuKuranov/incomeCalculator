@@ -5,14 +5,14 @@ import { defaultCalc } from './defaultCalc';
 import { downloads } from './downloads';
 import { id } from './id';
 import { route } from './route';
-import { listSave } from './listSave';
+import { list } from './list';
 
 const rootReducer = combineReducers({
   downloads,
   defaultCalc,
   route,
   id,
-  listSave,
+  list,
 });
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));

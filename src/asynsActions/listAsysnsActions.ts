@@ -1,21 +1,18 @@
 import PostService from '../API/PostService';
 import { Dispatch } from 'react';
-import { listSaveAction, totalPageAction, listLoadedAction, listErrorAction } from '../store/listSave';
-import { getPageCount } from '../date/pages';
-import { IListSave, ListAction } from '../types/listSaveType';
+import { listLoadedAction, listErrorAction, listObserverAction } from '../store/list';
+import { ListAction } from '../types/listType';
 
-export const listSaveAsynsActions = (
+export const listAsynsActions = (
 	limit: number,
   page: number,
-  listSave: IListSave[],
 ) => {
 	return async (dispatch: Dispatch<ListAction>) => {
 		try {
       dispatch(listLoadedAction(true));
 			const response = await PostService.getAll(limit, page);
-      dispatch(listSaveAction([...listSave, ...response.data.map((item: {name: string, id: string}) => ({ name: item.name, value: item.id }))]));
       const totalCount = response.headers['x-total-count'];
-      dispatch(totalPageAction(getPageCount(totalCount, limit)));
+			dispatch(listObserverAction(response, totalCount))
       dispatch(listErrorAction(false));
 		} catch (e) {
 			dispatch(listErrorAction(true));

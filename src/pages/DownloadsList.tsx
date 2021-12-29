@@ -7,11 +7,11 @@ import { errorListSave } from '../date/check';
 import { useObserver } from '../hooks/useObserver';
 import Download from '../components/Download';
 import { currentRouteAction } from '../store/route';
-import { downloadsIncomesAction, downloadsExpensesAction, percentAction } from '../store/downloads';
-import { pageNumberAction} from '../store/listSave';
+import { downloadsAction } from '../store/downloads';
+import { pageNumberAction} from '../store/list';
 import { newIdAction } from '../store/id';
 import { useTypedSelector } from '../hooks/useTypedSelector';
-import { listSaveAsynsActions } from '../asynsActions/listSaveAsysnsActions';
+import { listAsynsActions } from '../asynsActions/listAsysnsActions';
 
 interface DownloadsListProps {
   className?: string,
@@ -21,13 +21,11 @@ const DownloadsList: FC<DownloadsListProps> = (props) => {
   const dispatch = useDispatch();
   const lastElement = useRef<any>();
   const { incomeCalculator } = useParams<string>();
-  const { listSave, listLoaded, listError, totalPage, limitPage, pageNumber } = useTypedSelector((state) => state.listSave);
+  const { listSave, listLoaded, listError, totalPage, limitPage, pageNumber } = useTypedSelector((state) => state.list);
   const { incomesDefault, expensesDefault } = useTypedSelector((state) => state.defaultCalc);
 
   useEffect(() => {
-    dispatch(downloadsIncomesAction(incomesDefault));
-    dispatch(downloadsExpensesAction(expensesDefault));
-    dispatch(percentAction(0));
+    dispatch(downloadsAction(incomesDefault, expensesDefault, 0));
     dispatch(currentRouteAction(''));
     dispatch(newIdAction(''));
   }, [incomeCalculator]);
@@ -40,7 +38,7 @@ const DownloadsList: FC<DownloadsListProps> = (props) => {
   );
 
   useEffect(() => {
-    dispatch(listSaveAsynsActions(limitPage, pageNumber, listSave));
+    dispatch(listAsynsActions(limitPage, pageNumber));
   }, [pageNumber]);
 
   return (
@@ -51,8 +49,8 @@ const DownloadsList: FC<DownloadsListProps> = (props) => {
           {listSave.map((item) => (
             <Download
               name={item.name}
-              value={item.value}
-              key={item.value}
+              id={item.id}
+              key={item.id}
             />
           ))}
           <div className="observer" ref={lastElement} />

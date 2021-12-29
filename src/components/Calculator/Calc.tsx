@@ -6,10 +6,10 @@ import { useTranslation } from 'react-i18next';
 import BlockInput from './BlockInput';
 import './Calc.css';
 import '../../i18next/i18next';
-import { downloadsIncomesAction, downloadsExpensesAction, percentAction } from '../../store/downloads';
+import { downloadsAction, downloadsIncomesAction, downloadsExpensesAction} from '../../store/downloads';
 import { currentRouteAction } from '../../store/route';
 import { newIdAction } from '../../store/id';
-import { listSaveAction, totalPageAction, pageNumberAction } from '../../store/listSave';
+import { listAction } from '../../store/list';
 import { unique } from '../../date/check';
 import { downloadsAsynsActions } from '../../asynsActions/downloadsAsynsActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
@@ -33,15 +33,11 @@ const Calc: FC<CalcProps> = (props) => {
       dispatch(downloadsAsynsActions(invoiceId));
     }
     if (invoiceId === newRoute) {
-      dispatch(downloadsIncomesAction(incomesDefault));
-      dispatch(downloadsExpensesAction(expensesDefault));
-      dispatch(percentAction(0));
+      dispatch(downloadsAction(incomesDefault, expensesDefault, 0));
       dispatch(currentRouteAction(invoiceId));
       dispatch(newIdAction(unique()));
     }
-    dispatch(listSaveAction([]));
-    dispatch(totalPageAction(0));
-    dispatch(pageNumberAction(1));
+    dispatch(listAction([], 0, 1));
   }, [invoiceId]);
 
   return (

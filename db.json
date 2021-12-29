@@ -5,55 +5,6 @@
         {
           "id": "income1",
           "placeholder": "calc.salary",
-          "value": 2000000
-        },
-        {
-          "id": "income2",
-          "placeholder": "calc.part-time_job",
-          "value": 2000000
-        },
-        {
-          "id": "income3",
-          "placeholder": "calc.additional_income",
-          "value": 3
-        },
-        {
-          "id": "income4",
-          "placeholder": "calc.additional_income",
-          "value": 0
-        }
-      ],
-      "expenses": [
-        {
-          "id": "expense1",
-          "placeholder": "calc.HCS",
-          "value": 333333
-        },
-        {
-          "id": "expense2",
-          "placeholder": "calc.mobile_connection",
-          "value": 333333
-        },
-        {
-          "id": "expense3",
-          "placeholder": "calc.home_internet",
-          "value": 0
-        },
-        {
-          "id": "expense4",
-          "placeholder": "calc.credit",
-          "value": 0
-        }
-      ],
-      "name": "2021-12-16T18:56:44.876Z",
-      "percent": "35",
-      "id": "inquiry65609"
-    },
-    {
-      "incomes": [
-        {
-          "id": "income1",
-          "placeholder": "calc.salary",
           "value": 50000000
         },
         {
@@ -543,6 +494,104 @@
       "name": "2021-12-26T18:48:13.032Z",
       "id": "inquiry7092",
       "percent": "78"
+    },
+    {
+      "incomes": [
+        {
+          "id": "income1",
+          "placeholder": "calc.salary",
+          "value": 234
+        },
+        {
+          "id": "income2",
+          "placeholder": "calc.part-time_job",
+          "value": 0
+        },
+        {
+          "id": "income3",
+          "placeholder": "calc.additional_income",
+          "value": 0
+        },
+        {
+          "id": "income4",
+          "placeholder": "calc.additional_income",
+          "value": 0
+        }
+      ],
+      "expenses": [
+        {
+          "id": "expense1",
+          "placeholder": "calc.HCS",
+          "value": 0
+        },
+        {
+          "id": "expense2",
+          "placeholder": "calc.mobile_connection",
+          "value": 0
+        },
+        {
+          "id": "expense3",
+          "placeholder": "calc.home_internet",
+          "value": 0
+        },
+        {
+          "id": "expense4",
+          "placeholder": "calc.credit",
+          "value": 0
+        }
+      ],
+      "name": "2021-12-29T21:12:41.902Z",
+      "id": "inquiry11837",
+      "percent": 5
+    },
+    {
+      "incomes": [
+        {
+          "id": "income1",
+          "placeholder": "calc.salary",
+          "value": 5000000
+        },
+        {
+          "id": "income2",
+          "placeholder": "calc.part-time_job",
+          "value": 0
+        },
+        {
+          "id": "income3",
+          "placeholder": "calc.additional_income",
+          "value": 0
+        },
+        {
+          "id": "income4",
+          "placeholder": "calc.additional_income",
+          "value": 0
+        }
+      ],
+      "expenses": [
+        {
+          "id": "expense1",
+          "placeholder": "calc.HCS",
+          "value": 90000
+        },
+        {
+          "id": "expense2",
+          "placeholder": "calc.mobile_connection",
+          "value": 0
+        },
+        {
+          "id": "expense3",
+          "placeholder": "calc.home_internet",
+          "value": 0
+        },
+        {
+          "id": "expense4",
+          "placeholder": "calc.credit",
+          "value": 0
+        }
+      ],
+      "name": "2021-12-29T21:30:04.530Z",
+      "id": "inquiry92933",
+      "percent": 30
     }
   ]
 }

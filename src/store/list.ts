@@ -1,16 +1,26 @@
-import { ListState, ListActionTypes, ListAction, IListSave } from "../types/listSaveType";
+import { getPageCount } from "../date/pages";
+import { ListState, ListActionTypes, ListAction, IListSave } from "../types/listType";
 
 const defaultState: ListState = {
   listSave: [],
+  totalPage: 0,
+  pageNumber: 1,
+  limitPage: 5,
   listLoaded: false,
   listError: false,
-  totalPage: 0,
-	limitPage: 5,
-	pageNumber: 1,
 };
 
-export const listSave = (state = defaultState, action: ListAction): ListState => {
+export const list = (state = defaultState, action: ListAction): ListState => {
   switch (action.type) {
+    case ListActionTypes.LIST:
+      return { ...state, listSave: action.payloadListSave, totalPage: action.payloadTotalPage, pageNumber: action.payloadPageNumber };
+    case ListActionTypes.LIST_OBSERVER:
+      return { ...state, 
+        listSave: [...state.listSave, ...action.payloadResponse.data.map((item: IListSave) => ({ name: item.name, id: item.id }))], 
+        totalPage: getPageCount(action.payloadTotalCount, state.limitPage)
+      };
+    case ListActionTypes.LIST_DELETE:
+      return { ...state, listSave: state.listSave.filter((e: { id: string }) => e.id !== action.payload) };
     case ListActionTypes.LIST_SAVE:
       return { ...state, listSave: action.payload };
     case ListActionTypes.LIST_LOADED:
@@ -28,6 +38,20 @@ export const listSave = (state = defaultState, action: ListAction): ListState =>
   }
 };
 
+export const listAction = (
+  payloadListSave: IListSave[], 
+  payloadTotalPage: number, 
+  payloadPageNumber: number 
+): ListAction => ({ 
+  type: ListActionTypes.LIST, payloadListSave, payloadTotalPage, payloadPageNumber 
+});
+export const listObserverAction = (
+  payloadResponse: any, 
+  payloadTotalCount: any,
+): ListAction => ({ 
+  type: ListActionTypes.LIST_OBSERVER, payloadResponse, payloadTotalCount
+});
+export const listDeleteAction = (payload: string): ListAction => ({ type: ListActionTypes.LIST_DELETE, payload });
 export const listSaveAction = (payload: IListSave[]): ListAction => ({ type: ListActionTypes.LIST_SAVE, payload });
 export const listLoadedAction = (payload: boolean): ListAction => ({ type: ListActionTypes.LIST_LOADED, payload });
 export const listErrorAction = (payload: boolean): ListAction => ({ type: ListActionTypes.LIST_ERROR, payload });

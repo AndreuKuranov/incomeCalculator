@@ -1,12 +1,12 @@
 import { IDownloadItem } from '../types/downloadsType';
-import { IListSave } from '../types/listSaveType';
+import { IListSave } from '../types/listType';
 import { LanguagesType } from '../types/types';
 import { currentDate } from './date';
 
 export const checkSaveId = (listSave: IListSave[]) => {
   for (let i = 0; i < listSave.length; i += 1) {
     if (listSave[i].name === currentDate()) {
-      return listSave[i].value;
+      return listSave[i].id;
     }
   }
 };
@@ -23,7 +23,7 @@ export const unique = () => (`${'inquiry'}${Math.floor(Math.random() * 100000)}`
 
 export const minSave = (listSave: IListSave[], val: string) => {
   const x = [...listSave].sort((a, b) => a[val].localeCompare(b[val]));
-  return x[0].value;
+  return x[0].id;
 };
 
 export const placeholder = (additional: any, id: string) => {

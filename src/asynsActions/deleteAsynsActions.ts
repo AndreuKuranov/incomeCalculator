@@ -1,18 +1,18 @@
 import {
   loadedAction, errorAction,
 } from '../store/downloads';
-import { listSaveAction } from '../store/listSave';
+import { listDeleteAction } from '../store/list';
 import PostService from '../API/PostService';
 import { DownloadsAction } from '../types/downloadsType';
 import { Dispatch } from 'react';
-import { IListSave, ListAction } from '../types/listSaveType';
+import { ListAction } from '../types/listType';
 
-export const deleteAsynsActions = (id: string, currentRoute: string, newRoute: string, list: IListSave[], nav: any) => {
+export const deleteAsynsActions = (id: string, currentRoute: string, newRoute: string, nav: any) => {
   return async (dispatch: Dispatch<DownloadsAction | ListAction>) => {
     try {
       dispatch(loadedAction(true));
       await PostService.deleteItem(id);
-      dispatch(listSaveAction(list.filter((e: { value: string }) => e.value !== id)));
+      dispatch(listDeleteAction(id))
       if (currentRoute) {
         nav(`/incomeCalculator/${newRoute}`)
       }
