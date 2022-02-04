@@ -17,7 +17,7 @@ const Select: FC<SelectProps> = ({
 }) => (
   <select
     className={cn(classes.mySelect, props.className)}
-    value={props.value}
+    value={props.value} // value={props.defaultValue}
     onChange={onChange}
   >
     <option value={props.defaultValue}>{defaultName}</option>

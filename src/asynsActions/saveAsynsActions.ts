@@ -19,7 +19,7 @@ export const saveAsynsActions = (
 ) => {
 	return async (dispatch: Dispatch<DownloadsAction | RouteAction>) => {
 		try {
-			dispatch(loadedAction(true));
+			// dispatch(loadedAction(true));
 			if (currentRoute && currentRoute !== newRoute) {
 				await PostService.putItem(currentRoute, incomes, expenses, percent);
 			} else if (currentRoute === newRoute) {
@@ -30,9 +30,9 @@ export const saveAsynsActions = (
 		} catch (e) {
 			dispatch(errorAction('Error save'));
 		} finally {
-			setTimeout(() => {
-				dispatch(loadedAction(false));
-			}, 500);
+			// setTimeout(() => {
+			// 	dispatch(loadedAction(false));
+			// }, 500);
 		}
 	};
 };
