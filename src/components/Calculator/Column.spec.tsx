@@ -5,7 +5,7 @@ import { act } from 'react-dom/test-utils';
 
 import Column from './Column';
 
-let container = null;
+let container: any = null;
 beforeEach(() => {
   container = document.createElement('div');
   document.body.appendChild(container);
@@ -28,6 +28,7 @@ describe('Column', () => {
 
       render(
         <Column
+          id='12131231'
           title={fake.title}
           value={fake.value}
           currency={fake.currency}

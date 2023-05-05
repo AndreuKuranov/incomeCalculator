@@ -7,8 +7,9 @@ import Sum from './Sum';
 import Month from '../../image/month.png';
 import Day from '../../image/day.png';
 import MoneyBox from '../../image/money-box.png';
+import { ResultsType } from '../../types/types';
 
-let container = null;
+let container: any = null;
 beforeEach(() => {
   container = document.createElement('div');
   document.body.appendChild(container);
@@ -23,7 +24,7 @@ afterEach(() => {
 describe('Sum', () => {
   it('renders', () => {
     act(() => {
-      const results = [
+      const results: ResultsType[] = [
         {
           id: 'Month', icon: Month, title: 'calc.month', value: '1',
         },

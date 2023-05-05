@@ -15,6 +15,7 @@ import { ResultsType } from '../../types/types';
 
 interface SumProps {
   className?: string,
+  results?: any
 }
 
 const Sum: FC<SumProps> = (props) => {

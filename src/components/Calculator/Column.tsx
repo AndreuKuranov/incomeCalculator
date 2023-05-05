@@ -4,7 +4,7 @@ import './Column.css';
 
 interface ColumnProps {
   className?: string,
-  icon: string,
+  icon?: string,
   id: string,
   title: string,
   value: string,

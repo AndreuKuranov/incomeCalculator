@@ -7,22 +7,22 @@ describe('Date', () => {
   it('the remaining amount for the month', () => {
     expect(difference(
       [
-        { value: 1500 },
-        { value: 1000 },
+        { id: '2131231', placeholder: 'test1', value: 1500 },
+        { id: '5464566', placeholder: 'test2', value: 1000 },
       ],
       [
-        { value: 500 },
-        { value: 500 },
+        { id: '4564568', placeholder: 'test1', value: 500 },
+        { id: '8908980', placeholder: 'test2', value: 500 },
       ],
     )).toBe('1500');
   });
 
   it('remaining amount for the day', () => {
-    expect(availablePerDay(1000, 50, 31)).toBe('16');
+    expect(availablePerDay('1000', 50)).toBe('16');
   });
 
   it('accumulate over the year', () => {
-    expect(availablePerYear(1000, 50)).toBe('6000');
+    expect(availablePerYear('1000', 50)).toBe('6000');
   });
 
   it('should valid transform more than 100', () => {
